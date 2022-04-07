@@ -1,0 +1,16 @@
+﻿<Window x:Class="Bolnica.LekarPocetna"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica"
+        mc:Ignorable="d"
+        Title="LekarPocetna" Height="450" Width="800" Background="#FFE2D5D5">
+    <Grid>
+        <Button Content="Change appointment" HorizontalAlignment="Left" Margin="68,167,0,0" VerticalAlignment="Top" Height="50" Width="240" Background="#FF85BBE2" Foreground="#FF8F0909" FontSize="17" FontFamily="Elephant"/>
+        <Button Content="Cancel appointment" HorizontalAlignment="Left" Margin="68,244,0,0" VerticalAlignment="Top" Height="50" Width="240" Background="#FF85BBE2" Foreground="#FF8F0909" FontSize="17" FontFamily="Elephant"/>
+        <Button Content="Make an appointment" HorizontalAlignment="Left" Margin="68,88,0,0" VerticalAlignment="Top" Height="50" Width="240" Background="#FF85BBE2" Foreground="#FF8F0909" FontSize="17" FontFamily="Elephant"/>
+        <Button Content="Cancel all appointment" HorizontalAlignment="Left" Margin="68,322,0,0" VerticalAlignment="Top" Height="50" Width="240" Background="#FF85BBE2" Foreground="#FF8F0909" FontSize="17" FontFamily="Elephant"/>
+        <GroupBox HorizontalAlignment="Left" Height="366" Header="Appointment" Margin="36,0,0,0" VerticalAlignment="Center" Width="304" BorderBrush="#FF8F0909" BorderThickness="3" FontSize="25" FontFamily="Elephant" Foreground="#FF8F0909"/>
+    </Grid>
+</Window>

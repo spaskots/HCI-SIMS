@@ -1,0 +1,50 @@
+﻿<Window x:Class="Bolnica.LekarR"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica"
+        mc:Ignorable="d"
+        Title="LekarR" Height="450" Width="800" Background="#FFE2D5D5">
+    <Grid Margin="0,3,0,-3">
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Margin="254,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="Surname" HorizontalAlignment="Left" Margin="254,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="DateOfBirth" HorizontalAlignment="Left" Margin="254,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="PhoneNumber" HorizontalAlignment="Left" Margin="254,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="254,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="Id" HorizontalAlignment="Left" Margin="254,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="UserName" HorizontalAlignment="Left" Margin="499,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="Password" HorizontalAlignment="Left" Margin="499,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="24"/>
+        <TextBox x:Name="PostalCode" HorizontalAlignment="Left" Margin="499,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="Specialization" HorizontalAlignment="Left" Margin="501,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="LicenseId" HorizontalAlignment="Left" Margin="501,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <TextBox x:Name="Salary" HorizontalAlignment="Left" Margin="499,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="481,353,0,0" VerticalAlignment="Top" Click="Button_Click" Width="120" Height="30" Foreground="#FF8F0909" FontSize="20" FontFamily="Elephant" Background="#FF85BBE2"/>
+        <ComboBox x:Name="Grad" HorizontalAlignment="Left" Margin="501,302,0,0" VerticalAlignment="Top" Width="100" Height="25" SelectedIndex="1">
+            <ComboBoxItem Content="Beograd"/>
+            <ComboBoxItem Content="Novi Sad"/>
+            <ComboBoxItem Content="Banja Luka"/>
+            <ComboBoxItem Content="Sarajevo"/>
+            <ComboBoxItem Content="Salzburg"/>
+            <ComboBoxItem Content="Bec"/>
+        </ComboBox>
+        <TextBox x:Name="Room" HorizontalAlignment="Left" Margin="254,302,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
+        <Label Content="CITY" HorizontalAlignment="Left" Margin="401,302,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.521,-0.237" Foreground="#FF8F0909"/>
+        <Label Content="ROOM" HorizontalAlignment="Left" Margin="161,309,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <Label Content="SALARY" HorizontalAlignment="Left" Margin="400,256,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <Label Content="LICENSEID" HorizontalAlignment="Left" Margin="397,219,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <Label Content="SPECIALIZATION" HorizontalAlignment="Left" Margin="394,178,0,0" VerticalAlignment="Top" Foreground="#FF8F0909" />
+        <Label Content="POSTALCODE" HorizontalAlignment="Left" Margin="394,134,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <Label Content="PASSWORD" HorizontalAlignment="Left" Margin="397,92,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <Label Content="USERNAME" HorizontalAlignment="Left" Margin="394,51,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="161,263,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.472,-1.693" Foreground="#FF8F0909"/>
+        <Label Content="EMAIL" HorizontalAlignment="Left" Margin="160,224,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <Label Content="PHONE" HorizontalAlignment="Left" Margin="161,183,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <Label Content="BIRTH" HorizontalAlignment="Left" Margin="161,134,0,0" VerticalAlignment="Top" Foreground="#FF8F0909" RenderTransformOrigin="0.578,-0.345"/>
+        <Label Content="SURNAME" HorizontalAlignment="Left" Margin="157,92,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <Label Content="NAME" HorizontalAlignment="Left" Margin="157,50,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
+        <GroupBox HorizontalAlignment="Left" Height="404" Header="Register Form" Margin="88,0,0,0" VerticalAlignment="Top" Width="556" BorderBrush="#FF8F0909" BorderThickness="3
+                  " FontSize="20" FontFamily="Elephant" Foreground="#FF8F0909"/>
+
+    </Grid>
+</Window>
