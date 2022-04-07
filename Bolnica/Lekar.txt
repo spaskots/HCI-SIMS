@@ -1,4 +1,1 @@
-Stefan,Kalicanin,13.06.2000,063477126,skstefankalicanin@gmail.com,13,True,kalco13,stefan13kalco,Novi Sad,36000,Hirurg,14,78,
-Goran,Kalicanin,14.12.1970,0638252792,goran@gmail.com,14,True,goran,kalicanin,Beograd,36000,nema,78,9852,Soba2
-Aleksandra,Kalicanin,19.10.1996,0658252792,sandra@gmail.com,14,True,kokica,jasamsandra,Bec,10000,no,7,7,Soba3
-,,,,,,True,,,,,null,null,null,
+
