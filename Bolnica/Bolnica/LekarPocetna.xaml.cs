@@ -54,7 +54,7 @@ namespace Bolnica
         private void delete_Click(object sender,RoutedEventArgs e)
         {
             MedicalAppointment ma=MedicalAppointmentView.SelectedItem as MedicalAppointment;
-            MessageBox.Show(ma.Id);
+            appointmentController.delete(ma);
         }
     }
 }

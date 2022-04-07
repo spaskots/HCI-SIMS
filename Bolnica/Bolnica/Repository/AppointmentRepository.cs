@@ -39,6 +39,19 @@ namespace Bolnica.Repository
             }
             return ma;
         }
+        public void delete(MedicalAppointment ma)
+        {
+            String obrisiRed = ma.Id + "," + ma.StartTime + "," + ma.Duration + "," + ma.Type + "," + ma.Patient.Id + "," + ma.room.Id + "," + ma.doctor.Id;
+
+            String text = File.ReadAllText(lokacijaAppointment);
+            if (text.Contains(obrisiRed))
+            {
+                text = text.Replace(obrisiRed, "");
+                File.WriteAllText(lokacijaAppointment, text);
+               
+            }
+            
+        }
     }
     }
 

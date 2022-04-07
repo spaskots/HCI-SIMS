@@ -18,5 +18,9 @@ namespace Bolnica.Controller
         {
             return appointmentService.getAllAppointment();
         }
+        public void delete(MedicalAppointment ma)
+        {
+            appointmentService.delete(ma);
+        }
     }
 }
