@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\Bolnica\\Bolnica\\Bolnica.csproj",
+      "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\SIMS Projekat\\HCI-SIMS\\Bolnica\\Bolnica\\Bolnica.csproj",
       "projectName": "Bolnica",
-      "projectPath": "C:\\Users\\Korisnik\\Desktop\\Bolnica\\Bolnica\\Bolnica.csproj",
+      "projectPath": "C:\\Users\\Korisnik\\Desktop\\SIMS Projekat\\HCI-SIMS\\Bolnica\\Bolnica\\Bolnica.csproj",
       "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Korisnik\\Desktop\\Bolnica\\Bolnica\\obj\\",
+      "outputPath": "C:\\Users\\Korisnik\\Desktop\\SIMS Projekat\\HCI-SIMS\\Bolnica\\Bolnica\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CreateAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LekarPocetna.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +24,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CreateAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LekarPocetna.xaml">
       <SubType>Designer</SubType>
     </Page>

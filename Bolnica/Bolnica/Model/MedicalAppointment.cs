@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Bolnica.Service;
 namespace Bolnica.Model
 {
 
 
     public class MedicalAppointment
     {
-        public String Id;
-        public DateTime StartTime;
-        public double Duration;
-        public AppointmentType Type;
-        public Patient Patient;
+        public String Id { set; get; }
+        public String StartTime { set; get; }
+        public double Duration { set; get; }
+        public AppointmentType Type { set; get; }
+        public Patient Patient { set; get; }
 
-        public Room room;
-        public Doctor doctor;
+        public Room room { set; get; }
+        public Doctor doctor { set; get; }
 
         /// <pdGenerated>default parent getter</pdGenerated>
         public Doctor GetDoctor()
@@ -43,6 +43,64 @@ namespace Bolnica.Model
                     this.doctor.AddMedicalAppointment(this);
                 }
             }
+        }
+        public MedicalAppointment(string id, string patientId, string doctorId, String startTime, double duration, AppointmentType type, String roomId)
+
+        {
+            this.Id = id;
+            this.doctor = findDoctor(doctorId);
+            this.Patient = findPatient(patientId);
+            this.StartTime = startTime;
+            this.Duration = duration;
+            this.Type = type;
+            this.room = findRoom(roomId);
+        }
+        public Doctor findDoctor(string id)
+        {
+            Doctor doctor = null;
+            LekarService lekarService = new LekarService();
+            List<Doctor> lekari =lekarService.getAllDoctors();
+            foreach (Doctor l in lekari)
+            {
+                if (l.Id==id)
+                {
+                    doctor = l;
+                    break;
+                }
+            }
+            return doctor;
+        }
+        public Patient findPatient(string id)
+        {
+            Patient patient = null;
+            PatientService patientService = new PatientService();
+            List<Patient> pacijenti = patientService.getAllPatient();
+            foreach (Patient p in pacijenti)
+            {
+                if (p.Id==id)
+                {
+                    patient = p;
+                    break;
+                }
+            }
+            return patient;
+        }
+
+
+        public Room findRoom(string id)
+        {
+            Room roomFound = new Room();
+            RoomService roomService = new RoomService();
+            List<Room> rooms = roomService.getAllRooms();
+            foreach (Room r in rooms)
+            {
+                if (r.Id == id)
+                {
+                    roomFound = r;
+                    break;
+                }
+            }
+            return roomFound;
         }
 
     }

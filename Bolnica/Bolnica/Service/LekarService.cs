@@ -20,5 +20,9 @@ namespace Bolnica.Service
         {
             lekarRepository.LogIn(username, password);
         }
+        public List<Doctor> getAllDoctors()
+        {
+            return lekarRepository.getAllDoctors();
+        }
     }
 }

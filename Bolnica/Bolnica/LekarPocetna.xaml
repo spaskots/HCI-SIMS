@@ -6,11 +6,31 @@
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
         Title="LekarPocetna" Height="450" Width="800" Background="#FFE2D5D5">
-    <Grid>
-        <Button Content="Change appointment" HorizontalAlignment="Left" Margin="68,167,0,0" VerticalAlignment="Top" Height="50" Width="240" Background="#FF85BBE2" Foreground="#FF8F0909" FontSize="17" FontFamily="Elephant"/>
-        <Button Content="Cancel appointment" HorizontalAlignment="Left" Margin="68,244,0,0" VerticalAlignment="Top" Height="50" Width="240" Background="#FF85BBE2" Foreground="#FF8F0909" FontSize="17" FontFamily="Elephant"/>
-        <Button Content="Make an appointment" HorizontalAlignment="Left" Margin="68,88,0,0" VerticalAlignment="Top" Height="50" Width="240" Background="#FF85BBE2" Foreground="#FF8F0909" FontSize="17" FontFamily="Elephant"/>
-        <Button Content="Cancel all appointment" HorizontalAlignment="Left" Margin="68,322,0,0" VerticalAlignment="Top" Height="50" Width="240" Background="#FF85BBE2" Foreground="#FF8F0909" FontSize="17" FontFamily="Elephant"/>
-        <GroupBox HorizontalAlignment="Left" Height="366" Header="Appointment" Margin="36,0,0,0" VerticalAlignment="Center" Width="304" BorderBrush="#FF8F0909" BorderThickness="3" FontSize="25" FontFamily="Elephant" Foreground="#FF8F0909"/>
+    <Grid x:Name="AppointmentForm" Margin="10,10,0,0">
+        <Button Content="Make an appointment" HorizontalAlignment="Left" Margin="24,24,0,0" VerticalAlignment="Top" Height="50" Width="240" Background="#FF85BBE2" Foreground="#FF8F0909" FontSize="17" FontFamily="Elephant" Click="Button_Click"/>
+        <DataGrid x:Name="MedicalAppointmentView" HorizontalAlignment="Center" Height="172" Margin="0,104,0,0" VerticalAlignment="Top" Width="532">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}"/>
+                <DataGridTextColumn Header="Duration" Binding="{Binding Duration}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Patient" Binding="{Binding Patient.Id}"/>
+                <DataGridTextColumn Header="Room" Binding="{Binding room.Id}"/>
+                <DataGridTextColumn Header="Doctor" Binding="{Binding doctor.Id}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="delete" Click="delete_Click" Content="Delete">
+                                
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+                
+        </DataGrid>
+        <Button Content="Prikaz tabele" HorizontalAlignment="Left" Height="32" Margin="429,49,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click_1" RenderTransformOrigin="2.605,0.866"/>
+
+
     </Grid>
 </Window>

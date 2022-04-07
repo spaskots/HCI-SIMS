@@ -48,6 +48,11 @@ namespace Bolnica.Model
             PostalCode = postalCode;
             this.country = country;
         }
+        public City(string name,string postalCode)
+        {
+            Name = name;
+            PostalCode=postalCode;
+        }
 
     }
 }

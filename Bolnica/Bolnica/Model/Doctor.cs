@@ -10,6 +10,7 @@ namespace Bolnica.Model
 
     public class Doctor : User
     {
+        
         public void AddMedicalAppointment()
         {
             // TODO: implement
@@ -99,6 +100,7 @@ namespace Bolnica.Model
         {
             
         }
+        
         public Room findRoomById(String id)
         {
             Room roomFound = new Room();

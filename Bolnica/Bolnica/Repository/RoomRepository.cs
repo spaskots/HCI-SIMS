@@ -8,7 +8,7 @@ namespace Bolnica.Repository
 {
     public class RoomRepository
     {
-        String lokacijaSoba = @"C:\Users\Korisnik\Desktop\Bolnica\Soba.txt";
+        String lokacijaSoba = @"C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Soba.txt";
         public List<Room> GetAllRooms()
         {
             List<Room> rooms = new List<Room>();

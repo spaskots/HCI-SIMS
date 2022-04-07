@@ -27,3 +27,34 @@ C:\Users\Korisnik\Desktop\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarR.g.cs
 C:\Users\Korisnik\Desktop\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarR.baml
 C:\Users\Korisnik\Desktop\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarPocetna.g.cs
 C:\Users\Korisnik\Desktop\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarPocetna.baml
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\bin\Debug\net6.0-windows\Bolnica.exe
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\bin\Debug\net6.0-windows\Bolnica.deps.json
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\bin\Debug\net6.0-windows\Bolnica.runtimeconfig.json
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\bin\Debug\net6.0-windows\Bolnica.dll
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\bin\Debug\net6.0-windows\Bolnica.pdb
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarPocetna.g.cs
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarPrijava.g.cs
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarR.g.cs
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarWindow.g.cs
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica_MarkupCompile.cache
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica_MarkupCompile.lref
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarPocetna.baml
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarPrijava.baml
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarR.baml
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\LekarWindow.baml
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.g.resources
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.AssemblyInfoInputs.cache
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.AssemblyInfo.cs
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.dll
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\refint\Bolnica.dll
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.pdb
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.genruntimeconfig.cache
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\ref\Bolnica.dll
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\CreateAppointment.g.cs
+C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\CreateAppointment.baml
