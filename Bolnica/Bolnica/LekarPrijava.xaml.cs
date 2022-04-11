@@ -20,6 +20,8 @@ namespace Bolnica
     /// </summary>
     public partial class LekarPrijava : Window
     {
+        public static string SetValueForUsername = "";
+
         UserController controller = new UserController();
         public LekarPrijava()
         {
@@ -38,19 +40,21 @@ namespace Bolnica
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string username=Username.Text.ToString();
+            SetValueForUsername = username;
             string password=Password.Text.ToString();
             RegisteredUser ru = new RegisteredUser(username, password);
             Boolean uspesnaPrijava=controller.validate(ru);
             if(uspesnaPrijava==false)
             {
-                TextBlock.Text = "Wrong username/password";
+                Validate.Content = "Wrong username/password";
                 Username.Text = "";
                 Password.Text = "";
             }
             else
             {
                 LekarPocetna lp=new LekarPocetna();
-                TextBlock.Text = "";
+                Validate.Content = "";
+                this.Close();
                 lp.Show();
             }
 

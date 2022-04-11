@@ -5,11 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="LekarWindow" Height="450" Width="800" Background="#FFE2D5D5">
-    <Grid Margin="10,0,0,0">
-        <Button Content="Login" HorizontalAlignment="Left" Margin="409,10,0,0" VerticalAlignment="Top" Click="Button_Click_1" Height="60" Width="180" Background="#FF85BBE2" FontSize="20" FontFamily="Elephant" Foreground="#FF8F0909" BorderBrush="#FF8F0909" BorderThickness="2"/>
-        <Button Content="Sign up" HorizontalAlignment="Left" Margin="224,10,0,0" VerticalAlignment="Top" Click="Button_Click_2" Height="60" Width="180" Background="#FF85BBE2" FontSize="20" FontFamily="Elephant" Foreground="#FF8F0909" BorderBrush="#FF8F0909" BorderThickness="2"/>
-        <Image HorizontalAlignment="Left" Height="375" Margin="224,91,0,0" VerticalAlignment="Top" Width="419" Source="/POcetna3.png"/>
+        Title="LekarWindow" Height="600" Width="1200" Background="#FFE2D5D5">
+    <Grid Margin="0,0,0,-16">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="12*"/>
+            <RowDefinition  Height="25*"/>
+            <RowDefinition  Height="100*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="1*"/>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Button     Content="Sign up" HorizontalAlignment="Left"  Click="Button_Click_1" Height="60" Width="130" Background="#CC0000
+                " FontSize="20" FontFamily="Elephant" Foreground="White" BorderBrush="BLack" BorderThickness="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="245,24,0,25" Grid.Row="1" />
+
+
+        <Button   Content="Create a new account"   Click="Button_Click_2" Height="60" Width="272" Background="#FF85BBE2" FontSize="20" FontFamily="Elephant" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" FlowDirection="LeftToRight" Grid.Column="1" Margin="127,24,201,25" Grid.Row="1" />
+
+
+        <Image   HorizontalAlignment="Left" Height="400"  Width="500" Source="/POcetna3.png"  ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2" Margin="59,103,0,-6" Grid.RowSpan="2" Grid.Row="1"/>
+
+
+        <Label    Content="Welcome" Foreground="#FFCC0000" FontSize="36" FontWeight="Bold" FontFamily="Elephant"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="509,0,0,0"  />
+
 
     </Grid>
 </Window>

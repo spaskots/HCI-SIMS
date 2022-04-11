@@ -24,5 +24,13 @@ namespace Bolnica.Service
         {
             return lekarRepository.getAllDoctors();
         }
+        public List<String> getAllId()
+        {
+            return lekarRepository.getAllId();
+        }
+        public Doctor GetOneByUsername(String username)
+        {
+            return lekarRepository.GetOneByUsername(username);
+        }
     }
 }

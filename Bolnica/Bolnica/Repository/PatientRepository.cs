@@ -20,7 +20,7 @@ namespace Bolnica.Repository
 
                 string name = fields[0];
                 string surname = fields[1];
-                string dateOFBirth = fields[2];
+               String dateOFBirth = fields[2];
                 string phoneNumber = fields[3];
                 string email = fields[4];
                 string Id = fields[5];
@@ -32,6 +32,18 @@ namespace Bolnica.Repository
                 pacijenti.Add(pacijent);
             }
             return pacijenti;
+        }
+        public List<String> getAllId()
+        {
+            List<String> ids = new List<String>();
+            string[] lines = System.IO.File.ReadAllLines(lokacijaPacijent);
+            foreach (String line in lines)
+            {
+                string[] fields = line.Split(',');
+                string id = fields[5];
+                ids.Add(id);
+            }
+            return ids;
         }
     }
 }

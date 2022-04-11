@@ -10,9 +10,14 @@ namespace Bolnica.Service
     public class RoomService
     {
         RoomRepository roomRepository = new RoomRepository();
+       
         public List<Room> getAllRooms()
         {
             return roomRepository.GetAllRooms();
+        }
+        public List<String> getAllId()
+        {
+            return roomRepository.getAllId();
         }
     }
 }

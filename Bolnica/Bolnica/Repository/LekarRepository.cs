@@ -33,10 +33,13 @@ namespace Bolnica.Repository
             foreach (string line in lines)
             {
                 string[] fields = line.Split(',');
-
+                if (line == "")
+                {
+                    continue;
+                }
                 string name = fields[0];
                 string surname = fields[1];
-                string dateOFBirth = fields[2];
+                String dateOFBirth = fields[2];
                 string phoneNumber = fields[3];
                 string email = fields[4];
                 string Id = fields[5];
@@ -44,10 +47,55 @@ namespace Bolnica.Repository
                 string username=fields[7];
                 string password=fields[8];
                 City city = new City(fields[9], fields[10]);
-                Doctor doctor=new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, username, password, city); ;
+                Doctor doctor=new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, username, password, city); 
                 doktori.Add(doctor);
             }
             return doktori;
+        }
+        public List<String> getAllId()
+        {
+            List<String> ids = new List<String>();
+            string[] lines = System.IO.File.ReadAllLines(lokacijaLekar);
+            foreach (String line in lines)
+            {
+                string[] fields = line.Split(',');
+                if (line == "")
+                {
+                    continue;
+                }
+                string id = fields[5];
+                ids.Add(id);
+            }
+            return ids;
+        }
+        public  Doctor GetOneByUsername(String username)
+
+        {
+            string[] lines = System.IO.File.ReadAllLines(lokacijaLekar);
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(',');
+                if (line == "")
+                {
+                    continue;
+                }
+                if (fields[7] == username)
+                {
+                    string name = fields[0];
+                    string surname = fields[1];
+                    String dateOFBirth = fields[2];
+                    string phoneNumber = fields[3];
+                    string email = fields[4];
+                    string Id = fields[5];
+                    bool isAvailable = Convert.ToBoolean(fields[6]);
+                    string Username = fields[7];
+                    string password = fields[8];
+                    City city = new City(fields[9], fields[10]);
+                    Doctor doctor = new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, Username, password, city); 
+                    return doctor;
+                }
+            }
+            return null;
         }
     }
 }

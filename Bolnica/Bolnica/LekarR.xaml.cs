@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.Model;
 using Bolnica.Controller;
+using System.ComponentModel.DataAnnotations;
+
 namespace Bolnica
 {
     /// <summary>
@@ -22,10 +24,22 @@ namespace Bolnica
     {
         
         LekarController lekarController = new LekarController();
+        RoomController roomController = new RoomController();
+       
+
         public LekarR()
         {
             
             InitializeComponent();
+            List<String> roomId=roomController.getAllId();
+            foreach (String id in roomId)
+            {
+                Room.Items.Add(id);
+            }
+        }
+        public bool IsValidEmail(string source)
+        {
+            return new EmailAddressAttribute().IsValid(source);
         }
         private void LekarR_Load(object sender,EventArgs e)
         {
@@ -33,17 +47,18 @@ namespace Bolnica
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+           
             string name=Name.Text.ToString();
             string surname=Surname.Text.ToString();
-            string dateOfBirth=DateOfBirth.Text.ToString();
             string phoneNumber=PhoneNumber.Text.ToString();
+            String dateOfBirth =DATE.Text.ToString();
             string email=Email.Text.ToString();
             string id=Id.Text.ToString();
             string username=UserName.Text.ToString();
             string password=Password.Text.ToString();
             RegisteredUser ru = new RegisteredUser(username,password);
-            //string specialization=Specialization.Text.ToString();
-            //string licenseId=LicenseId.Text.ToString();
+            string specialization=Specialization.Text.ToString();
+            string licenseId=LicenseId.Text.ToString();
             //string salary=Salary.Text.ToString();
             
             String city = Grad.Text.ToString();
@@ -53,9 +68,25 @@ namespace Bolnica
             Country drzava = new Country("Srbija", "SRB", lista_gradova);
             City grad = new City(city, postalCode, drzava);
             lista_gradova.Add(grad);
-            Doctor noviDoktor = new Doctor(name, surname, dateOfBirth, phoneNumber, email, id, true, username, password, grad,"null","null","null",idRoom);
+
+            Doctor noviDoktor = new Doctor(name, surname, dateOfBirth, phoneNumber, email, id, true, username, password, grad,specialization,licenseId,"null",idRoom);
+            if(Name.Text=="" || Surname.Text=="" ||   PostalCode.Text==""|| PhoneNumber.Text=="" || !IsValidEmail(email) || UserName.Text=="" || Password.Text=="" || Id.Text.Length!=13  )
+            {
+                MessageBox.Show("Greska");
+                return;
+            }
             lekarController.LogIn(username, password);
             lekarController.saveDoctor(noviDoktor);
+            this.Close();
+            LekarPrijava lp = new LekarPrijava();
+            lp.Show();
         }
+
+        private void Salary_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        
     }
 }

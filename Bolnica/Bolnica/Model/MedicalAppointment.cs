@@ -44,7 +44,7 @@ namespace Bolnica.Model
                 }
             }
         }
-        public MedicalAppointment(string id, string patientId, string doctorId, String startTime, double duration, AppointmentType type, String roomId)
+        public MedicalAppointment(string id, string patientId, string doctorId,  String startTime, double duration, AppointmentType type, String roomId)
 
         {
             this.Id = id;
@@ -55,6 +55,7 @@ namespace Bolnica.Model
             this.Type = type;
             this.room = findRoom(roomId);
         }
+        
         public Doctor findDoctor(string id)
         {
             Doctor doctor = null;

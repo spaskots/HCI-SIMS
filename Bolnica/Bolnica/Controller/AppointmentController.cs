@@ -14,13 +14,18 @@ namespace Bolnica.Controller
         {
             appointmentService.save(ma);
         }
-        public List<MedicalAppointment> getAllAppointment()
+        public List<MedicalAppointment> getAllAppointment(String id)
         {
-            return appointmentService.getAllAppointment();
+            return appointmentService.getAllAppointment(id);
         }
         public void delete(MedicalAppointment ma)
         {
             appointmentService.delete(ma);
         }
+        public void update(MedicalAppointment ma)
+        {
+            appointmentService.update(ma);
+        }
+       
     }
 }

@@ -32,5 +32,17 @@ namespace Bolnica.Repository
             }
             return rooms;
         }
+        public List<String> getAllId()
+        {
+            List<String> ids = new List<String>();
+            string[] lines = System.IO.File.ReadAllLines(lokacijaSoba);
+            foreach (String line in lines)
+            {
+                string[] fields = line.Split(',');
+                string id = fields[0];
+                ids.Add(id);
+            }
+            return ids;
+        }
     }
 }

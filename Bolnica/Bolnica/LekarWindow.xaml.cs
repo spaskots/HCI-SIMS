@@ -35,6 +35,7 @@ namespace Bolnica
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            
             LekarR lekar=new LekarR();
             lekar.Show();
         }

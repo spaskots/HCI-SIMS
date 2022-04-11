@@ -14,13 +14,18 @@ namespace Bolnica.Service
         {
             appointmentRepository.save(ma);
         }
-        public List<MedicalAppointment> getAllAppointment()
+        public List<MedicalAppointment> getAllAppointment(String id)
         {
-           return appointmentRepository.getAllAppointment();
+           return appointmentRepository.getAllAppointment(id);
         }
         public void delete(MedicalAppointment ma)
         {
             appointmentRepository.delete(ma);
         }
+        public void update(MedicalAppointment ma)
+        {
+            appointmentRepository.update(ma);
+        }
+        
     }
 }

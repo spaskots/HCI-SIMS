@@ -14,6 +14,10 @@ namespace Bolnica.Service
         {
             return patientRepository.getAllPatient();
         }
+        public List<String> getAllId()
+        {
+            return patientRepository.getAllId();
+        }
     }
    
 }

@@ -18,5 +18,13 @@ namespace Bolnica.Controller
         {
             lekarService.LogIn(username, password);
         }
+        public List<String> getAllId()
+        {
+            return lekarService.getAllId();
+        }
+        public Doctor GetOneByUsername(String username)
+        {
+            return lekarService.GetOneByUsername(username);
+        }
     }
 }
