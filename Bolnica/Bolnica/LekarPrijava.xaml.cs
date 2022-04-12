@@ -26,6 +26,7 @@ namespace Bolnica
         public LekarPrijava()
         {
             InitializeComponent();
+            Password.PasswordChar= '*';
         }
         private void TextBox_username(object sender, TextChangedEventArgs e)
         {
@@ -41,14 +42,14 @@ namespace Bolnica
         {
             string username=Username.Text.ToString();
             SetValueForUsername = username;
-            string password=Password.Text.ToString();
+            string password=Password.Password.ToString();
             RegisteredUser ru = new RegisteredUser(username, password);
             Boolean uspesnaPrijava=controller.validate(ru);
             if(uspesnaPrijava==false)
             {
                 Validate.Content = "Wrong username/password";
                 Username.Text = "";
-                Password.Text = "";
+                Password.Password = "";
             }
             else
             {

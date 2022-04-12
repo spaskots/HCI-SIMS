@@ -67,6 +67,7 @@ namespace Bolnica
                 return;
             }
             appointmentController.save(ma);
+            this.Close();
             LekarPocetna lp=new LekarPocetna();
             lp.Show();
         }

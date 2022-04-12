@@ -13,22 +13,20 @@
         <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="251,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
         <TextBox x:Name="Id" HorizontalAlignment="Left" Margin="251,349,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Margin="499,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
-        <TextBox x:Name="Password" HorizontalAlignment="Left" Margin="499,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="24"/>
+        <PasswordBox x:Name="Password"    HorizontalAlignment="Left" Margin="499,200,0,0"   VerticalAlignment="Top" Width="100" Height="24"/>
         <TextBox x:Name="PostalCode" HorizontalAlignment="Left" Margin="499,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
         <TextBox x:Name="Specialization" HorizontalAlignment="Left" Margin="501,286,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
         <TextBox x:Name="LicenseId" HorizontalAlignment="Left" Margin="501,327,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Margin="481,420,0,0" VerticalAlignment="Top" Click="Button_Click" Width="120" Height="30" Foreground="#FF8F0909" FontSize="20" FontFamily="Elephant" Background="#FF85BBE2"/>
-        <ComboBox x:Name="Grad" HorizontalAlignment="Left" Margin="501,374,0,0" VerticalAlignment="Top" Width="100" Height="24" SelectedIndex="1">
-            <ComboBoxItem Content="Beograd"/>
-            <ComboBoxItem Content="Novi Sad"/>
-            <ComboBoxItem Content="Banja Luka"/>
-            <ComboBoxItem Content="Sarajevo"/>
-            <ComboBoxItem Content="Salzburg"/>
-            <ComboBoxItem Content="Bec"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="481,445,0,0" VerticalAlignment="Top" Click="Button_Click" Width="120" Height="30" Foreground="#FF8F0909" FontSize="20" FontFamily="Elephant" Background="#FF85BBE2"/>
+        <ComboBox x:Name="Drzava" HorizontalAlignment="Left" Margin="501,374,0,0" VerticalAlignment="Top" Width="100" Height="24" SelectedIndex="1">
+            <ComboBoxItem Content="Srbija"/>
+            <ComboBoxItem Content="Bosna"/>
+            <ComboBoxItem Content="Austrija"/>
+
         </ComboBox>
         <ComboBox x:Name="Room" HorizontalAlignment="Left" Margin="248,381,0,0" VerticalAlignment="Top" Width="100" Height="25" SelectedIndex="1">
         </ComboBox>
-        <Label Content="CITY" HorizontalAlignment="Left" Margin="399,361,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.521,-0.237" Foreground="#FF8F0909"/>
+        <Label Content="COUNTRY" HorizontalAlignment="Left" Margin="399,361,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.521,-0.237" Foreground="#FF8F0909"/>
         <Label Content="ROOM" HorizontalAlignment="Left" Margin="175,380,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
         <Label Content="LICENSEID" HorizontalAlignment="Left" Margin="395,324,0,0" VerticalAlignment="Top" Foreground="#FF8F0909"/>
         <Label Content="SPECIALIZATION" HorizontalAlignment="Left" Margin="392,283,0,0" VerticalAlignment="Top" Foreground="#FF8F0909" />
@@ -44,6 +42,17 @@
         <Label Content="Create a new account" HorizontalAlignment="Left" Margin="291,24,0,0" VerticalAlignment="Top" Foreground="#FFCC0000" FontFamily="Elephant" FontSize="24" Width="273"/>
         <Image HorizontalAlignment="Left" Height="34" Margin="231,31,0,0" VerticalAlignment="Top" Width="60" Source="/img/sign in.png"/>
         <TextBox x:Name="DATE" HorizontalAlignment="Left" Margin="251,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="24"/>
+        <ComboBox x:Name="GRAD" HorizontalAlignment="Left" Margin="501,407,0,0" VerticalAlignment="Top" Width="100" Height="24" SelectedIndex="1">
+            <ComboBoxItem Content="Novi Sad"/>
+            <ComboBoxItem Content="Beograd"/>
+            <ComboBoxItem Content="Sarajevo"/>
+            <ComboBoxItem Content="Banja Luka"/>
+            <ComboBoxItem Content="Salzburg"/>
+            <ComboBoxItem Content="Bec"/>
+
+        </ComboBox>
+        <Label x:Name="City" Content="CITY
+               " HorizontalAlignment="Left" Margin="399,401,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.521,-0.237" Foreground="#FF8F0909"/>
 
 
     </Grid>
