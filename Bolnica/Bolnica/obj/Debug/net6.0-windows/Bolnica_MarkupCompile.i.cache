@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\App.xaml
-10561672452
+12-193587594
 
-40-1497734939
+42695407509
 1941645785384
-AddGuestPatient.xaml;AddPatient.xaml;CreateAppointment.xaml;LekarPocetna.xaml;LekarPrijava.xaml;LekarR.xaml;LekarWindow.xaml;MainWindow.xaml;PatientOptions.xaml;ReadPatient.xaml;
+AddGuestPatient.xaml;AddPatient.xaml;AddRoomPage.xaml;CreateAppointment.xaml;LekarPocetna.xaml;LekarPrijava.xaml;LekarR.xaml;LekarWindow.xaml;MainWindow.xaml;PatientOptions.xaml;ReadPatient.xaml;Rooms.xaml;
 
-True
+False
 

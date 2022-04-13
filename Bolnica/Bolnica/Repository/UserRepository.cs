@@ -9,7 +9,7 @@ namespace Bolnica.Repository
 {
     public class UserRepository
     {
-        String lokacijaPrijava = @"C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\LekarLogIn.txt";
+        String lokacijaPrijava = @"..\..\..\Data\LekarLogIn.txt";
         
         
         public Boolean validate(RegisteredUser ru)

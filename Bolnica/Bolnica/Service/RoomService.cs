@@ -9,15 +9,37 @@ namespace Bolnica.Service
 {
     public class RoomService
     {
-        RoomRepository roomRepository = new RoomRepository();
-       
+        RoomRepository _repository = new RoomRepository();
+
+        public RoomService()
+        {
+        }
+
+        public Room Create(Room room)
+        {
+            // TODO: implement
+            return _repository.Create(room);
+        }
+
+        public Room Update(Room room)
+        {
+            // TODO: implement
+            return _repository.Update(room);
+        }
+
+        public Boolean Delete(Room room)
+        {
+            // TODO: implement
+            return _repository.Delete(room);
+        }
+
         public List<Room> getAllRooms()
         {
-            return roomRepository.GetAllRooms();
+            return _repository.GetAllRooms();
         }
         public List<String> getAllId()
         {
-            return roomRepository.getAllId();
+            return _repository.getAllId();
         }
     }
 }

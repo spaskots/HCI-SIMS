@@ -42,6 +42,9 @@
     <Page Update="AddPatient.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="AddRoomPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CreateAppointment.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -64,6 +67,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ReadPatient.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Rooms.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

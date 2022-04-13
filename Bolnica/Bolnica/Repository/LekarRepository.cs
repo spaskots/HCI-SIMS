@@ -9,8 +9,9 @@ namespace Bolnica.Repository
 {
     public class LekarRepository
     {
-        String lokacijaLekar = @"C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Lekar.txt";
-        String lokacijaLogIn = @"C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\LekarLogIn.txt";
+        String lokacijaLekar = @"..\..\..\Data\Lekar.txt";
+        String lokacijaLogIn = @"..\..\..\Data\LekarLogIn.txt";
+
         public void saveDoctor(Doctor doctor)
         {
             String noviRed = doctor.Name + "," + doctor.Surname + "," + doctor.DateOfBirth + "," + doctor.PhoneNumber + "," + doctor.Email + "," + doctor.Id + "," + doctor.Active + "," + doctor.Username + "," + doctor.Password + "," + doctor.city.Name + "," + doctor.city.PostalCode+","+doctor.Specialization+","+doctor.LicenseId+","+doctor.Salary+","+doctor.Room.Name;

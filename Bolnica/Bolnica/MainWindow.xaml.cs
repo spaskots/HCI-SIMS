@@ -37,5 +37,12 @@ namespace Bolnica
             patientOptions.Show();
             this.Close();
         }
+
+        private void directorAddRoom(object sender, RoutedEventArgs e)
+        {
+            Rooms director = new Rooms();
+            director.Show();
+            this.Close();
+        }
     }
 }

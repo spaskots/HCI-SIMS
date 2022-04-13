@@ -9,7 +9,7 @@ namespace Bolnica.Repository
 {
     public class AppointmentRepository
     {
-        String lokacijaAppointment = @"C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Termin.txt";
+        String lokacijaAppointment = @"..\..\..\Data\Termin.txt";
         public void save(MedicalAppointment ma)
         {
             String noviRed =ma.Id +","+ma.StartTime +","+ma.Duration+","+ma.Type+","+ma.Patient.Id+","+ma.room.Id+","+ma.doctor.Id;
@@ -43,6 +43,30 @@ namespace Bolnica.Repository
             }
             return ma;
         }
+
+        public List<MedicalAppointment> getAllAppointment()
+        {
+            List<MedicalAppointment> ma = new List<MedicalAppointment>();
+
+            string[] lines = System.IO.File.ReadAllLines(lokacijaAppointment);
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(',');
+
+                string id = fields[0];
+                string starttime = fields[1];
+                double duration = Convert.ToDouble(fields[2]);
+                AppointmentType type;
+                Enum.TryParse(fields[3], out type);
+                string patientId = fields[4];
+                string roomId = fields[5];
+                string doctorId = fields[6];
+                MedicalAppointment maa = new MedicalAppointment(id, patientId, doctorId, starttime, duration, type, roomId);
+                ma.Add(maa);
+            }
+            return ma;
+        }
+
         public void delete(MedicalAppointment ma)
         {
             String obrisiRed = ma.Id + "," + ma.StartTime + "," + ma.Duration + "," + ma.Type + "," + ma.Patient.Id + "," + ma.room.Id + "," + ma.doctor.Id;

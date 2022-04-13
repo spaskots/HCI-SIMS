@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Bolnica.Model
 {
-    
+
 
     public enum RoomType
     {
-        HospitalRoom,
-        MedicalRoom,
-        OperationHall
+        OperationRoom,
+        CancerRoom,
+        RestRoom,
+        CovidRoom
     }
 }

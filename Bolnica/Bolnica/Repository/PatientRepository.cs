@@ -9,7 +9,7 @@ namespace Bolnica.Repository
 {
     public class PatientRepository
     {
-        String lokacijaPacijent = @"C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Pacijent.txt";
+
         //String PATIENT_FILE = @"D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Pacijent.txt";
         String PATIENT_FILE = @"..\..\..\Data\Patient.txt";
         String GUEST_FILE = @"..\..\..\Data\Guest.txt";
@@ -189,7 +189,7 @@ namespace Bolnica.Repository
         {
             List<Patient> pacijenti = new List<Patient>();
 
-            string[] lines = System.IO.File.ReadAllLines(lokacijaPacijent);
+            string[] lines = System.IO.File.ReadAllLines(PATIENT_FILE);
             foreach (string line in lines)
             {
                 string[] fields = line.Split(',');
@@ -212,7 +212,7 @@ namespace Bolnica.Repository
         public List<String> getAllId()
         {
             List<String> ids = new List<String>();
-            string[] lines = System.IO.File.ReadAllLines(lokacijaPacijent);
+            string[] lines = System.IO.File.ReadAllLines(PATIENT_FILE);
             foreach (String line in lines)
             {
                 string[] fields = line.Split(',');
