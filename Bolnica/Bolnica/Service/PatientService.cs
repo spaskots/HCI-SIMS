@@ -18,6 +18,65 @@ namespace Bolnica.Service
         {
             return patientRepository.getAllId();
         }
+
+        public bool Add(Patient patient)
+        {
+            if (patientRepository.ExistsById(patient.Id))
+            {
+                return false;
+            }
+
+            patientRepository.Add(patient);
+            return true;
+        }
+
+        public bool AddGuest(Patient patient)
+        {
+            if (patientRepository.ExistsById(patient.Id))
+            {
+                return false;
+            }
+            patientRepository.AddGuest(patient);
+            return true;
+        }
+
+        public Patient FindById(string id)
+        {
+            if (patientRepository.ExistsById(id))
+            {
+                return patientRepository.FindById(id);
+            }
+            return null;
+        }
+
+        public Patient FindByIdFull(string id)
+        {
+            if (patientRepository.ExistsById(id))
+            {
+                return patientRepository.FindByIdSafe(id);
+            }
+            return null;
+        }
+
+        public bool DeleteById(string id)
+        {
+            if (patientRepository.ExistsById(id))
+            {
+                patientRepository.DeleteById(id);
+                return true;
+            }
+            return false;
+        }
+
+        public bool Update(Patient patient)
+        {
+            if (!patientRepository.ExistsById(patient.Id))
+            {
+                return false;
+            }
+            patientRepository.Update(patient);
+            return true;
+        }
     }
    
 }

@@ -60,7 +60,7 @@
             <Label Content="Medical appointment" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Foreground="#FFCC0000" FontFamily="Elephant" FontSize="24" />
         </DockPanel>
 
-        <Label Content="Start time" Margin="22,86,639,312" Grid.ColumnSpan="2" Foreground="#FFCC0000" />
+        <Label Content="Start time" Margin="22,86,0,354" Foreground="#FFCC0000" />
         <Label Content="Duration" Margin="32,125,630,273" Grid.ColumnSpan="2" Foreground="#FFCC0000"/>
         <Label Content="Id" Margin="38,168,624,230" Grid.ColumnSpan="2" Foreground="#FFCC0000"/>
         <Label Content="DoctorID" Margin="22,212,0,186" Foreground="#FFCC0000"/>

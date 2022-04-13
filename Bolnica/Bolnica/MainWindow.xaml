@@ -16,7 +16,7 @@
         <Button Content="Button" HorizontalAlignment="Left" Margin="91,217,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Button Content="Upravnik" HorizontalAlignment="Left" Margin="91,217,0,0" VerticalAlignment="Top" Height="50" Width="100" Grid.Column="1" />
         <Button Content="Lekar" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Height="50" Width="100" Grid.Column="1" Click="lekarLogIn"/>
-        <Button Content="Sekretar" HorizontalAlignment="Left" Margin="510,217,0,0" VerticalAlignment="Top" Height="50" Width="100" Grid.Column="1"/>
+        <Button Content="Sekretar" HorizontalAlignment="Left" Margin="510,217,0,0" VerticalAlignment="Top" Height="50" Width="100" Grid.Column="1" Click="PatientOptionsWin"/>
 
     </Grid>
 </Window>

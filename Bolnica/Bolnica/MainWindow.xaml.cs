@@ -30,5 +30,12 @@ namespace Bolnica
             lekar.Show();
             this.Close();
         }
+
+        private void PatientOptionsWin(object sender, RoutedEventArgs e)
+        {
+            PatientOptions patientOptions = new PatientOptions();
+            patientOptions.Show();
+            this.Close();
+        }
     }
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\
+D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\
 Bolnica
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Korisnik\Desktop\SIMS Projekat\HCI-SIMS\Bolnica\Bolnica\App.xaml
-61505712622
+D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\App.xaml
+10561672452
 
-342115479991
+38603361663
 1941645785384
-CreateAppointment.xaml;LekarPocetna.xaml;LekarPrijava.xaml;LekarR.xaml;LekarWindow.xaml;MainWindow.xaml;
+AddGuestPatient.xaml;AddPatient.xaml;CreateAppointment.xaml;LekarPocetna.xaml;LekarPrijava.xaml;LekarR.xaml;LekarWindow.xaml;MainWindow.xaml;PatientOptions.xaml;ReadPatient.xaml;
 
 False
 

@@ -70,8 +70,8 @@ namespace Bolnica.Model
             }
         }
 
-        private String Name;
-        private String Code;
+        public String Name { get; set; }
+        public String Code { get; set; }
        public Country(String name,String Code, System.Collections.ArrayList newCity)
         {
             this.Name = name;
@@ -79,8 +79,12 @@ namespace Bolnica.Model
             this.city=newCity;
         }
 
-        public Country()
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        public Country(String name, String code)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
+            this.Name = name;
+            this.Code = code;
         }
     }
     }
