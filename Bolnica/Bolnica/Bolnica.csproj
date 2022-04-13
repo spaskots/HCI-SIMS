@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="doctorbaba.jpg" />
+    <None Remove="POcetna3.png" />
+    <None Remove="sign in.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="doctorbaba.jpg" />
+    <Resource Include="POcetna3.png" />
+    <Resource Include="sign in.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+﻿<Window x:Class="Bolnica.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,10,-16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="741*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="91,217,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="91,217,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="91,217,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button Content="Upravnik" HorizontalAlignment="Left" Margin="91,217,0,0" VerticalAlignment="Top" Height="50" Width="100" Grid.Column="1" Click="directorAddRoom"/>
+        <Button Content="Lekar" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Height="50" Width="100" Grid.Column="1" Click="lekarLogIn"/>
+        <Button Content="Sekretar" HorizontalAlignment="Left" Margin="510,217,0,0" VerticalAlignment="Top" Height="50" Width="100" Grid.Column="1" Click="PatientOptionsWin"/>
+
+    </Grid>
+</Window>

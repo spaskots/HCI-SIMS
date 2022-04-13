@@ -1,0 +1,72 @@
+﻿<Window x:Class="Bolnica.LekarPocetna"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica"
+        mc:Ignorable="d"
+        Title="LekarPocetna" Height="500" Width="900" Background="#FFE2D5D5">
+    <Grid x:Name="AppointmentForm" Margin="10,10,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="654*"/>
+            <ColumnDefinition Width="61*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="MedicalAppointmentView" HorizontalAlignment="Left" Height="309" Margin="146,95,0,0" VerticalAlignment="Top" Width="484" SelectionChanged="MedicalAppointmentView_SelectionChanged" Foreground="#FFCC0000" Background="#FFCFE1E3" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}"/>
+                <DataGridTextColumn Header="Duration" Binding="{Binding Duration}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Patient" Binding="{Binding Patient.Id}"/>
+                <DataGridTextColumn Header="Room" Binding="{Binding room.Id}"/>
+                <DataGridTextColumn Header="Doctor" Binding="{Binding doctor.Id}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="delete" Click="delete_Click" Content="Delete" Background="red" BorderBrush="Black" BorderThickness="2">
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="change" Click="change_Click" Content="Change" Background="#FF85BBE2" BorderBrush="black" BorderThickness="2">
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <TextBox x:Name="STARTTIME" HorizontalAlignment="Left" Margin="10,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="18"/>
+        <TextBox x:Name="DURATION" HorizontalAlignment="Left" Margin="10,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="18"/>
+        <TextBox x:Name="ID" HorizontalAlignment="Left" Margin="10,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="18"/>
+        <ComboBox x:Name="DoctorId" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="22"/>
+        <ComboBox x:Name="RoomId" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="22"/>
+        <ComboBox x:Name="PatientId" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="22"/>
+        <ComboBox x:Name="TypeId" HorizontalAlignment="Left" Margin="10,343,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="22"/>
+        <Button Content="Confirm" HorizontalAlignment="Left" Margin="10,384,0,0" VerticalAlignment="Top" Click="Button_Click_1" Grid.Column="1" Height="35" Width="120" Background="#FF85BBE2" Foreground="Black" FontSize="20" FontFamily="Elephant" BorderBrush="Black" BorderThickness="3"/>
+        <DockPanel Grid.ColumnSpan="2">
+            <Menu DockPanel.Dock ="Top">
+                <MenuItem x:Name="Make_an_appointment" Header=" Create appointment" Click="Make_an_appointment_Click"/>
+                <MenuItem Header="Medical Card"/>
+            </Menu>
+            <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            </Grid>
+        </DockPanel>
+        <DockPanel Grid.ColumnSpan="2" Margin="0,10,0,-10">
+            <Label Content="Medical appointment" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Foreground="#FFCC0000" FontFamily="Elephant" FontSize="24" />
+        </DockPanel>
+
+        <Label Content="Start time" Margin="22,86,0,354" Foreground="#FFCC0000" />
+        <Label Content="Duration" Margin="32,125,630,273" Grid.ColumnSpan="2" Foreground="#FFCC0000"/>
+        <Label Content="Id" Margin="38,168,624,230" Grid.ColumnSpan="2" Foreground="#FFCC0000"/>
+        <Label Content="DoctorID" Margin="22,212,0,186" Foreground="#FFCC0000"/>
+        <Label Content="RoomID" Margin="25,262,635,136" Grid.ColumnSpan="2" Foreground="#FFCC0000"/>
+        <Label Content="PatientId" Margin="26,299,634,99" Grid.ColumnSpan="2" Foreground="#FFCC0000"/>
+        <Label Content="TypeId" Margin="32,343,628,55" Grid.ColumnSpan="2" Foreground="#FFCC0000"/>
+    </Grid>
+
+</Window>
