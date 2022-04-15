@@ -9,7 +9,6 @@
     <Grid>
         <Button Content="Create Patient" HorizontalAlignment="Left" Margin="101,68,0,0" VerticalAlignment="Top" Height="50" Width="100" Click="AddPatientWin" />
         <Button Content="Create Guest" HorizontalAlignment="Left" Margin="280,68,0,0" VerticalAlignment="Top" Height="50" Width="100" Click="AddGuestWin"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="280,167,0,0" VerticalAlignment="Top" Height="50" Width="100" />
         <Button Content="Delete" HorizontalAlignment="Left" Margin="539,68,0,0" VerticalAlignment="Top" Height="19" Width="67" Click="RemovePatient"/>
 
         <Label Content="JMBG

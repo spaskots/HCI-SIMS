@@ -194,16 +194,16 @@ namespace Bolnica.Repository
             {
                 string[] fields = line.Split(',');
 
-                string name = fields[0];
-                string surname = fields[1];
-               String dateOFBirth = fields[2];
-                string phoneNumber = fields[3];
-                string email = fields[4];
-                string Id = fields[5];
-                bool isAvailable = Convert.ToBoolean(fields[6]);
-                string username = fields[7];
-                string password = fields[8];
-                City city = new City(fields[9], fields[10]);
+                string name = fields[1];
+                string surname = fields[2];
+               String dateOFBirth = fields[3];
+                string phoneNumber = fields[4];
+                string email = fields[5];
+                string Id = fields[0];
+                bool isAvailable = Convert.ToBoolean(fields[8]);
+                string username = fields[6];
+                string password = fields[7];
+                City city = new City(fields[9], fields[12]);
                 Patient pacijent=new Patient(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, username, password, city); ;
                 pacijenti.Add(pacijent);
             }
@@ -216,7 +216,7 @@ namespace Bolnica.Repository
             foreach (String line in lines)
             {
                 string[] fields = line.Split(',');
-                string id = fields[5];
+                string id = fields[0];
                 ids.Add(id);
             }
             return ids;

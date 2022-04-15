@@ -1,3 +1,2 @@
-
 Nidza,Fidza,12/12/1992,1691982206,asdsada@gmail.com,1234567890123,True,Burek,123123,Novi Sad,21000,abc,saddsadasdsadsa,null,
 Je,Ne,12/12/1992,651615,akakak@gmail.com,1234567890125,True,test,123,Beograd,21000,Kaaaa,Kaaaa,null,Hello
