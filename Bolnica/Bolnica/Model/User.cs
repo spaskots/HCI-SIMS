@@ -76,6 +76,8 @@ namespace Bolnica.Model
             Id = id;
         }
 
+        public User() { }
+
        
     }
 }

@@ -101,3 +101,5 @@ D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\obj\Debug\
 D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Rooms.g.cs
 D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\AddRoomPage.baml
 D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Rooms.baml
+D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Table\ViewPatients.g.cs
+D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Table\ViewPatients.baml

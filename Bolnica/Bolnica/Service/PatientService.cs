@@ -77,6 +77,17 @@ namespace Bolnica.Service
             patientRepository.Update(patient);
             return true;
         }
+
+        public List<Patient> GetAllPatients()
+        {
+            System.Diagnostics.Debug.Write("Service");
+            List<Patient> listPatient = patientRepository.getAllPatient();
+            foreach (Patient pat in listPatient)
+            {
+                System.Diagnostics.Debug.WriteLine("Pacijent: " + pat.Name + " " + pat.Surname + "\n");
+            }
+            return listPatient;
+        }
     }
    
 }

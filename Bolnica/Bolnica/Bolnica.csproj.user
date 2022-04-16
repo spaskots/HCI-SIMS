@@ -34,6 +34,9 @@
     <Compile Update="ReadPatient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Table\ViewPatients.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddGuestPatient.xaml">
@@ -70,6 +73,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Rooms.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Table\ViewPatients.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
