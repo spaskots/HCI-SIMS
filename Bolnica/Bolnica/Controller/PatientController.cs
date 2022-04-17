@@ -41,6 +41,12 @@ namespace Bolnica.Controller
             return patientService.Update(patient);
         }
 
+        public List<Patient> getAllPatients()
+        {
+            System.Diagnostics.Debug.Write("Kontroler");
+            return patientService.GetAllPatients();
+        }
+
         public List<String> getAllId()
         {
             return patientService.getAllId();

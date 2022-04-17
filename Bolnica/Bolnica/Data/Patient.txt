@@ -1,3 +1,2 @@
-1234567890,Jesam,Nisam,12/10/1992,+381691982206,Pez@gmail.com,Jes,Njes,True,Sarajevo,Bosnia and Herzegovina,BIH,21000
-1,Sa,Bo,12/11/1990,+381691941024,sab@hotmail.com,Sa,Bbb,True,Sarajevo,Bosnia and Herzegovina,BIH,21000
-2206998800789,Stefan,Matkovic,31/10/1990,+381056800487,noviMejl@gmail.com,stefan,123,True,Novi Sad,Serbia,SRB,21000
+2206228800789,Pera,Peric,10/04/1984,+381056803387,stariMejll@gmail.com,pera,123,True,Nis,Serbia,SRB,21000
+2920546132156,Nikola,Nikolic,11/01/1997,+381052800487,noviMe2jl@gmail.com,nikola,123,True,Beograd,Serbia,SRB,21000

@@ -1,4 +1,5 @@
 ﻿using Bolnica.Controller;
+using Bolnica.Table;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,15 +41,21 @@ namespace Bolnica
 
         private void ReadPatientWin(object sender, RoutedEventArgs e)
         {
-            string id = ID.Text.ToString();
+            string id = "0";
             ReadPatient readPatient = new ReadPatient(id);
             readPatient.Show();
 
         }
 
+        private void ViewPatientWin(object sender, RoutedEventArgs e)
+        {
+            ViewPatients viewPatient = new ViewPatients();
+            viewPatient.Show();
+        }
+
         private void RemovePatient(object sender, RoutedEventArgs e)
         {
-            string id = ID.Text.ToString();
+            string id = "0";
             
             if (!patientController.DeleteById(id))
             {
