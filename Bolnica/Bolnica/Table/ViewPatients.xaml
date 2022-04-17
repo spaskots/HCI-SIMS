@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid x:Name="dataGridPatients" ItemsSource="{Binding Path=Patients}"
                   SelectionMode="Extended" AutoGenerateColumns="False" HorizontalAlignment="Left"
-                  Height="300" Margin="10, 47, 0, 0" VerticalAlignment="Top" Width="781">
+                  Height="300" Margin="10, 47, 0, 0" VerticalAlignment="Top" Width="781" CanUserAddRows="false">
             <DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="Selected" Handler="DataGridCell_Selected"/>
