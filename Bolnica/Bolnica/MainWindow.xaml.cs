@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bolnica.Controller;
+using Bolnica.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,12 +39,13 @@ namespace Bolnica
             patientOptions.Show();
             this.Close();
         }
-
+        RoomController _controller = new RoomController();
         private void directorAddRoom(object sender, RoutedEventArgs e)
         {
-            Rooms director = new Rooms();
-            director.Show();
+            RoomPage room = new RoomPage();
+            room.Show();
             this.Close();
+
         }
     }
 }

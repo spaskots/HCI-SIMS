@@ -34,7 +34,14 @@
     <Compile Update="ReadPatient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Update="Table\ViewPatients.xaml.cs">
+=======
+    <Compile Update="RoomPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SingleRoom.xaml.cs">
+>>>>>>> upravnik
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -72,7 +79,10 @@
     <Page Update="ReadPatient.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Rooms.xaml">
+    <Page Update="RoomPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SingleRoom.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Table\ViewPatients.xaml">
