@@ -118,7 +118,6 @@ C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnic
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\PatientOptions.g.cs
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\ReadPatient.g.cs
-C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Rooms.g.cs
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica_MarkupCompile.cache
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica_MarkupCompile.lref
@@ -133,7 +132,6 @@ C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnic
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\PatientOptions.baml
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\ReadPatient.baml
-C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Rooms.baml
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.g.resources
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.AssemblyInfoInputs.cache
@@ -144,8 +142,6 @@ C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnic
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.pdb
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Bolnica.genruntimeconfig.cache
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\ref\Bolnica.dll
-C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\RoomView.g.cs
-C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\RoomView.baml
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\RoomPage.g.cs
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\RoomPage.baml
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\SingleRoom.g.cs

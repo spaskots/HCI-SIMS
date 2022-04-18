@@ -70,7 +70,7 @@ namespace Bolnica
         }
         private void goBack(object sender, RoutedEventArgs e)
         {
-            Rooms director = new Rooms();
+            RoomPage director = new RoomPage();
             director.Show();
             this.Close();
         }

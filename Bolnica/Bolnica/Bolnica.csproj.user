@@ -37,9 +37,6 @@
     <Compile Update="RoomPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="RoomView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="SingleRoom.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -79,12 +76,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RoomPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Rooms.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="RoomView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SingleRoom.xaml">
