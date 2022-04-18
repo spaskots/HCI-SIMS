@@ -34,14 +34,11 @@
     <Compile Update="ReadPatient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
-    <Compile Update="Table\ViewPatients.xaml.cs">
-=======
+	  <Compile Update="Table\ViewPatients.xaml.cs"></Compile>
     <Compile Update="RoomPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SingleRoom.xaml.cs">
->>>>>>> upravnik
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -153,3 +153,5 @@ C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnic
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\View\Equipment.g.cs
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\View\Equipment.baml
 >>>>>>> upravnik
+C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Table\ViewPatients.g.cs
+C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\Table\ViewPatients.baml

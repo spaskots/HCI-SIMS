@@ -9,21 +9,12 @@ Bolnica
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-<<<<<<< HEAD
-D:\Workspace\Uni\6.semestar\SiMS\GitRepo\Tmp\HCI-SIMS\Bolnica\Bolnica\App.xaml
-131906430571
-
-431633874371
-1941645785384
-AddGuestPatient.xaml;AddPatient.xaml;AddRoomPage.xaml;CreateAppointment.xaml;LekarPocetna.xaml;LekarPrijava.xaml;LekarR.xaml;LekarWindow.xaml;MainWindow.xaml;PatientOptions.xaml;ReadPatient.xaml;Rooms.xaml;Table\ViewPatients.xaml;
-=======
 C:\Users\spase\OneDrive\Радна површина\SIMS\HCI-SIMS\Bolnica\Bolnica\App.xaml
-14-1748882247
+15351135918
 
-44-1870153595
+45-931686733
 1941645785384
-AddGuestPatient.xaml;AddPatient.xaml;AddRoomPage.xaml;CreateAppointment.xaml;LekarPocetna.xaml;LekarPrijava.xaml;LekarR.xaml;LekarWindow.xaml;MainWindow.xaml;PatientOptions.xaml;ReadPatient.xaml;RoomPage.xaml;SingleRoom.xaml;View\Equipment.xaml;
->>>>>>> upravnik
+AddGuestPatient.xaml;AddPatient.xaml;AddRoomPage.xaml;CreateAppointment.xaml;LekarPocetna.xaml;LekarPrijava.xaml;LekarR.xaml;LekarWindow.xaml;MainWindow.xaml;PatientOptions.xaml;ReadPatient.xaml;RoomPage.xaml;SingleRoom.xaml;Table\ViewPatients.xaml;View\Equipment.xaml;
 
-True
+False
 
