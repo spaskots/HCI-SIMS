@@ -1,4 +1,4 @@
 3,2C,2,Ovo je malo duzi opis sobe te me zanima kako ce da se prikaze uopsteno,OperationRoom
 1,3AC,2,Ovo je pravilan opis,CovidRoom
 4,2XY,2,Ova.,CancerRoom
-2,14c,3,Promena Opisa,OperationRoom
+2,14c,3,Promena Opisaaa,OperationRoom
