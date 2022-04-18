@@ -22,10 +22,14 @@ namespace Bolnica
     /// </summary>
     public partial class Rooms : Window
     {
-        private string _message;
         public Rooms()
         {
             InitializeComponent();
+            List<Room> sobe = _controller.getAllRooms();
+            foreach (Room soba in sobe)
+            {
+                RoomView.Items.Add(soba);
+            }
 
         }
 
@@ -36,19 +40,13 @@ namespace Bolnica
             this.Close();
         }
         RoomController _controller = new RoomController();
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            List<Room> sobe = _controller.getAllRooms();
-            foreach (Room soba in sobe)
-            {
-                RoomView.Items.Add(soba);
-            }
-        }
         private void deleteRoom(object sender, RoutedEventArgs e)
         {
             Room room = RoomView.SelectedItem as Room;
             _controller.Delete(room);
-
+            Rooms soba = new Rooms();
+            this.Close();
+            soba.Show();
         }
 
         private void editRoom(object sender, RoutedEventArgs e)
@@ -56,7 +54,10 @@ namespace Bolnica
             Room room = RoomView.SelectedItem as Room;
             IdEdit.Text = room.Id.ToString();
             NameEdit.Text = room.Name.ToString();
+            FloorEdit.Text = room.Floor.ToString();
+            DescriptionEdit.Text = room.Description.ToString();
             typeRoomEdit.SelectedItem = room.RoomType.ToString();
+            
 
         }
         RoomRepository _repository = new RoomRepository();
@@ -68,6 +69,7 @@ namespace Bolnica
                 Int16 i2 = Int16.Parse(id);
                 Room roomProvera = _repository.FindById(id);
                 if (roomProvera == null) { return; } //Znaci da menjamo neku sa ID-jem sto ne postoji, a to nije moguce.
+                MessageBox.Show("Room With This Id Doesn't Exists!");
             }
             catch
             {
@@ -76,12 +78,24 @@ namespace Bolnica
 
             String name = NameEdit.Text;
 
-            if (name.Length > 3) { return; }
+            if (name.Length > 3) { MessageBox.Show("Name should have less than three characters!"); return; }
 
             RoomType type;
             Enum.TryParse(typeRoomEdit.Text.ToString(), out type);
-            Room room = new Room(id, name, type);
+            String description = DescriptionEdit.Text;
+            String floor = FloorEdit.Text;
+            try
+            {
+                Int16 i2 = Int16.Parse(id);
+            }
+            catch
+            {
+                MessageBox.Show("Floor Must Be Number!");
+                return;
+            }
+            Room room = new Room(id, name, floor, description, type);
             _controller.Update(room);
+            MessageBox.Show("Success!");
         }
     }
 

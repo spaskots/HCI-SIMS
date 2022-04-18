@@ -14,7 +14,6 @@ namespace Bolnica.Model
         public String Name { get; set; }
         public String Floor { get; set; }
         public String Description { get; set; }
-        public bool Available { get; set; }
         public RoomType RoomType { get; set; }
 
 
@@ -24,23 +23,22 @@ namespace Bolnica.Model
 
         }
 
-        public Room(String Id, String Name, String Floor, String Description, bool Available, RoomType RoomType)
+        public Room(String Id, String Name, String Floor, String Description, RoomType RoomType)
         {
             this.Id = Id;
             this.Name = Name;
             this.Floor = Floor;
             this.Description = Description;
-            this.Available = Available;
             this.RoomType = RoomType;
 
         }
 
-        public Room(String Id, String Name, RoomType RoomType)
-        {
-            this.Id = Id;
-            this.Name = Name;
-            this.RoomType = RoomType;
+        //public Room(String Id, String Name, RoomType RoomType)
+        //{
+        //    this.Id = Id;
+        //    this.Name = Name;
+        //    this.RoomType = RoomType;
 
-        }
+        //}
     }
 }

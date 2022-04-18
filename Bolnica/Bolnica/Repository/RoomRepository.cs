@@ -71,9 +71,11 @@ namespace Bolnica.Repository
                     string name = fields[1];
                     RoomType type;
 
-                    Enum.TryParse(fields[2], out type);
+                    String floor = fields[2];
+                    String description = fields[3];
+                    Enum.TryParse(fields[4], out type);
 
-                    Room room = new Room(id, name, type);
+                    Room room = new Room(id, name, floor, description, type);
                     rooms.Add(room);
                 }
             }
@@ -82,7 +84,7 @@ namespace Bolnica.Repository
 
         public Room Create(Room room)
         {
-            String noviRed = room.Id + "," + room.Name + "," + room.RoomType;
+            String noviRed = room.Id + "," + room.Name + "," + room.Floor + "," + room.Description + "," + room.RoomType;
             StreamWriter write = new StreamWriter(lokacijaDirector, true);
             write.WriteLine(noviRed);
             write.Close();
@@ -91,7 +93,7 @@ namespace Bolnica.Repository
 
         public Boolean Delete(Room room)
         {
-            String obrisiRed = room.Id + "," + room.Name + "," + room.RoomType;
+            String obrisiRed = room.Id + "," + room.Name + "," + room.Floor + "," + room.Description + "," + room.RoomType;
 
             String text = File.ReadAllText(lokacijaDirector);
             if (text.Contains(obrisiRed))

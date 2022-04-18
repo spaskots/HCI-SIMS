@@ -61,7 +61,7 @@ namespace Bolnica {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Bolnica;V1.0.0.0;component/roomview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Bolnica;component/roomview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\RoomView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

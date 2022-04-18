@@ -109,7 +109,7 @@ namespace Bolnica {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Bolnica;V1.0.0.0;component/createappointment.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Bolnica;component/createappointment.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CreateAppointment.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

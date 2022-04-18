@@ -101,7 +101,7 @@ namespace Bolnica {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Bolnica;V1.0.0.0;component/readpatient.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Bolnica;component/readpatient.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ReadPatient.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
