@@ -32,7 +32,7 @@ namespace Bolnica
             typeRoomEdit.SelectedItem = room.RoomType.ToString();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void backClick(object sender, RoutedEventArgs e)
         {
             RoomPage director = new RoomPage();
             director.Show();

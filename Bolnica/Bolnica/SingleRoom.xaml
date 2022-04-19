@@ -5,35 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="SingleRoom" Height="700" Width="430">
+        Title="SingleRoom" Height="720" Width="430">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="540" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="120" />
         </Grid.RowDefinitions>
         <Border  Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,3" />
-        <Button Grid.Row="0" Content="Back" Background="White" Width="70" Height="20" Grid.ColumnSpan="4" Margin="20,30,0,0" HorizontalAlignment="Left" IsDefault="True" FontSize="14" FontWeight="Bold" FontStyle="Italic" Click="Button_Click"></Button>
-        <Label Grid.Row="0" Content="Single Room" FontSize="20" FontWeight="Bold" Width="180" Height="60" Margin="0,20,0,0"/>
-        <Button Grid.Row="0" Content="?" Background="White" Width="30" Height="20" Grid.ColumnSpan="4" Margin="0,30,20,0" HorizontalAlignment="Right" IsDefault="True" FontSize="14" FontWeight="Bold"></Button>
-        <Label Grid.Row="1" Content="Id:" FontSize="24" FontWeight="Bold" FontStyle="Italic" Width="40" Height="50" Margin="0,0,250,350"/>
-        <TextBox Grid.Row="1" x:Name="IdEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="26" Margin="0,82,0,0" />
-        <Label Grid.Row="1" Content="Name:" FontSize="24" FontWeight="Bold" FontStyle="Italic" Width="100" Height="50" Margin="40,145,290,345"/>
-        <TextBox Grid.Row="1" x:Name="NameEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="26" Margin="0,157,0,0" />
-        <Label Grid.Row="1" Content="Floor:" FontSize="24" FontWeight="Bold" FontStyle="Italic" Width="100" Height="50" Margin="0,0,250,50"/>
-        <TextBox Grid.Row="1" x:Name="FloorEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="26" Margin="0,232,0,0" />
-        <Label Grid.Row="1" Content="Type:" FontSize="24" FontWeight="Bold" FontStyle="Italic" Height="50" Margin="40,290,290,200"/>
-        <ComboBox Grid.Row="1" x:Name="typeRoomEdit" HorizontalAlignment="Center" Margin="0,305,0,0" VerticalAlignment="Top" Width="120" Height="35" SelectedIndex="1" FontSize="14" FontWeight="Bold" FontStyle="Italic">
+        <Image Width="30" Height="30" HorizontalAlignment="Left" Margin="20,20,0,0" Grid.Row="0" Source="/icons8-back-96.png" MouseLeftButtonDown="backClick" />
+        <Label Grid.Row="0" Content="Single Room" FontSize="24" FontWeight="Bold" Width="180" Height="60" Margin="0,20,0,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"/>
+        <Image Width="25" Height="25" HorizontalAlignment="Left" Margin="380,20,0,0" Grid.Row="0" Source="/icons8-info-30.png" />
+        <Label Grid.Row="1" Content="Id:" FontWeight="Bold" FontStyle="Italic" Width="100" Height="35" Margin="76,45,0,445" Foreground="#FFE11845" FontSize="18" HorizontalAlignment="Left"/>
+        <TextBox Grid.Row="1" x:Name="IdEdit" HorizontalAlignment="Left" TextWrapping="Wrap" Width="230" Height="30" Margin="76,88,0,0" FontWeight="Normal" VerticalAlignment="Top" TextAlignment="Left" FontSize="16" IsEnabled="False" BorderThickness="0,0,0,0" />
+        <Label Grid.Row="1" Content="Name:" FontSize="18" FontWeight="Bold" FontStyle="Italic" Width="100" Height="35" Margin="76,123,0,382" HorizontalAlignment="Left" Foreground="#FFE11845"/>
+        <TextBox Grid.Row="1" x:Name="NameEdit" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="230" Height="30" Margin="76,163,0,0" FontSize="16" BorderThickness="0,0,0,1" />
+        <Label Grid.Row="1" Content="Floor:" FontSize="18" FontWeight="Bold" FontStyle="Italic" Width="100" Height="35" Margin="76,198,254,307" HorizontalAlignment="Left" Foreground="#FFE11845"/>
+        <TextBox Grid.Row="1" x:Name="FloorEdit" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="230" Height="30" Margin="75,233,0,0" FontSize="16" BorderThickness="0,0,0,1" />
+        <Label Grid.Row="1" Content="Type:" FontSize="18" FontWeight="Bold" FontStyle="Italic" Height="40" Margin="74,285,256,215" Width="100" Foreground="#FFE11845"/>
+        <ComboBox Grid.Row="1" x:Name="typeRoomEdit" HorizontalAlignment="Left" Margin="74,325,0,0" VerticalAlignment="Top" Width="230" Height="35" SelectedIndex="1" FontSize="14" FontWeight="Bold" FontStyle="Italic">
             <ComboBoxItem Content="OperationRoom"/>
             <ComboBoxItem Content="Select Value"/>
             <ComboBoxItem Content="CancerRoom"/>
             <ComboBoxItem Content="RestRoom"/>
             <ComboBoxItem Content="CovidRoom"/>
         </ComboBox>
-        <TextBox Grid.Row="1" x:Name="DescriptionEdit" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="355" Height="96" Margin="40,417,0,0" />
-        <Label Grid.Row="1" Content="Description:" FontSize="24" FontWeight="Bold" FontStyle="Italic" Height="50" Margin="115,362,115,128" Width="200" HorizontalContentAlignment="Center"/>
-        <Button Content="Edit" Width="30" Height="30" HorizontalAlignment="Left" Margin="40,0,10,30" Grid.Row="2" FontSize="10" FontWeight="Bold" FontStyle="Italic" Click="submitEditRoom"></Button>
-        <Button Content="Delete" Width="30" Height="30" HorizontalAlignment="Left" Margin="360,0,10,30" Grid.Row="2" FontSize="9" FontWeight="Bold" FontStyle="Italic"  Click="submitDeleteRoom"></Button>
+        <TextBox Grid.Row="1" x:Name="DescriptionEdit" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="230" Height="80" Margin="74,430,0,0" FontSize="16" />
+        <Label Grid.Row="1" Content="Description:" FontSize="18" FontWeight="Bold" FontStyle="Italic" Height="40" Margin="73,390,157,110" Width="200" HorizontalContentAlignment="Left" Foreground="#FFE11845" IsEnabled="False"/>
+        <!-- <Button Content="Delete" Width="30" Height="30" HorizontalAlignment="Left" Margin="360,0,10,30" Grid.Row="2" FontSize="9" FontWeight="Bold" FontStyle="Italic"  Click="submitDeleteRoom"></Button>-->
+        <Image Width="30" Height="30" HorizontalAlignment="Left" Margin="40,0,10,30" Grid.Row="2" Source="/icons8-edit-60.png" MouseLeftButtonDown="submitEditRoom" />
+        <Label Grid.Row="2" Content="Edit" Width="70" Height="30" HorizontalContentAlignment="Center" Margin="20,50,340,20" MouseDoubleClick="submitEditRoom"/>
+        <Image Width="30" Height="30" HorizontalAlignment="Left" Margin="360,0,10,30" Grid.Row="2" Source="/icons8-garbage-66.png" MouseLeftButtonDown="submitDeleteRoom" />
+        <Label Grid.Row="2" Content="Delete" Width="70" Height="30" HorizontalContentAlignment="Center" Margin="340,57,20,33" RenderTransformOrigin="0.525,0.387" MouseDoubleClick="submitDeleteRoom"/>
 
     </Grid>
 </Window>

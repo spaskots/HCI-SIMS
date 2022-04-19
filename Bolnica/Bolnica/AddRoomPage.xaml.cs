@@ -25,9 +25,26 @@ namespace Bolnica
         public AddRoomPage()
         {
             InitializeComponent();
+            this.DataContext = this;
+            Int16 minId = 1;
+            Int16 temp = 1;
+            ID = "1";
+            List<Room> sobe = _controller.getAllRooms();
+            foreach (Room soba in sobe)
+            {
+                if (soba == null) { return; }
+                temp = Int16.Parse(soba.Id);
+                if(temp > minId) { minId = temp; }
+            }
+            minId += 1;
+            
+            ID = minId.ToString();
         }
         RoomController _controller = new RoomController();
         RoomRepository _repository = new RoomRepository();
+
+        public object ID { get; set; }
+
         private void addRoomSubmit(object sender, RoutedEventArgs e)
         {
             String id = idRoom.Text.ToString();
@@ -67,6 +84,9 @@ namespace Bolnica
             Room room = new Room(id, name, floor, description, roomType);
             _controller.Create(room);
             MessageBox.Show("Successfully added room!");
+            RoomPage director = new RoomPage();
+            director.Show();
+            this.Close();
         }
         private void goBack(object sender, RoutedEventArgs e)
         {

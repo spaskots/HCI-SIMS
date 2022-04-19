@@ -33,12 +33,5 @@ namespace Bolnica.Model
 
         }
 
-        //public Room(String Id, String Name, RoomType RoomType)
-        //{
-        //    this.Id = Id;
-        //    this.Name = Name;
-        //    this.RoomType = RoomType;
-
-        //}
     }
 }

@@ -41,5 +41,12 @@ namespace Bolnica
             director.Show();
             this.Close();
         }
+
+        private void addNewRoom(object sender, RoutedEventArgs e)
+        {
+            AddRoomPage director = new AddRoomPage();
+            director.Show();
+            this.Close();
+        }
     }
 }
