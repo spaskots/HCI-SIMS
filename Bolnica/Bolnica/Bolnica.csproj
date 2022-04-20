@@ -9,16 +9,37 @@
 
   <ItemGroup>
     <None Remove="doctorbaba.jpg" />
+    <None Remove="icons8-administrator-male-48.png" />
+    <None Remove="icons8-back-96.png" />
+    <None Remove="icons8-cure-64.png" />
+    <None Remove="icons8-edit-60.png" />
+    <None Remove="icons8-garbage-66.png" />
+    <None Remove="icons8-home-48.png" />
+    <None Remove="icons8-info-30.png" />
+    <None Remove="icons8-info-60.png" />
+    <None Remove="icons8-survey-50.png" />
+    <None Remove="icons8-tool-64.png" />
     <None Remove="POcetna3.png" />
     <None Remove="sign in.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ImageDirector\" />
     <Folder Include="View\" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="doctorbaba.jpg" />
+    <Resource Include="icons8-administrator-male-48.png" />
+    <Resource Include="icons8-back-96.png" />
+    <Resource Include="icons8-cure-64.png" />
+    <Resource Include="icons8-edit-60.png" />
+    <Resource Include="icons8-garbage-66.png" />
+    <Resource Include="icons8-home-48.png" />
+    <Resource Include="icons8-info-30.png" />
+    <Resource Include="icons8-info-60.png" />
+    <Resource Include="icons8-survey-50.png" />
+    <Resource Include="icons8-tool-64.png" />
     <Resource Include="POcetna3.png" />
     <Resource Include="sign in.png" />
   </ItemGroup>

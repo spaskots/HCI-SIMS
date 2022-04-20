@@ -1,2 +1,1 @@
-2206228800789,Pera,Peric,10/04/1984,+381056803387,stariMejll@gmail.com,pera,123,True,Nis,Serbia,SRB,21000
 2920546132156,Nikola,Nikolic,11/01/1997,+381052800487,noviMe2jl@gmail.com,nikola,123,True,Beograd,Serbia,SRB,21000
