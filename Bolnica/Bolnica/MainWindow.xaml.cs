@@ -28,7 +28,7 @@ namespace Bolnica
         }
         private void lekarLogIn(object sender, RoutedEventArgs e)
         {
-            LekarWindow lekar = new LekarWindow();
+            LekarPrijava lekar = new LekarPrijava();
             lekar.Show();
             this.Close();
         }

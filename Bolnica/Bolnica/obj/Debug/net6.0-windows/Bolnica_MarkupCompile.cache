@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\spase\OneDrive\Радна површина\SIMS_Dev\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\
+C:\Users\FTN\Documents\HCI-SIMS\Bolnica\Bolnica\obj\Debug\net6.0-windows\
 Bolnica
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\spase\OneDrive\Радна површина\SIMS_Dev\HCI-SIMS\Bolnica\Bolnica\App.xaml
-15351135918
+C:\Users\FTN\Documents\HCI-SIMS\Bolnica\Bolnica\App.xaml
+17-1271250367
 
-431169409869
-1941645785384
-AddGuestPatient.xaml;AddPatient.xaml;AddRoomPage.xaml;CreateAppointment.xaml;LekarPocetna.xaml;LekarPrijava.xaml;LekarR.xaml;LekarWindow.xaml;MainWindow.xaml;PatientOptions.xaml;ReadPatient.xaml;RoomPage.xaml;SingleRoom.xaml;Table\ViewPatients.xaml;View\Equipment.xaml;
+48702113653
+194-1951243044
+AddGuestPatient.xaml;AddPatient.xaml;AddRoomPage.xaml;ChangeAppointment.xaml;CreateAppointment.xaml;LekarPocetna.xaml;LekarPrijava.xaml;MainWindow.xaml;MedicalCard.xaml;MedicalReport.xaml;PatientOptions.xaml;ReadPatient.xaml;Recipe.xaml;RoomPage.xaml;SingleRoom.xaml;Table\ViewPatients.xaml;View\Equipment.xaml;
 
 False
 

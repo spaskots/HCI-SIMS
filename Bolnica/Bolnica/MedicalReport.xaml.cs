@@ -15,30 +15,19 @@ using System.Windows.Shapes;
 namespace Bolnica
 {
     /// <summary>
-    /// Interaction logic for LekarWindow.xaml
+    /// Interaction logic for MedicalReport.xaml
     /// </summary>
-    public partial class LekarWindow : Window
+    public partial class MedicalReport : Window
     {
-        public LekarWindow()
+        public MedicalReport()
         {
             InitializeComponent();
-            
+           
         }
-
-        
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            LekarPrijava lp = new LekarPrijava();
-            lp.Show();
+           
+            this.Close();
         }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            
-            LekarR lekar=new LekarR();
-            lekar.Show();
-        }
-        
     }
 }

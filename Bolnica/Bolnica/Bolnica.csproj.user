@@ -22,19 +22,14 @@
     <Compile Update="LekarPrijava.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LekarR.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="LekarWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="PatientOptions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ReadPatient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-	  <Compile Update="Table\ViewPatients.xaml.cs"></Compile>
+    <Compile Update="Table\ViewPatients.xaml.cs">
+    </Compile>
     <Compile Update="RoomPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -59,12 +54,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LekarPrijava.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="LekarR.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="LekarWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
