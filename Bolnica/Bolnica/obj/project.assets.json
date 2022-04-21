@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Stefan-PC\\.nuget\\packages\\": {}
+    "C:\\Users\\spase\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Workspace\\Uni\\6.semestar\\SiMS\\GitRepo\\Tmp\\Fix\\Fx\\Bolnica\\Bolnica\\Bolnica.csproj",
+      "projectUniqueName": "C:\\Users\\spase\\OneDrive\\Радна површина\\SIMS_Dev\\HCI-SIMS\\Bolnica\\Bolnica\\Bolnica.csproj",
       "projectName": "Bolnica",
-      "projectPath": "D:\\Workspace\\Uni\\6.semestar\\SiMS\\GitRepo\\Tmp\\Fix\\Fx\\Bolnica\\Bolnica\\Bolnica.csproj",
-      "packagesPath": "C:\\Users\\Stefan-PC\\.nuget\\packages\\",
-      "outputPath": "D:\\Workspace\\Uni\\6.semestar\\SiMS\\GitRepo\\Tmp\\Fix\\Fx\\Bolnica\\Bolnica\\obj\\",
+      "projectPath": "C:\\Users\\spase\\OneDrive\\Радна површина\\SIMS_Dev\\HCI-SIMS\\Bolnica\\Bolnica\\Bolnica.csproj",
+      "packagesPath": "C:\\Users\\spase\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\spase\\OneDrive\\Радна површина\\SIMS_Dev\\HCI-SIMS\\Bolnica\\Bolnica\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Stefan-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\spase\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
