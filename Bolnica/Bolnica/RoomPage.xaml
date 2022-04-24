@@ -53,9 +53,9 @@
         <Button Grid.Row="4" Content="Next" Width="30" Height="30" VerticalAlignment="Bottom" Click="next" HorizontalAlignment="Right"></Button>
         <Button  Grid.Row ="4" Content="Previous" Width="30" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="previous" ></Button>
 
-        <Grid HorizontalAlignment="Left" Height="Auto" Margin="20,10,0,30" Grid.Row="5" Width="70">
+        <Grid HorizontalAlignment="Left" Height="Auto" Margin="20,10,0,30" Grid.Row="5" Width="70" PreviewMouseDown ="roomPage">
             <Image Width="30" Height="30" HorizontalAlignment="Center" Margin="0,0,0,30" Source="/icons8-home-48.png" />
-            <Label Content="Home" Width="70" Height="30" HorizontalContentAlignment="Center" Margin="0,30,0,0"/>
+            <Label Content="Room" Width="70" Height="30" HorizontalContentAlignment="Center" Margin="0,30,0,0"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="Auto" Margin="100,10,0,30" Grid.Row="5" Width="70">
             <Image Width="30" Height="30" HorizontalAlignment="Center" Margin="0,0,0,30" Source="/icons8-cure-64.png" />
@@ -65,7 +65,7 @@
             <Image Width="30" Height="30" HorizontalAlignment="Center" Margin="0,0,0,30" Source="/icons8-survey-50.png" />
             <Label Content="Survey" Width="70" Height="30" HorizontalContentAlignment="Center" Margin="0,30,0,0"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="Auto" Margin="260,10,0,33" Grid.Row="5" Width="80">
+        <Grid HorizontalAlignment="Left" Height="Auto" Margin="260,10,0,33" Grid.Row="5" Width="80"  PreviewMouseDown ="equipment">
             <Image Width="30" Height="30" HorizontalAlignment="Left" Margin="20,0,0,27" Source="/icons8-tool-64.png" />
             <Label Content="Equipment" Width="80" Height="30" HorizontalContentAlignment="Center" Margin="0,27,0,0"/>
         </Grid>

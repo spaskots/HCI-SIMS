@@ -34,11 +34,15 @@
     <Compile Update="ReadPatient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-	  <Compile Update="Table\ViewPatients.xaml.cs"></Compile>
+    <Compile Update="Table\ViewPatients.xaml.cs">
+    </Compile>
     <Compile Update="RoomPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SingleRoom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\StaticEquipment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -83,6 +87,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Table\ViewPatients.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\StaticEquipment.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

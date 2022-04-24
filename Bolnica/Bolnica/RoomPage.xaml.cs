@@ -249,5 +249,18 @@ namespace Bolnica
             }
 
         }
+
+        private void roomPage(object sender, MouseButtonEventArgs e)
+        {
+            RoomPage director = new RoomPage();
+            director.Show();
+            this.Close();
+        }
+        private void equipment(object sender, MouseButtonEventArgs e)
+        {
+            View.Equipment director = new View.Equipment();
+            director.Show();
+            this.Close();
+        }
     }
 }

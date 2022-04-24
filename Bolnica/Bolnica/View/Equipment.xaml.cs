@@ -22,6 +22,11 @@ namespace Bolnica.View
         public Equipment()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
+
+       
+
+       
     }
 }
