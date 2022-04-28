@@ -17,7 +17,11 @@ namespace Bolnica.Controller
             // TODO: implement
             return _service.AddStaticEquipment(staticEquipment);
         }
-
+        public MoveExecution MoveExecutionSubmit(MoveExecution me)
+        {
+            // TODO: implement
+            return _service.MoveExecutionSubmit(me);
+        }
         public StaticEquipment Update(StaticEquipment staticEquipment)
         {
             // TODO: implement

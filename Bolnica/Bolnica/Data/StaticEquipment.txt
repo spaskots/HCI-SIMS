@@ -1,0 +1,4 @@
+﻿1,Krevet,5,1
+2,Stolica,20,1
+1,Respirator,2,1
+1,Krevet,5,1

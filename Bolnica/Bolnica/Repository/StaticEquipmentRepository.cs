@@ -12,6 +12,7 @@ namespace Bolnica.Repository
     internal class StaticEquipmentRepository
     {
         String lokacijaStaticEquipment = @"..\..\..\Data\StaticEquipment.txt";
+        String lokacijaMoveExecution = @"..\..\..\Data\MoveExecution.txt";
 
         public StaticEquipmentRepository()
         {
@@ -29,6 +30,20 @@ namespace Bolnica.Repository
                     sw.Write("");
                 }
             }
+            if (!File.Exists(lokacijaMoveExecution))
+            {
+                using (StreamWriter sw = File.CreateText(lokacijaMoveExecution))
+                {
+                    sw.Write("");
+                }
+            }
+            if (!File.Exists(lokacijaMoveExecution))
+            {
+                using (StreamWriter sw = File.CreateText(lokacijaMoveExecution))
+                {
+                    sw.Write("");
+                }
+            }
         }
         public List<StaticEquipment> GetAllStaticEquipment()
         {
@@ -42,16 +57,22 @@ namespace Bolnica.Repository
                 else
                 {
                     string[] fields = line.Split(',');
-
                     int id = Convert.ToInt32(fields[0]);
                     string name = fields[1];
                     int quantity = Convert.ToInt32(fields[2]);
-
                     StaticEquipment staticEquipment = new StaticEquipment(id, name, quantity);
                     staticEquipments.Add(staticEquipment);
                 }
             }
             return staticEquipments;
+        }
+        public MoveExecution MoveExecutionSubmit(MoveExecution moveExecution)
+        {
+            String noviRed = moveExecution.staticEquipmentId + "," + moveExecution.Date + "," + moveExecution.ToRoomId + moveExecution.Quantity + "," + moveExecution.Description;
+            StreamWriter write = new StreamWriter(lokacijaMoveExecution, true);
+            write.WriteLine(noviRed);
+            write.Close();
+            return moveExecution;
         }
         public StaticEquipment AddStaticEquipment(StaticEquipment staticEquipment)
         {
@@ -93,6 +114,32 @@ namespace Bolnica.Repository
             Delete(oldStaticEquipment);
             AddStaticEquipment(staticEquipment);
             return staticEquipment;
+        }
+        public Boolean MoveExecutionDo(StaticEquipment staticEquipment)
+        {
+            DateTime now = DateTime.Now;
+
+            string[] lines = System.IO.File.ReadAllLines(lokacijaMoveExecution);
+            foreach (string line in lines)
+            {
+                if (line == "")
+                    continue;
+                else
+                {
+                    string[] fields = line.Split(',');
+                    int StaticEquipmentId = Convert.ToInt32(fields[0]);
+                    DateTime dateOfMove = Convert.ToDateTime(fields[1]);
+                    String toRoom = fields[2];
+                    int quantity = Convert.ToInt32(fields[3]);
+                    String Description = fields[4];
+                    if (dateOfMove.Date == now.Date) { //Ovo znaci da move treba da se obavi 
+                        StaticEquipment zaUpdateEquipmenet = FindById(StaticEquipmentId);
+                        zaUpdateEquipmenet = null;
+                    }
+                };
+            }
+
+            return false; //Nije zavrsena metoda.
         }
     }
 }

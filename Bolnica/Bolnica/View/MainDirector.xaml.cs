@@ -15,34 +15,24 @@ using System.Windows.Shapes;
 namespace Bolnica.View
 {
     /// <summary>
-    /// Interaction logic for Equipment.xaml
+    /// Interaction logic for MainDirector.xaml
     /// </summary>
-    public partial class Equipment : Window
+    public partial class MainDirector : Window
     {
-        public Equipment()
+        public MainDirector()
         {
             InitializeComponent();
-            this.DataContext = this;
         }
         private void roomPage(object sender, MouseButtonEventArgs e)
         {
-            RoomPage director = new RoomPage();
-            director.Show();
-            this.Close();
+            PagesFrame.Content = new FourCardsView(0);
 
         }
         private void equipment(object sender, MouseButtonEventArgs e)
         {
-            
-
-        }
-
-        private void Grid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            StaticEquipmentRooms page = new StaticEquipmentRooms();
-            page.Show();
+            RoomPage rp = new RoomPage();
+            rp.Show();
             this.Close();
-
         }
     }
 }

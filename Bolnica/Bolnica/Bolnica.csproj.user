@@ -42,7 +42,22 @@
     <Compile Update="SingleRoom.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\StaticEquipment.xaml.cs">
+    <Compile Update="View\FourCardsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MainDirector.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MainFooter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MoveEquipmentWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SingleRoomPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\StaticEquipmentRooms.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -89,7 +104,22 @@
     <Page Update="Table\ViewPatients.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\StaticEquipment.xaml">
+    <Page Update="View\FourCardsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainDirector.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainFooter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MoveEquipmentWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SingleRoomPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\StaticEquipmentRooms.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

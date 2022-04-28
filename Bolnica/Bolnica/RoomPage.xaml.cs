@@ -40,27 +40,22 @@ namespace Bolnica
                 {
                     Room soba = rooms.ElementAt((int)temp);
                     room.Id = soba.Id; room.Name = soba.Name; room.Floor = soba.Floor; room.Description = soba.Description; room.RoomType = soba.RoomType;
-
                 }
                 catch (Exception nekaGreska)
                 {
                     room = null;
                 }
-                if (room == null && x == 0) { skrol--; return; }
+                if (room == null && x == 0) { return; }
                 if (x == 0)
                 {
-                    RoomType1.Text = room.RoomType.ToString();
-                    Id1.Text = room.Id;
-                    Description1.Text = room.Description;
+                    RoomType1.Text = room.RoomType.ToString(); Id1.Text = room.Id; Description1.Text = room.Description;
                 }
                 if (x == 1)
                 {
                     if (room == null) { RoomType2.Text = ""; Id2.Text = ""; Description2.Text = ""; RoomType3.Text = ""; Id3.Text = ""; Description3.Text = ""; RoomType4.Text = ""; Id4.Text = ""; Description4.Text = ""; return; }
                     else
                     {
-                        RoomType2.Text = room.RoomType.ToString();
-                        Id2.Text = room.Id;
-                        Description2.Text = room.Description;
+                        RoomType2.Text = room.RoomType.ToString(); Id2.Text = room.Id; Description2.Text = room.Description;
                     }
                 }
                 if (x == 2)
@@ -68,9 +63,7 @@ namespace Bolnica
                     if (room == null) { RoomType3.Text = ""; Id3.Text = ""; Description3.Text = ""; RoomType4.Text = ""; Id4.Text = ""; Description4.Text = ""; return; }
                     else
                     {
-                        RoomType3.Text = room.RoomType.ToString();
-                        Id3.Text = room.Id;
-                        Description3.Text = room.Description;
+                        RoomType3.Text = room.RoomType.ToString(); Id3.Text = room.Id; Description3.Text = room.Description;
                     }
                 }
                 if (x == 3)
@@ -78,9 +71,7 @@ namespace Bolnica
                     if (room == null) { RoomType4.Text = ""; Id4.Text = ""; Description4.Text = ""; }
                     else
                     {
-                        RoomType4.Text = room.RoomType.ToString();
-                        Id4.Text = room.Id;
-                        Description4.Text = room.Description;
+                        RoomType4.Text = room.RoomType.ToString(); Id4.Text = room.Id; Description4.Text = room.Description;
                     }
                 }
                 temp++;
