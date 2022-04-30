@@ -42,6 +42,9 @@
     <Compile Update="SingleRoom.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\AddNewRoom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\FourCardsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -49,6 +52,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\MainFooter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MoveEquipmentPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\MoveEquipmentWindow.xaml.cs">
@@ -104,6 +110,9 @@
     <Page Update="Table\ViewPatients.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\AddNewRoom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\FourCardsView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -111,6 +120,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MainFooter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MoveEquipmentPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MoveEquipmentWindow.xaml">

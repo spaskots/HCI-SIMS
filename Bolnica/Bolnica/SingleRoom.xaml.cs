@@ -91,6 +91,9 @@ namespace Bolnica
             else { MessageBox.Show("Room Successfully Deleteted!"); }
         }
 
+        private void renovation(object sender, MouseButtonEventArgs e)
+        {
 
+        }
     }
 }

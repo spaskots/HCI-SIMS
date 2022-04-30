@@ -1,4 +1,9 @@
-﻿1,Krevet,5,1
-2,Stolica,20,1
-1,Respirator,2,1
-1,Krevet,5,1
+4,Kapija,35,14
+3,Respirator,2,1
+1,Krevet,3,14
+5,Krevet,2,3
+
+6,Stolica,10,6
+7,Daske,3,1
+2,Stolica,6,1
+8,Stolica,4,3

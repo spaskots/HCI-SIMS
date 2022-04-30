@@ -25,12 +25,16 @@ namespace Bolnica.View
         }
         private void roomPage(object sender, MouseButtonEventArgs e)
         {
-            PagesFrame.Content = new FourCardsView(0);
+            PagesFrame.Content = new FourCardsView("PrikazSoba");
 
         }
         private void equipment(object sender, MouseButtonEventArgs e)
         {
-            RoomPage rp = new RoomPage();
+            PagesFrame.Content = new FourCardsView("StaticEquipmentSelected");
+        }
+        private void moveExe(object sender, MouseButtonEventArgs e)
+        {
+            MoveEquipmentWindow rp = new MoveEquipmentWindow(2);
             rp.Show();
             this.Close();
         }

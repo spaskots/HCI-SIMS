@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="SingleRoom" Height="720" Width="430">
+        Title="SingleRoom" Height="600" Width="430">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="540" />
-            <RowDefinition Height="120" />
         </Grid.RowDefinitions>
         <Border  Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,3" />
         <Image Width="30" Height="30" HorizontalAlignment="Left" Margin="20,20,0,0" Grid.Row="0" Source="/icons8-back-96.png" MouseLeftButtonDown="backClick" />
-        <Label Grid.Row="0" Content="Single Room" FontSize="24" FontWeight="Bold" Width="250" Height="60" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,60,0"/>
+        <Label Grid.Row="0" Content="Single Room" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,0"/>
         <Label Grid.Row="1" Content="Id:" FontWeight="Bold" FontStyle="Normal" Width="100" Height="25" Margin="0,45,0,455" Foreground="Black" HorizontalAlignment="Left"/>
         <TextBox Grid.Row="1" x:Name="IdEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Width="410" Height="30" Margin="0,78,0,0" FontWeight="Normal" VerticalAlignment="Top" TextAlignment="Left" FontSize="16" IsEnabled="False" BorderThickness="0,0,0,0" />
         <Label Grid.Row="1" Content="Name:" FontWeight="Bold" FontStyle="Normal" Width="100" Height="25" Margin="0,123,0,392" HorizontalAlignment="Left" Foreground="Black" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
@@ -60,6 +59,7 @@
         <!-- <Button Content="Delete" Width="30" Height="30" HorizontalAlignment="Left" Margin="360,0,10,30" Grid.Row="2" FontSize="9" FontWeight="Bold" FontStyle="Italic"  Click="submitDeleteRoom"></Button>-->
         <Image Width="25" Height="25" HorizontalAlignment="Right" Grid.Row="0" Source="/icons8-edit-60.png" MouseLeftButtonDown="submitEditRoom" VerticalAlignment="Bottom" Margin="0,0,10,10" />
         <Image Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,50,10" Grid.Row="0" Source="/icons8-garbage-66.png" MouseLeftButtonDown="submitDeleteRoom" VerticalAlignment="Bottom" />
+        <Image Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,90,10" Grid.Row="0" Source="/ImageDirector/icons8-paint-brush-60.png" MouseLeftButtonDown="renovation" VerticalAlignment="Bottom" />
         <!--<Label Grid.Row="0" Content="Edit" Width="70" Height="30" HorizontalContentAlignment="Center" Margin="20,50,340,20" MouseDoubleClick="submitEditRoom"/>
         <Label Grid.Row="2" Content="Delete" Width="70" Height="30" HorizontalContentAlignment="Center" Margin="340,57,20,33" RenderTransformOrigin="0.525,0.387" MouseDoubleClick="submitDeleteRoom"/>-->
 

@@ -13,26 +13,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Bolnica.View
 {
     /// <summary>
-    /// Interaction logic for MoveEquipmentWindow.xaml
+    /// Interaction logic for MoveEquipmentPage.xaml
     /// </summary>
-    public partial class MoveEquipmentWindow : Window
+    public partial class MoveEquipmentPage : Page
     {
         RoomController room_controller = new RoomController();
         StaticEquipmentController staticEquipment_controller = new StaticEquipmentController();
         StaticEquipmentRepository staticEquipment_repository = new StaticEquipmentRepository();
         RoomRepository room_repository = new RoomRepository();
         StaticEquipment staticMoveLater = new StaticEquipment();
-        public MoveEquipmentWindow(int staticEquipmentId)
+        public MoveEquipmentPage(int staticEquipmentId)
         {
             InitializeComponent();
 
             Boolean zavrsio = staticEquipment_repository.MoveExecutionDo();
-            if(zavrsio == true) { MessageBox.Show("Proverio da li ima nesto da se premsta!"); } 
+            if (zavrsio == true) { MessageBox.Show("Proverio da li ima nesto da se premsta!"); }
 
             StaticEquipment se = staticEquipment_repository.FindById(staticEquipmentId);
 
@@ -40,7 +41,7 @@ namespace Bolnica.View
             staticMoveLater.Quantity = se.Quantity;
             staticMoveLater.roomId = se.roomId;
 
-            EquipmentMove.Text = se.Id + "  " + se.Name + "  " + "Available - " + se.Quantity;
+            EquipmentMove.Text = se.Id + "  " + se.Name + "  " + "Available Quantity: " + se.Quantity;
             Room fromRoom = room_repository.FindById(se.roomId);
             FromRoomMove.Text = fromRoom.Id + "  " + fromRoom.Name + "  " + fromRoom.RoomType;
             List<Room> rooms = room_controller.getAllRooms();
@@ -59,8 +60,8 @@ namespace Bolnica.View
             {
                 quantityMove = Int32.Parse(quantityMoveString);
             }
-            catch (Exception easda){ MessageBox.Show("Pogresan format, probaj opet!"); return; }
-            if(quantityMove > staticMoveLater.Quantity) { MessageBox.Show("Enter Valid Quantity!"); return; }
+            catch (Exception easda) { MessageBox.Show("Pogresan format, probaj opet!"); return; }
+            if (quantityMove > staticMoveLater.Quantity) { MessageBox.Show("Enter Valid Quantity!"); return; }
             DateTime? selectedDate = OnDate.SelectedDate;
             DateTime dtValue;
             if (selectedDate.HasValue)
@@ -71,11 +72,11 @@ namespace Bolnica.View
             else { MessageBox.Show("Izaberite datum Premestanja!"); return; }
 
             int selectedIndex = -1;
-           
+
             selectedIndex = ToRoomMove.SelectedIndex;
             List<Room> rooms = room_controller.getAllRooms();
             Room soba = rooms.ElementAt(selectedIndex);
-            if(soba.Id == staticMoveLater.roomId) { MessageBox.Show("Ne moze u istu sobu, Izaberi Drugu!"); return; }
+            if (soba.Id == staticMoveLater.roomId) { MessageBox.Show("Ne moze u istu sobu, Izaberi Drugu!"); return; }
 
             String description = DescriptionMove.Text.ToString();
 
@@ -83,5 +84,11 @@ namespace Bolnica.View
             staticEquipment_controller.MoveExecutionSubmit(me);
             MessageBox.Show("Uspesno zabelezeno!");
         }
+        private FourCardsView fcw;
+        private void back(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(fcw); // Nije dobro, Ispravi.
+        }
     }
 }
+
