@@ -1,12 +1,14 @@
-﻿<Window x:Class="Bolnica.AddRoomPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Bolnica"
-        mc:Ignorable="d"
-        Title="AddRoomPage" Height="600" Width="430">
-    <Grid Margin="0,1,0,-1">
+﻿<Page x:Class="Bolnica.View.AddNewRoom"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="430"
+      Title="AddNewRoom">
+
+    <Grid x:Name="AddNewRoomContent">
         <Label Content="Add New Room" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Foreground="#FFF2CA19" RenderTransformOrigin="0.204,3.57" FontSize="36" FontWeight="Bold"/>
         <Label Content="You Can Always Change It Later" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Foreground="#FFF2CA19" RenderTransformOrigin="0.204,3.57"/>
         <Label Content="Id:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.204,3.57" FontWeight="Bold" VerticalContentAlignment="Stretch" Margin="0,140,0,0"/>
@@ -28,5 +30,7 @@
 
         <Button Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="25" Width="100" Click="addRoomSubmit" FontWeight="Normal" Foreground="Black" Background="#FFF2CA19" BorderThickness="1,1,1,1" BorderBrush="Black" Margin="0,0,0,50"/>
         <Label MouseDoubleClick="goBack" Content="Go Back" Width="100" Height="25" Foreground="#FF0057E9" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+
+
     </Grid>
-</Window>
+</Page>

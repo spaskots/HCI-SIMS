@@ -13,16 +13,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bolnica
+namespace Bolnica.View
 {
     /// <summary>
-    /// Interaction logic for SingleRoom.xaml
+    /// Interaction logic for SingleRoomPage.xaml
     /// </summary>
-    public partial class SingleRoom : Window
+    public partial class SingleRoomPage : Page
     {
-        public SingleRoom(Room room)
+        public SingleRoomPage(Room room)
         {
             InitializeComponent();
             IdEdit.Text = room.Id.ToString();
@@ -36,7 +37,7 @@ namespace Bolnica
         {
             RoomPage director = new RoomPage();
             director.Show();
-            this.Close();
+           // this.Close();
         }
         RoomRepository _repository = new RoomRepository();
         RoomController _controller = new RoomController();
@@ -77,23 +78,18 @@ namespace Bolnica
             MessageBox.Show("Success!");
             RoomPage director = new RoomPage();
             director.Show();
-            this.Close();
+            //this.Close();
         }
         private void submitDeleteRoom(object sender, RoutedEventArgs e)
         {
             String id = IdEdit.Text;
             Room rDelete = _repository.FindById(id);
-            if(rDelete!=null) { _controller.Delete(rDelete); }
+            if (rDelete != null) { _controller.Delete(rDelete); }
             RoomPage director = new RoomPage();
             director.Show();
-            this.Close();
+           // this.Close();
             if (rDelete == null) { MessageBox.Show("Don't Change The Id,  Please Try Again!"); }
             else { MessageBox.Show("Room Successfully Deleteted!"); }
-        }
-
-        private void renovation(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

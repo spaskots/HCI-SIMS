@@ -10,39 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Bolnica.View
 {
     /// <summary>
-    /// Interaction logic for Equipment.xaml
+    /// Interaction logic for MainFooter.xaml
     /// </summary>
-    public partial class Equipment : Window
+    public partial class MainFooter : Page
     {
-        public Equipment()
+        public MainFooter()
         {
             InitializeComponent();
-            this.DataContext = this;
         }
         private void roomPage(object sender, MouseButtonEventArgs e)
         {
             RoomPage director = new RoomPage();
             director.Show();
-            this.Close();
 
         }
         private void equipment(object sender, MouseButtonEventArgs e)
         {
-            
-
-        }
-
-        private void Grid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            StaticEquipmentRooms page = new StaticEquipmentRooms();
-            page.Show();
-            this.Close();
-
         }
     }
 }

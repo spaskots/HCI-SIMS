@@ -42,7 +42,7 @@ namespace Bolnica
         RoomController _controller = new RoomController();
         private void directorAddRoom(object sender, RoutedEventArgs e)
         {
-            RoomPage room = new RoomPage();
+            View.MainDirector room = new View.MainDirector();
             room.Show();
             this.Close();
 
