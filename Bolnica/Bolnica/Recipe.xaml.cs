@@ -28,6 +28,19 @@ namespace Bolnica
             
             this.Close();
         }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            CreateRecipe cr=new CreateRecipe();
+            cr.Show();
+            
+        }
+        private void change_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeRecipe cr=new ChangeRecipe();
+            cr.Show();
+
+        }
     }
    
 }

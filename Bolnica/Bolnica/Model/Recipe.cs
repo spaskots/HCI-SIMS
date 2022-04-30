@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Bolnica.Service;
 namespace Bolnica.Model
 {
-    public class Recipe
+    public class RecipeR
     {
         public int id;
         public String medicine;
@@ -16,7 +16,7 @@ namespace Bolnica.Model
         public String startTime;
 
         public Patient patient;
-        public Recipe(int id, String medicine, Double quantity, String instruction, Double howOften, String startTime)
+        public RecipeR(int id, String medicine, Double quantity, String instruction, Double howOften, String startTime,String idPatient)
         {
             this.id = id;
             this.medicine = medicine;
@@ -24,11 +24,26 @@ namespace Bolnica.Model
             this.instruction = instruction;
             this.howOften = howOften;
             this.startTime = startTime;
+            this.patient = findPatient(idPatient);
         }
 
 
-        public MedicalCard medicalCard;
+        public MedCard medicalCard;
+        public Patient findPatient(string id)
+        {
+            Patient patient = null;
+            PatientService patientService = new PatientService();
+            List<Patient> pacijenti = patientService.getAllPatient();
+            foreach (Patient p in pacijenti)
+            {
+                if (p.Id == id)
+                {
+                    patient = p;
+                    break;
+                }
+            }
+            return patient;
+        }
 
-        
     }
 }

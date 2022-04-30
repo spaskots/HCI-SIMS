@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\FTN\\.nuget\\packages\\": {}
+    "C:\\Users\\Korisnik\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FTN\\Documents\\HCI-SIMS\\Bolnica\\Bolnica\\Bolnica.csproj",
+      "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\FTN\\Treca godina\\Specifikacija i modeliranje softvera\\ProjekatSIMS - Copy\\HCI-SIMS\\Bolnica\\Bolnica\\Bolnica.csproj",
       "projectName": "Bolnica",
-      "projectPath": "C:\\Users\\FTN\\Documents\\HCI-SIMS\\Bolnica\\Bolnica\\Bolnica.csproj",
-      "packagesPath": "C:\\Users\\FTN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FTN\\Documents\\HCI-SIMS\\Bolnica\\Bolnica\\obj\\",
+      "projectPath": "C:\\Users\\Korisnik\\Desktop\\FTN\\Treca godina\\Specifikacija i modeliranje softvera\\ProjekatSIMS - Copy\\HCI-SIMS\\Bolnica\\Bolnica\\Bolnica.csproj",
+      "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Korisnik\\Desktop\\FTN\\Treca godina\\Specifikacija i modeliranje softvera\\ProjekatSIMS - Copy\\HCI-SIMS\\Bolnica\\Bolnica\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\FTN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

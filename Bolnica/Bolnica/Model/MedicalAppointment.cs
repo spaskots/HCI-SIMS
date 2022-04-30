@@ -13,7 +13,7 @@ namespace Bolnica.Model
     public class MedicalAppointment
     {
 
-        public int id { get; set; } 
+        public int id { get; set; }
 
         public String StartTime { set; get; }
         public double Duration { set; get; }
@@ -28,7 +28,7 @@ namespace Bolnica.Model
         {
             return doctor;
         }
-        
+
         /// <pdGenerated>default parent setter</pdGenerated>
         /// <param>newDoctor</param>
         public void SetDoctor(Doctor newDoctor)
@@ -52,8 +52,8 @@ namespace Bolnica.Model
         {
             this.room = r;
         }
-        
-        public MedicalAppointment( string patientId, string doctorId, String startTime, double duration, AppointmentType type)
+
+        public MedicalAppointment(int id, string patientId, string doctorId, String startTime, double duration, AppointmentType type)
 
         {
 
@@ -63,17 +63,30 @@ namespace Bolnica.Model
             this.StartTime = startTime;
             this.Duration = duration;
             this.Type = type;
-           
+
 
         }
-        public MedicalAppointment( int id,string patientId, string doctorId, String startTime, double duration, AppointmentType type,string roomId)
+        public MedicalAppointment(string patientId, string doctorId, String startTime, double duration, AppointmentType type)
 
         {
-            
+
             this.id = id;
             this.doctor = findDoctor(doctorId);
             this.Patient = findPatient(patientId);
-            this.room=findRoom(roomId);
+            this.StartTime = startTime;
+            this.Duration = duration;
+            this.Type = type;
+
+
+        }
+        public MedicalAppointment(int id, string patientId, string doctorId, String startTime, double duration, AppointmentType type, string roomId)
+
+        {
+
+            this.id = id;
+            this.doctor = findDoctor(doctorId);
+            this.Patient = findPatient(patientId);
+            this.room = findRoom(roomId);
             this.StartTime = startTime;
             this.Duration = duration;
             this.Type = type;
@@ -83,10 +96,10 @@ namespace Bolnica.Model
         {
             Doctor doctor = null;
             LekarService lekarService = new LekarService();
-            List<Doctor> lekari =lekarService.getAllDoctors();
+            List<Doctor> lekari = lekarService.getAllDoctors();
             foreach (Doctor l in lekari)
             {
-                if (l.Id==id)
+                if (l.Id == id)
                 {
                     doctor = l;
                     break;
@@ -101,7 +114,7 @@ namespace Bolnica.Model
             List<Patient> pacijenti = patientService.getAllPatient();
             foreach (Patient p in pacijenti)
             {
-                if (p.Id==id)
+                if (p.Id == id)
                 {
                     patient = p;
                     break;
@@ -128,4 +141,6 @@ namespace Bolnica.Model
         }
 
     }
+
 }
+

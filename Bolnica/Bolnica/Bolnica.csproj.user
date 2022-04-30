@@ -13,7 +13,19 @@
     <Compile Update="AddPatient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ChangeMedicalReport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChangeRecipe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CreateAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CreateMedicalReport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CreateRecipe.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LekarPocetna.xaml.cs">
@@ -47,7 +59,19 @@
     <Page Update="AddRoomPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ChangeMedicalReport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChangeRecipe.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CreateAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CreateMedicalReport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CreateRecipe.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LekarPocetna.xaml">

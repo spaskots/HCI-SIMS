@@ -26,6 +26,9 @@ namespace Bolnica.Controller
         {
             appointmentService.update(ma);
         }
-       
+        public List<int> getAllId()
+        {
+            return appointmentService.getAllId();
+        }
     }
 }

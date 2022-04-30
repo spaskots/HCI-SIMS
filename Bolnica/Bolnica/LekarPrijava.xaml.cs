@@ -25,6 +25,7 @@ namespace Bolnica
         public static string SetValueForUsername = "";
 
         UserController controller = new UserController();
+       
         public LekarPrijava()
         {
             InitializeComponent();
@@ -36,9 +37,9 @@ namespace Bolnica
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            
-                string username=Username.Text.ToString();
+
+           
+            string username=Username.Text.ToString();
             SetValueForUsername = username;
             string password=Password.Password.ToString();
             RegisteredUser ru = new RegisteredUser(username, password);

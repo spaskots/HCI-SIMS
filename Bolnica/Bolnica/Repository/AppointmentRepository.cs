@@ -79,6 +79,30 @@ namespace Bolnica.Repository
             }
             return ma;
         }
+        public List<int> getAllId()
+        {
+
+
+
+            List<int> ids = new List<int>();
+            ids.Clear();
+           
+            string[] lines = System.IO.File.ReadAllLines(lokacijaAppointment);
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(',');
+                if (line == "")
+                {
+                    continue;
+                }
+
+
+                int id = Convert.ToInt32(fields[0]);
+                ids.Add(id);
+
+            }
+            return ids;
+        }
         public void update(MedicalAppointment ma)
         {
             MedicalAppointment stari = this.GetOne(ma.id);

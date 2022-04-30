@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
         Title="MedicalCard" Height="450" Width="800">
-    
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
@@ -22,33 +22,34 @@
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="5*"/>
+          
+            <ColumnDefinition Width="13*"/>
             <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Medical Card"   Background="#FFF3EDED" Foreground="Black"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Elephant" FontSize="55" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.ColumnSpan="5"/>
-        <Label Content="Personal data"  Foreground="#FFCC0000"    Grid.Row="2" Grid.Column="1" FontFamily="Elephant" FontSize="19" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Height="Auto" HorizontalContentAlignment="Center" />
-        <Image Grid.Row="3" Grid.Column="1" Source="/Patient.png" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,0,0" Grid.RowSpan="3" Height="Auto"/>
-        <Image Grid.Row="3" Grid.Column="4" Grid.RowSpan="3" Source="/MedicalReport.jpg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <Label Content="Medical report"  Foreground="#FFCC0000"    Grid.Row="2" Grid.Column="4" FontFamily="Elephant" FontSize="19" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" />
-        <Button x:Name="MRecipe" Content="Make recipe" BorderBrush="BLack" BorderThickness="3" Grid.Row="8" Grid.Column="4" Background="#FFCC0000" Foreground="White" FontFamily="Elephant" FontSize="19" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Button_Click_1" Grid.RowSpan="2"/>
-        <TextBox x:Name="Name"  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Text="" Grid.Row="3" Grid.Column="2"/>
-        <TextBox x:Name="Surname" Text=""  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Grid.Row="4" Grid.Column="2"/>
-        <TextBox x:Name="Birth" Text=""  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Grid.Row="5" Grid.Column="2"/>
-        <TextBox x:Name="IdPatient" Text=""  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Grid.Row="8" Grid.Column="1"/>
-        <TextBox x:Name="IdMedicalCard" Text=""  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Grid.Row="9" Grid.Column="1"/>
-        <Label Content="Patient Id" Grid.Row="8" Foreground="#FFCC0000" FontFamily="Elephant" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" />
-        <Label Content="Id Card" Grid.Row="9" Foreground="#FFCC0000" FontFamily="Elephant" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" />
-        <Button x:Name="MedRep" Content="Show"  Grid.Row="6" Grid.Column="4"   Background="#FF082F4B" Foreground="White" FontSize="19" FontFamily="Elephant" BorderBrush="Black" BorderThickness="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Button_Click"/>
-        <Image Grid.Row="8" Grid.Column="5" Source="/Recipe.jpg" Grid.RowSpan="2"/>
-        <Image Source="/MedicalCard.jpg"/>
-
+        <Label Content="Medical Card"   Background="#FFF3EDED" Foreground="Black"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Elephant" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" Grid.ColumnSpan="4"/>
+        <Label Content="Personal data"  Background="#FFF3EDED" Foreground="#FFCC0000"    Grid.Row="2" Grid.Column="2" FontFamily="Elephant" FontSize="19" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Height="Auto" HorizontalContentAlignment="Center" Padding="0,0,0,0" />
+        <Image Grid.Row="4"  Grid.Column="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="3" Height="Auto" Source="/Patient.png"/>
+        <Image Grid.Row="3" Grid.Column="5" Grid.RowSpan="3"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/MedicalReport.jpg"/>
+        <Label Content="Medical report"   Background="#FFF3EDED" Foreground="#FFCC0000"    Grid.Row="2" Grid.Column="5" FontFamily="Elephant" FontSize="19" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" Padding="0,0,0,0" />
+        <Button x:Name="MRecipe" Content="Make recipe" BorderBrush="BLack" BorderThickness="3" Grid.Row="8" Grid.Column="5" Background="#FFCC0000" Foreground="White" FontFamily="Elephant" FontSize="19" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Button_Click_1" Grid.RowSpan="2"/>
+        <TextBox x:Name="Name"  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Text="" Grid.Row="4" Grid.Column="3"/>
+        <TextBox x:Name="Surname" Text=""  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Grid.Row="5" Grid.Column="3"/>
+        <TextBox x:Name="Birth" Text=""  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Grid.Row="6" Grid.Column="3"/>
+        <TextBox x:Name="IdPatient" Text=""  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Grid.Row="8" Grid.Column="3"/>
+        <TextBox x:Name="IdMedicalCard" Text=""  FontSize="15" FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" Grid.Row="9" Grid.Column="3" TextChanged="IdMedicalCard_TextChanged"/>
+        <Label Content="Patient Id" Grid.Row="8"   Background="#FFF3EDED" Foreground="#FFCC0000" FontFamily="Elephant" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" Grid.Column="2" />
+        <Label Content="Id Card" Grid.Row="9"  Background="#FFF3EDED" Foreground="#FFCC0000" FontFamily="Elephant" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" Grid.Column="2" />
+        <Button x:Name="MedRep" Content="Make report"  Grid.Row="6" Grid.Column="5"   Background="#FF082F4B" Foreground="White" FontSize="19" FontFamily="Elephant" BorderBrush="Black" BorderThickness="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Button_Click"/>
+        <Image Source="/MedicalCard.jpg" Grid.Column="1" />
+        <Image Grid.Row="8" Grid.Column="6" Grid.RowSpan="2" Source="/Recipe.jpg"  />
         <Image x:Name="Back" Grid.Column="6"  MouseLeftButtonDown="Back_MouseLeftButtonDown"  Source="/back.png" HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.682" Height="Auto"/>
-        <Label Content="Back" Grid.Row="1" Grid.Column="6" FontFamily="Elephant" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0"/>
+        <Label Content="Back" Grid.Row="1" Grid.Column="6" FontFamily="Elephant" FontSize="20" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0,0,0,0"/>
 
     </Grid>
 </Window>

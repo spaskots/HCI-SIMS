@@ -41,8 +41,8 @@
         <Label Content="Doctor id"   Foreground="#FFCC0000" FontFamily="Elephant" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"/>
         <Label Content="Patient id"  Foreground="#FFCC0000" FontFamily="Elephant" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"/>
         <Label Content="Type id"  Foreground="#FFCC0000" FontFamily="Elephant" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"/>
-        <Image Grid.Row="0" Source="/olovka.png" />
-        <Image x:Name="Back" Grid.Column="2"  MouseLeftButtonDown="Back_MouseLeftButtonDown"  Source="/back.png" HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.682" Height="Auto"/>
+        <Image Grid.Row="0" Source="/olovka.png"   />
+        <Image x:Name="Back" Grid.Column="2"  MouseLeftButtonDown="Back_MouseLeftButtonDown"   HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.682" Height="Auto" Source="/back.png"/>
         <Label Content="Back" Grid.Row="1" Grid.Column="2" FontFamily="Elephant" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0"/>
 
     </Grid>

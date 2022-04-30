@@ -58,8 +58,10 @@ namespace Bolnica
             String doctorId = DoctorId.Text;
             AppointmentType type;
             Enum.TryParse(TypeId.Text.ToString(), out type);
-            MedicalAppointment ma = new MedicalAppointment( patientId, doctorId, startTime, duration, type);
-           
+            int id = LekarPocetna.ma.id;
+
+            MedicalAppointment ma = new MedicalAppointment(patientId, doctorId, startTime, duration, type);
+            ma.id = id;
             if (MessageBox.Show("Are you sure you want to change the appointment?", "Delete appointment", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 appointmentController.update(ma);

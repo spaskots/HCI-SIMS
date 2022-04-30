@@ -67,7 +67,7 @@ namespace Bolnica
        
         private void delete_Click(object sender,RoutedEventArgs e)
         {
-            MedicalAppointment ma=MedicalAppointmentView.SelectedItem as MedicalAppointment;
+             ma=MedicalAppointmentView.SelectedItem as MedicalAppointment;
            
             if (MessageBox.Show("Are you sure you want to delete the appointment?", "Delete appointment", MessageBoxButton.YesNoCancel, MessageBoxImage.Question)== MessageBoxResult.Yes)
             {

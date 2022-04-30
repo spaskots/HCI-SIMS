@@ -1,2 +1,3 @@
-2920546132156,Nikola,Nikolic,11/01/1997,+381052800487,noviMe2jl@gmail.com,nikola,123,True,Beograd,Serbia,SRB,21000
-2019998800012,Mika,Mikic,12.10.1992,+3910291293919,mika@gmail.com,Mika,123,True,Novi Sad,Serbia,SRB,21000
+1542012548452,Pera,Peric,12.12.2012,0652145889,pera@gmail.com,pera,pera,True,Beograd,Bosnia and Herzegovina,BIH,15000
+1111222012541,Zika,Zivac,12.08.1985,0651254852,zika@gmail.com,zika,zika,True,Beograd,Bosnia and Herzegovina,BIH,78000
+1010105214520,Ana,Antic,15.08.2000,0652145213,ana@gmail.com,ana,ana,True,Beograd,Bosnia and Herzegovina,BIH,45000

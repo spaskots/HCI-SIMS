@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Bolnica.Model;
+using Bolnica.Controller;
 namespace Bolnica
 {
     /// <summary>
@@ -19,20 +20,27 @@ namespace Bolnica
     /// </summary>
     public partial class MedicalCard : Window
     {
+        MedicalCardController medicalCardController=new MedicalCardController();
+        public static MedCard medicalCard = null;
+       
         public MedicalCard()
         {
             InitializeComponent();
-            IdPatient.Text=LekarPocetna.ma.Patient.Id.ToString();
-            Name.Text=LekarPocetna.ma.Patient.Name.ToString();
-            Surname.Text=LekarPocetna.ma.Patient.Surname.ToString();
-            Birth.Text=LekarPocetna.ma.Patient.DateOfBirth.ToString();
+            String idPatient = LekarPocetna.ma.Patient.Id;
+            medicalCard = medicalCardController.getOneByPatientId(idPatient);
+            IdPatient.Text = medicalCard.patient.Id.ToString();
+            IdMedicalCard.Text = medicalCard.Id.ToString();
+            Name.Text=medicalCard.patient.Name.ToString();
+            Surname.Text=medicalCard.patient.Surname.ToString();
+            Birth.Text=medicalCard.patient.DateOfBirth.ToString();
             IdPatient.IsReadOnly=true;
             Name.IsReadOnly = true;
             Surname.IsReadOnly = true;
             Birth.IsReadOnly = true;
-         
-           
+            IdMedicalCard.IsReadOnly = true;
         }
+
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -51,6 +59,11 @@ namespace Bolnica
            LekarPocetna lp=new LekarPocetna();
             lp.Show();
             this.Close();
+        }
+
+        private void IdMedicalCard_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -6,28 +6,40 @@ using System.Threading.Tasks;
 
 namespace Bolnica.Model
 {
-    public class MedicalCard
+    public class MedCard
     {
         public int Id { get; set; }
-        //private List<Allergen> allergens = new List<Allergen>();
-        private List<Anamnesis> anamnesiss = new List<Anamnesis>();
-        Patient patient;
+        private List<Anamnesis> anamnesiss = new List<Anamnesis>() ;
+        public Patient patient { get; set; }
         private List<Recipe> recipes = new List<Recipe>();
-        //private List<MedicalInstruction> medicalInstructions = new List<MedicalInstruction>();
-
        
-        //private AllergenRepository allergenRepository = new AllergenRepository();
-        //private AnamnesisRepository anamnesisRepository = new AnamnesisRepository();
-        //private RecipeRepository recipeRepository = new RecipeRepository();
-       // private MedicalInstructionRepository medicalInstructionRepository = new MedicalInstructionRepository();
-        public MedicalCard() { }
-        public MedicalCard(int id)
+
+       public MedCard()
+        {
+
+        }
+        public MedCard(int id,Patient patient)
         {
             this.Id = id;
-            //this.allergens = allergenRepository.getAllByMedicalCardId(id);
-            //this.anamnesiss = anamnesisRepository.getAllAnamenesisFromSpecificMedicalCardById(id);
-            //this.recipes = recipeRepository.getAllRecipesFromSpecificMedicalCardById(id);
-            //this.medicalInstructions = medicalInstructionRepository.getAllMedicalInstructionsFromSpecificMedicalCardById(id);
+            this.patient = patient;
         }
+        public MedCard(int id)
+        {
+            this.Id = id;
+           
+        }
+        public void setAnamnesis(List<Anamnesis> anamneses)
+        {
+            this.anamnesiss = anamneses;
+        }
+       public MedCard(int id,Patient patient,List<Anamnesis> anamneses,List<Recipe> recipes)
+        {
+            this.Id = id;
+            this.patient = patient;
+            this.anamnesiss = anamneses;
+            this.recipes = recipes;
+        }
+       
+        
     }
 }

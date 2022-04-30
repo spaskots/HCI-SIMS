@@ -23,7 +23,9 @@ namespace Bolnica
         AppointmentController appointmentController=new AppointmentController();
         LekarController lekarController=new LekarController();
         PatientController patientController = new PatientController();
-        
+        AutoIncrementController autoIncrementController = new AutoIncrementController();
+        List<int> medicalAppointmentId = null;
+        MedicalAppointment ma = null;
 
         public CreateAppointment()
         {
@@ -46,34 +48,43 @@ namespace Bolnica
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
-           
+            medicalAppointmentId = appointmentController.getAllId();
+            int id;
             String startTime = STARTTIME.Text.ToString();
             Double duration;
-            Double.TryParse(DURATION.Text, out duration);           
-            
-            String idPacijenta=PatientId.Text.ToString();
-  
+            Double.TryParse(DURATION.Text, out duration);
+
+            String idPacijenta = PatientId.Text.ToString();
+
             String idDoktora = DoctorId.Text.ToString();
-            
+
             AppointmentType type;
-            
+
             Enum.TryParse(TypeId.Text.ToString(), out type);
-            MedicalAppointment ma = new MedicalAppointment(idPacijenta, idDoktora, startTime, duration, type );
+            if (medicalAppointmentId == null)
+            {
+                id = 0;
+            }
+            else
+            {
+                id = medicalAppointmentId.Last();
+                ++id;
+            }
+            ma = new MedicalAppointment(id, idPacijenta, idDoktora, startTime, duration, type);
             Doctor d = ma.findDoctor(idDoktora);
-            
-            
-                Room r = ma.findRoom(d.Room.Id);
-            
-            
+
+
+            Room r = ma.findRoom(d.Room.Id);
+
+
             ma.SetRoom(r);
-            if( STARTTIME.Text=="" || DURATION.Text=="" || PatientId.Text=="" ||  DoctorId.Text=="")
+            if (STARTTIME.Text == "" || DURATION.Text == "" || PatientId.Text == "" || DoctorId.Text == "")
             {
                 MessageBox.Show("Greska");
                 return;
             }
             appointmentController.save(ma);
-            LekarPocetna lp=new LekarPocetna();
+            LekarPocetna lp = new LekarPocetna();
             lp.Show();
             this.Close();
         }
