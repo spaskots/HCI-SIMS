@@ -11,6 +11,7 @@ namespace Bolnica.Repository
     {
         String lokacijaSoba = @"..\..\..\Data\Soba.txt";
         String lokacijaDirector = @"..\..\..\Data\SobaDirector.txt";
+        String lokacijaRoomShedule = @"..\..\..\Data\RoomShedule.txt";
 
         public RoomRepository()
         {
@@ -28,32 +29,15 @@ namespace Bolnica.Repository
                     sw.Write("");
                 }
             }
-        }
-
-        /*public List<Room> GetAllRooms()
-        {
-            List<Room> rooms = new List<Room>();
-
-            string[] lines = System.IO.File.ReadAllLines(lokacijaSoba);
-            foreach (string line in lines)
+            if (!File.Exists(lokacijaRoomShedule))
             {
-                string[] fields = line.Split(',');
-
-                string id = fields[0];
-                string name = fields[1];
-                string floor = fields[2];
-                string description = fields[3];
-                bool isAvailable = Convert.ToBoolean(fields[4]);
-                RoomType type;
-
-                Enum.TryParse(fields[5], out type);
-                
-                Room room = new Room(id, name, floor, description,isAvailable, type);
-                rooms.Add(room);
+                using (StreamWriter sw = File.CreateText(lokacijaSoba))
+                {
+                    sw.Write("");
+                }
             }
-            return rooms;
-        }*/
-
+        }
+      
         public List<Room> GetAllRooms()
         {
             List<Room> rooms = new List<Room>();
@@ -137,6 +121,38 @@ namespace Bolnica.Repository
                 ids.Add(id);
             }
             return ids;
+        }
+
+        public RenovationExecution renovation(RenovationExecution re)
+            {
+                String noviRed = re.roomId + "," + re.StartDate + "," + re.EndDate + "," + re.Description;
+                StreamWriter write = new StreamWriter(lokacijaRoomShedule, true);
+                write.WriteLine(noviRed);
+                write.Close();
+                return re;
+            }
+        public List<DateTime> takenRoomDates(String roomId)
+        {
+
+            List<DateTime> dates = new List<DateTime>();
+            string[] lines = System.IO.File.ReadAllLines(lokacijaRoomShedule);
+            foreach (string line in lines)
+            {
+                if (line == "")
+                    continue;
+                else
+                {
+                    string[] fields = line.Split(',');
+                    String roomTekuciId = fields[0];
+                    if(roomTekuciId == roomId) { 
+                        DateTime startDate = DateTime.Parse(fields[1]);
+                        DateTime endDate = DateTime.Parse(fields[2]);
+                        dates.Add(startDate);
+                        dates.Add(endDate); // Dodavanje samo datuma jer me vreme ne zanima ako ima nesto znaci da je planirano taj dan da radi bolnica
+                    }
+                }
+            }
+            return dates;
         }
     }
 }

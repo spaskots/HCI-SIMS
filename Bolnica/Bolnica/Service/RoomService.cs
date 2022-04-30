@@ -41,5 +41,9 @@ namespace Bolnica.Service
         {
             return _repository.getAllId();
         }
+        public RenovationExecution renovation(RenovationExecution re)
+        {
+            return _repository.renovation(re);
+        }
     }
 }

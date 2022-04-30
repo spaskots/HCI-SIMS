@@ -57,13 +57,10 @@
     <Compile Update="View\MainDirector.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\MainFooter.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="View\MoveEquipmentPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\MoveEquipmentWindow.xaml.cs">
+    <Compile Update="View\RenovationPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\SingleRoomPage.xaml.cs">
@@ -131,13 +128,10 @@
     <Page Update="View\MainDirector.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\MainFooter.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="View\MoveEquipmentPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\MoveEquipmentWindow.xaml">
+    <Page Update="View\RenovationPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SingleRoomPage.xaml">

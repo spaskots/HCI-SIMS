@@ -33,10 +33,7 @@ namespace Bolnica.View
             PagesFrame.Content = new FourCardsView("StaticEquipmentSelected");
         }
         private void moveExe(object sender, MouseButtonEventArgs e)
-        {
-            MoveEquipmentWindow rp = new MoveEquipmentWindow(2);
-            rp.Show();
-            this.Close();
+        { 
         }
     }
 }

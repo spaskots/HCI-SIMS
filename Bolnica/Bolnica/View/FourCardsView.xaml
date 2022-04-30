@@ -51,5 +51,7 @@
             </Grid>
         </Grid>
         <Frame x:Name="MoveEquipmentFrame"  NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="SingleRoomFrame"  NavigationUIVisibility="Hidden"></Frame>
+        
     </Grid>
 </Page>
