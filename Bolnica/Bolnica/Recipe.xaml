@@ -29,9 +29,9 @@
                 <DataGridTextColumn Header="Medicine" Binding="{Binding medicine}" Width="90"/>
                 <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}" Width="90"/>
                 <DataGridTextColumn Header="Instruction" Binding="{Binding instruction}" Width="90"/>
-                <DataGridTextColumn Header="How often" Binding="{Binding howOften}" Width="90"/>
+                <DataGridTextColumn Header="How Often" Binding="{Binding howOften}" Width="90"/>
                 <DataGridTextColumn Header="Start Time" Binding="{Binding startTime}" Width="90"/>
-
+                <DataGridTextColumn Header="Patient id" Binding="{Binding patient.Id}" Width="90"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
