@@ -8,14 +8,14 @@ namespace Bolnica.Model
 {
     public class RecipeR
     {
-        public int id;
-        public String medicine;
-        public Double quantity;
-        public String instruction;
-        public Double howOften;
-        public String startTime;
+        public int id { get; set; }
+        public String medicine { get; set; }
+        public Double quantity { get; set; }
+        public String instruction { get; set; }
+        public Double howOften { get; set; }
+        public String startTime { get; set; }
 
-        public Patient patient;
+        public Patient patient { get; set; }
         public RecipeR(int id, String medicine, Double quantity, String instruction, Double howOften, String startTime,String idPatient)
         {
             this.id = id;
@@ -26,7 +26,16 @@ namespace Bolnica.Model
             this.startTime = startTime;
             this.patient = findPatient(idPatient);
         }
-
+        public RecipeR(int id, String medicine, Double quantity, String instruction, Double howOften, String startTime)
+        {
+            this.id = id;
+            this.medicine = medicine;
+            this.quantity = quantity;
+            this.instruction = instruction;
+            this.howOften = howOften;
+            this.startTime = startTime;
+          
+        }
 
         public MedCard medicalCard;
         public Patient findPatient(string id)

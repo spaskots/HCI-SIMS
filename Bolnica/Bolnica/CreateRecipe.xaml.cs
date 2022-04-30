@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.Model;
-using Bolnica;
+using Bolnica.Controller;
 namespace Bolnica
 {
     /// <summary>
@@ -20,22 +20,35 @@ namespace Bolnica
     /// </summary>
     public partial class CreateRecipe : Window
     {
+        RecipeController recipeController = new RecipeController();
+        List<int> recipeId = null;
         public CreateRecipe()
         {
             InitializeComponent();
-            
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            recipeId = recipeController.getAllId();
+            int id;
+            if (recipeId == null)
+            {
+                id = 0;
+            }
+            else
+            {
+                id = recipeId.Last();
+                ++id;
+            }
             String medicine = Medicine.Text;
             Double quantity = Convert.ToDouble(Quantity.Text);
             String instruction = Instruction.Text;
             Double howOften = Convert.ToDouble(Howoften.Text);
             String startTime =Starttime.Text;
             String idPatient = MedicalCard.medicalCard.patient.Id;
-            RecipeR recipe = new RecipeR(1,medicine, quantity, instruction, howOften, startTime,idPatient);
-
+            RecipeR recipe = new RecipeR(id,medicine, quantity, instruction, howOften, startTime,idPatient);
+            recipeController.save(recipe);
 
         }
     }
