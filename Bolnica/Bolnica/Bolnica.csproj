@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <Folder Include="ImageDirector\" />
-    <Folder Include="View\" />
+    <Folder Include="Validation\" />
   </ItemGroup>
 
   <ItemGroup>
