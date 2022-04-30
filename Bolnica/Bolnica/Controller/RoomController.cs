@@ -45,5 +45,9 @@ namespace Bolnica.Controller
         {
             return _service.getAllId();
         }
+        public RenovationExecution renovation(RenovationExecution re)
+        {
+            return _service.renovation(re);
+        }
     }
 }

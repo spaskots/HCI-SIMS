@@ -7,8 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="430"
       Title="MoveEquipmentPage">
-
     <Grid>
+        <Grid x:Name="MoveEquipmentPageName">
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="540" />
@@ -34,5 +34,7 @@
         <!-- <Button Content="Delete" Width="30" Height="30" HorizontalAlignment="Left" Margin="360,0,10,30" Grid.Row="2" FontSize="9" FontWeight="Bold" FontStyle="Italic"  Click="submitDeleteRoom"></Button>-->
         <Image Width="25" Height="25" HorizontalAlignment="Right" Grid.Row="0" Source="/icons8-edit-60.png" VerticalAlignment="Bottom" Margin="0,0,10,10" PreviewMouseDown ="submitMoveEquipment" />
 
+    </Grid>
+        <Frame x:Name="PagesFrame" Grid.Row="0" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Page>

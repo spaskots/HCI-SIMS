@@ -169,12 +169,11 @@ namespace Bolnica.View
 
             if (eventNaClick == "Room")
             {
-
-                Room room = room_repository.FindById(Id1.Text);
+                Room room = room_repository.FindById(IdSobe);
                 if (room == null) { return; }
-                SingleRoom director = new SingleRoom(room);
-                director.Show();
                 FourCardsViewName.Visibility = Visibility.Hidden;
+                SingleRoomFrame.Content = new SingleRoomPage(room);
+                
             }
             if (eventNaClick == "SingleStaticEquipment")
             {
@@ -201,11 +200,11 @@ namespace Bolnica.View
             if (IdSobe == "") { return; }
             if (eventNaClick == "Room")
             {
-                Room room = room_repository.FindById(Id2.Text);
+                Room room = room_repository.FindById(IdSobe);
                 if (room == null) { return; }
-                SingleRoom director = new SingleRoom(room);
-                director.Show();
                 FourCardsViewName.Visibility = Visibility.Hidden;
+                SingleRoomFrame.Content = new SingleRoomPage(room);
+
             }
             if (eventNaClick == "SingleStaticEquipment")
             {
@@ -225,11 +224,11 @@ namespace Bolnica.View
 
             if (eventNaClick == "Room")
             {
-                Room room = room_repository.FindById(Id3.Text);
+                Room room = room_repository.FindById(IdSobe);
                 if (room == null) { return; }
-                SingleRoom director = new SingleRoom(room);
-                director.Show();
                 FourCardsViewName.Visibility = Visibility.Hidden;
+                SingleRoomFrame.Content = new SingleRoomPage(room);
+
             }
             if (eventNaClick == "SingleStaticEquipment")
             {
@@ -245,12 +244,13 @@ namespace Bolnica.View
         {
             String IdSobe = Id4.Text;
             if (IdSobe == "") { return; }
-            if (eventNaClick == "Room") {
-                Room room = room_repository.FindById(Id4.Text);
+            if (eventNaClick == "Room")
+            {
+                Room room = room_repository.FindById(IdSobe);
                 if (room == null) { return; }
-                SingleRoom director = new SingleRoom(room);
-                director.Show();
                 FourCardsViewName.Visibility = Visibility.Hidden;
+                SingleRoomFrame.Content = new SingleRoomPage(room);
+
             }
             if (eventNaClick == "SingleStaticEquipment")
             {

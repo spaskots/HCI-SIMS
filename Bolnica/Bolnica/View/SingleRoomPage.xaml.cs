@@ -23,9 +23,12 @@ namespace Bolnica.View
     /// </summary>
     public partial class SingleRoomPage : Page
     {
+        String sobaIdRenovation; 
         public SingleRoomPage(Room room)
         {
             InitializeComponent();
+            sobaIdRenovation = room.Id;
+
             IdEdit.Text = room.Id.ToString();
             NameEdit.Text = room.Name.ToString();
             FloorEdit.Text = room.Floor.ToString();
@@ -35,9 +38,8 @@ namespace Bolnica.View
 
         private void backClick(object sender, RoutedEventArgs e)
         {
-            RoomPage director = new RoomPage();
-            director.Show();
-           // this.Close();
+            SingleRoomPageName.Visibility = Visibility.Hidden;
+            PagesFrame.Content = new FourCardsView("PrikazSoba");
         }
         RoomRepository _repository = new RoomRepository();
         RoomController _controller = new RoomController();
@@ -76,20 +78,25 @@ namespace Bolnica.View
             Room room = new Room(id, name, floor, description, type);
             _controller.Update(room);
             MessageBox.Show("Success!");
-            RoomPage director = new RoomPage();
-            director.Show();
-            //this.Close();
+            SingleRoomPageName.Visibility = Visibility.Hidden;
+            PagesFrame.Content = new FourCardsView("PrikazSoba");
         }
         private void submitDeleteRoom(object sender, RoutedEventArgs e)
         {
             String id = IdEdit.Text;
             Room rDelete = _repository.FindById(id);
             if (rDelete != null) { _controller.Delete(rDelete); }
-            RoomPage director = new RoomPage();
-            director.Show();
+            SingleRoomPageName.Visibility = Visibility.Hidden;
+            PagesFrame.Content = new FourCardsView("PrikazSoba");
            // this.Close();
             if (rDelete == null) { MessageBox.Show("Don't Change The Id,  Please Try Again!"); }
             else { MessageBox.Show("Room Successfully Deleteted!"); }
+        }
+
+        private void renovation(object sender, MouseButtonEventArgs e)
+        {
+            SingleRoomPageName.Visibility = Visibility.Hidden;
+            PagesFrame.Content = new RenovationPage(sobaIdRenovation);
         }
     }
 }

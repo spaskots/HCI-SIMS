@@ -84,10 +84,11 @@ namespace Bolnica.View
             staticEquipment_controller.MoveExecutionSubmit(me);
             MessageBox.Show("Uspesno zabelezeno!");
         }
-        private FourCardsView fcw;
+    
         private void back(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(fcw); // Nije dobro, Ispravi.
+            MoveEquipmentPageName.Visibility = Visibility.Hidden;
+            PagesFrame.Content = new FourCardsView("StaticEquipmentSelected");
         }
     }
 }
