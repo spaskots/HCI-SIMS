@@ -22,6 +22,10 @@ namespace Bolnica.Service
         {
             appointmentRepository.delete(ma);
         }
+        public List<int> getAllId()
+        {
+            return appointmentRepository.getAllId();
+        }
         public void update(MedicalAppointment ma)
         {
             appointmentRepository.update(ma);

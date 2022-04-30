@@ -39,7 +39,7 @@ namespace Bolnica.Model
 
         public String Specialization { set; get; }
         public String LicenseId { set; get; }
-        public String Salary { set; get; }
+        public double Salary { set; get; }
 
         public System.Collections.ArrayList medicalAppointment;
 
@@ -88,7 +88,7 @@ namespace Bolnica.Model
 
         public Room Room { get; set; }
 
-        public Doctor(string name, string surname, String dateOfBirth, string phoneNumber, string email, string id, bool active, string username, string password, City city,string specialization,string licenseId,string salary,string idRoom) : base(name, surname, dateOfBirth, phoneNumber, email, id, active, username, password, city)
+        public Doctor(string name, string surname, String dateOfBirth, string phoneNumber, string email, string id, bool active, string username, string password, City city,string specialization,string licenseId,double salary,string idRoom) : base(name, surname, dateOfBirth, phoneNumber, email, id, active, username, password, city)
         {
             Specialization= specialization;
             LicenseId= licenseId;
@@ -96,9 +96,10 @@ namespace Bolnica.Model
             Room = findRoomById(idRoom);
             this.Room = Room;
         }
-        public Doctor(string name, string surname, String dateOfBirth, string phoneNumber, string email, string id, bool active, string username, string password, City city) : base(name, surname, dateOfBirth, phoneNumber, email, id, active, username, password, city)
+        public Doctor(string name, string surname, String dateOfBirth, string phoneNumber, string email, string id, bool active, string username, string password, City city,string idSobe) : base(name, surname, dateOfBirth, phoneNumber, email, id, active, username, password, city)
         {
-            
+            Room = findRoomById(idSobe);
+            this.Room = Room;
         }
         
         public Room findRoomById(String id)

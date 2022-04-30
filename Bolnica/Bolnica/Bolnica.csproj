@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="42-422713_doctor-icon-doctor-image-png-transparent-png.png" />
+    <None Remove="back.png" />
+    <None Remove="create.png" />
     <None Remove="doctorbaba.jpg" />
     <None Remove="icons8-administrator-male-48.png" />
     <None Remove="icons8-back-96.png" />
@@ -19,8 +22,16 @@
     <None Remove="icons8-info-60.png" />
     <None Remove="icons8-survey-50.png" />
     <None Remove="icons8-tool-64.png" />
+    <None Remove="MedicalCard.jpg" />
+    <None Remove="MedicalReport.jpg" />
+    <None Remove="olovka.png" />
+    <None Remove="Password.png" />
+    <None Remove="Patient.png" />
     <None Remove="POcetna3.png" />
+    <None Remove="Recipe.jpg" />
     <None Remove="sign in.png" />
+    <None Remove="sign out.png" />
+    <None Remove="Username.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +40,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="42-422713_doctor-icon-doctor-image-png-transparent-png.png" />
+    <Resource Include="back.png" />
+    <Resource Include="create.png" />
     <Resource Include="doctorbaba.jpg" />
     <Resource Include="icons8-administrator-male-48.png" />
     <Resource Include="icons8-back-96.png" />
@@ -40,8 +54,16 @@
     <Resource Include="icons8-info-60.png" />
     <Resource Include="icons8-survey-50.png" />
     <Resource Include="icons8-tool-64.png" />
+    <Resource Include="MedicalCard.jpg" />
+    <Resource Include="MedicalReport.jpg" />
+    <Resource Include="olovka.png" />
+    <Resource Include="Password.png" />
+    <Resource Include="Patient.png" />
     <Resource Include="POcetna3.png" />
+    <Resource Include="Recipe.jpg" />
     <Resource Include="sign in.png" />
+    <Resource Include="sign out.png" />
+    <Resource Include="Username.png" />
   </ItemGroup>
 
 </Project>

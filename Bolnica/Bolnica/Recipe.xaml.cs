@@ -15,30 +15,32 @@ using System.Windows.Shapes;
 namespace Bolnica
 {
     /// <summary>
-    /// Interaction logic for LekarWindow.xaml
+    /// Interaction logic for Recipe.xaml
     /// </summary>
-    public partial class LekarWindow : Window
+    public partial class Recipe : Window
     {
-        public LekarWindow()
+        public Recipe()
         {
             InitializeComponent();
-            
         }
-
-        
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            LekarPrijava lp = new LekarPrijava();
-            lp.Show();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             
-            LekarR lekar=new LekarR();
-            lekar.Show();
+            this.Close();
         }
-        
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            CreateRecipe cr=new CreateRecipe();
+            cr.Show();
+            
+        }
+        private void change_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeRecipe cr=new ChangeRecipe();
+            cr.Show();
+
+        }
     }
+   
 }

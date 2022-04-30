@@ -24,7 +24,8 @@ namespace Bolnica
     public partial class AddPatient : Window
     {
         PatientController patientController = new PatientController();
-
+        MedicalCardController medicalCardController=new MedicalCardController();
+        List<int> medicalReportId = null;
         public AddPatient()
         {
             InitializeComponent();
@@ -113,7 +114,8 @@ namespace Bolnica
             }
             cityObj.SetCountry(countryObj);
             Patient newPatient = new Patient(name, surname, dateOfBirth, phoneNumber, email, id, true, username, password, cityObj);
-
+            
+            
             if (!patientController.Add(newPatient))
             {
                 MessageBox.Show("Patient with given JMBG: " + id + " already exists.");
@@ -121,6 +123,20 @@ namespace Bolnica
             }
 
             MessageBox.Show("Successfully created patient: " + name + " " + surname);
+
+            medicalReportId = medicalCardController.getAllId();
+            int idmc;
+            if (medicalReportId == null)
+            {
+                idmc = 0;
+            }
+            else
+            {
+                idmc = medicalReportId.Last();
+                ++idmc;
+            }
+            MedCard medicalCard = new MedCard(idmc, newPatient,null,null);
+            medicalCardController.save(medicalCard);
             this.Close();
         }
     }

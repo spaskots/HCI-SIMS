@@ -1,2 +1,1 @@
-mare,mareBurek,123123
-test,123
+pera,pera
