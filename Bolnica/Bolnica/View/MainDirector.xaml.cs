@@ -30,7 +30,7 @@ namespace Bolnica.View
         }
         private void equipment(object sender, MouseButtonEventArgs e)
         {
-            PagesFrame.Content = new FourCardsView("StaticEquipmentSelected");
+            PagesFrame.Content = new DynamicOrStaticEquipmentPage();
         }
         private void moveExe(object sender, MouseButtonEventArgs e)
         { 

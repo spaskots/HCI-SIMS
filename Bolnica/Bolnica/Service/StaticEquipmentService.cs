@@ -34,7 +34,6 @@ namespace Bolnica.Service
 
         public Boolean Delete(StaticEquipment staticEquipment)
         {
-            // TODO: implement
             return _repository.Delete(staticEquipment);
         }
 
