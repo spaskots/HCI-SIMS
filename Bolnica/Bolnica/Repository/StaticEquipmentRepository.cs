@@ -159,23 +159,27 @@ namespace Bolnica.Repository
                     if (dateOfMove == now.Date.ToShortDateString()) { //Ovo znaci da move treba da se obavi 
                         StaticEquipment zaUpdateEquipmenet = FindById(StaticEquipmentId);
 
-                        zaUpdateEquipmenet.Quantity = zaUpdateEquipmenet.Quantity - quantity; // Update kolicine u trenutnoj sobi
-                        if(zaUpdateEquipmenet.Quantity == 0) { Delete(zaUpdateEquipmenet); }
-                        else { Update(zaUpdateEquipmenet); }
-                        //Trazenje nove sobe i gledanje da li tamo postoji vec ova oprema, ako ne napravi je i stavi ovu sobu u suprotnom samo dodaj na kolicinu.
-                        StaticEquipment destinacijaEquip = FindByEqIdAndRoomId(StaticEquipmentId, toRoom);
-                        if(destinacijaEquip == null) {
-                            zaUpdateEquipmenet.Id = GenerateNewEqId();
-                            zaUpdateEquipmenet.roomId = toRoom;
-                            zaUpdateEquipmenet.Quantity = quantity;
-                            AddStaticEquipment(zaUpdateEquipmenet);
+                        // Update kolicine u trenutnoj sobi
+                        if (zaUpdateEquipmenet.Quantity - quantity == 0) { zaUpdateEquipmenet.roomId = toRoom; Update(zaUpdateEquipmenet); } // Samo promeni u kojoj je sobi oprema jer svakako svu prebacujemo.
+                        else
+                        {
+                            zaUpdateEquipmenet.Quantity -= quantity;
+                            Update(zaUpdateEquipmenet);
+                            //Trazenje nove sobe i gledanje da li tamo postoji vec ova oprema, ako ne napravi je i stavi ovu sobu u suprotnom samo dodaj na kolicinu.
+                            StaticEquipment destinacijaEquip = FindByEqIdAndRoomId(StaticEquipmentId, toRoom);
+                            if (destinacijaEquip == null)
+                            {
+                                zaUpdateEquipmenet.Id = GenerateNewEqId();
+                                zaUpdateEquipmenet.roomId = toRoom;
+                                zaUpdateEquipmenet.Quantity = quantity;
+                                AddStaticEquipment(zaUpdateEquipmenet);
+                            }
+                            else { destinacijaEquip.Quantity += quantity; Update(destinacijaEquip); }
+
+                            String text = File.ReadAllText(lokacijaMoveExecution); //Brisanje te linije.
+                            text = text.Replace(line, "");
+                            File.WriteAllText(lokacijaMoveExecution, text);
                         }
-                        else { destinacijaEquip.Quantity += quantity; Update(destinacijaEquip); }
-
-                        String text = File.ReadAllText(lokacijaMoveExecution); //Brisanje te linije.
-                        text = text.Replace(line, "");
-                        File.WriteAllText(lokacijaMoveExecution, text);
-
 
                     }
                 };

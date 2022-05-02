@@ -31,10 +31,7 @@ namespace Bolnica.View
         public MoveEquipmentPage(int staticEquipmentId)
         {
             InitializeComponent();
-
-            Boolean zavrsio = staticEquipment_repository.MoveExecutionDo();
-            if (zavrsio == true) { MessageBox.Show("Proverio da li ima nesto da se premsta!"); }
-
+            OnDate.DisplayDateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             StaticEquipment se = staticEquipment_repository.FindById(staticEquipmentId);
 
             staticMoveLater.Id = staticEquipmentId;

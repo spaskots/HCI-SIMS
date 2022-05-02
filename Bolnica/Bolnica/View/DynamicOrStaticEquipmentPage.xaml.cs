@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bolnica.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace Bolnica.View
     /// </summary>
     public partial class DynamicOrStaticEquipmentPage : Page
     {
+        StaticEquipmentRepository staticEquipment_repository = new StaticEquipmentRepository();
         public DynamicOrStaticEquipmentPage()
         {
             InitializeComponent();
+            Boolean zavrsio = staticEquipment_repository.MoveExecutionDo();
+            if (zavrsio == true) { MessageBox.Show("Proverio da li ima nesto da se premsta!"); }
         }
         private void staticEquipmentPage(object sender, MouseButtonEventArgs e)
         {

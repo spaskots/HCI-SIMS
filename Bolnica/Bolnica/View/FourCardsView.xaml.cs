@@ -99,7 +99,7 @@ namespace Bolnica.View
                 NewSupplyRequestButton.Visibility = Visibility.Visible;
 
                 eventNaClick = "StaticEquipmentInRoom";
-                Type1.Text = "Sva Oprema";
+                Type1.Text = "All Equipment";
                 Id1.Text = "-";
                 foreach (StaticEquipment se in staticEquipments) {
                     Room r = room_repository.FindById(se.roomId);
@@ -271,6 +271,12 @@ namespace Bolnica.View
         public void staticEquipmentInAllRoomsFunction()
         {
             NewSupplyRequestButton.Visibility = Visibility.Hidden;
+            CurrentRoomNameEq.Visibility = Visibility.Visible;
+            CurrentRoomIdEq.Visibility = Visibility.Visible;
+
+            CurrentRoomNameEq.Text = "All Equipment";
+            CurrentRoomIdEq.Text = "-";
+
             eventNaClick = "SingleStaticEquipment";
             skrol = 0;
             temp = skrol * korak;
@@ -322,6 +328,13 @@ namespace Bolnica.View
         public void staticEquipmentInRoomFunction(String IdSobe)
         {
             NewSupplyRequestButton.Visibility = Visibility.Hidden;
+
+            CurrentRoomNameEq.Visibility = Visibility.Visible;
+            CurrentRoomIdEq.Visibility = Visibility.Visible;
+            Room RoomNameId = room_repository.FindById(IdSobe);
+            CurrentRoomNameEq.Text = RoomNameId.RoomType + " " +RoomNameId.Name;
+            CurrentRoomIdEq.Text = RoomNameId.Id;
+
 
             eventNaClick = "SingleStaticEquipment";
             skrol = 0;
