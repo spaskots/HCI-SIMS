@@ -18,7 +18,7 @@ namespace Bolnica.Repository
             
             write.Close();
         }
-        public List<MedicalAppointment> getAllAppointment(String ids)
+        public List<MedicalAppointment> GetAllAppointmentsByDoctorId(String ids)
         {
 
 
@@ -52,7 +52,9 @@ namespace Bolnica.Repository
             {
                 text = text.Replace(obrisiRed, "");
                 File.WriteAllText(lokacijaAppointment, text);
-               
+                var lines = File.ReadAllLines(lokacijaAppointment).Where(arg => !string.IsNullOrWhiteSpace(arg));
+                File.WriteAllLines(lokacijaAppointment, lines);
+
             }
             
         }
@@ -119,6 +121,27 @@ namespace Bolnica.Repository
                 }
             }
             File.WriteAllLines(lokacijaAppointment, lines.ToArray());
+        }
+
+        public List<MedicalAppointment> GetAllAppointments()
+        {
+            List<MedicalAppointment> appointments = new List<MedicalAppointment>();
+            string[] lines = System.IO.File.ReadAllLines(lokacijaAppointment);
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(',');
+                if (line == "")
+                {
+                    continue;
+                }
+
+                AppointmentType type;
+                Enum.TryParse(fields[3], out type);
+                MedicalAppointment apointment = new MedicalAppointment(Convert.ToInt32(fields[0]), fields[4], fields[6], fields[1], Convert.ToDouble(fields[2]), type, fields[5]);
+                appointments.Add(apointment);
+            }
+            return appointments;
+
         }
     }
     }

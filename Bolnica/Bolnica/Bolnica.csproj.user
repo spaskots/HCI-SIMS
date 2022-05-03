@@ -75,6 +75,9 @@
     <Compile Update="View\StaticEquipmentRooms.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ViewAllAppointments.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddGuestPatient.xaml">
@@ -131,6 +134,9 @@
     <Page Update="View\AddNewRoom.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\EditAppointmentSecretary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\DynamicOrStaticEquipmentPage.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -150,6 +156,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\StaticEquipmentRooms.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ViewAllAppointments.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -30,7 +30,7 @@ namespace Bolnica
             InitializeComponent();
             String username = LekarPrijava.SetValueForUsername;
             Doctor doctor = lekarController.GetOneByUsername(username);
-            List<MedicalAppointment> ma = appointmentController.getAllAppointment(doctor.Id);
+            List<MedicalAppointment> ma = appointmentController.GetAllAppointmentsByDoctorId(doctor.Id);
             foreach (MedicalAppointment m in ma)
             {
 

@@ -66,4 +66,10 @@
     <Resource Include="Username.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="View\EditAppointmentSecretary.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
 </Project>

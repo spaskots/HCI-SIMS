@@ -15,6 +15,11 @@
                 </MenuItem>
                 <MenuItem Header="_Read" Click="ViewPatientWin"/>
             </MenuItem>
+            <MenuItem Header="_Appointment">
+                <MenuItem Header="_Create" >
+                </MenuItem>
+                <MenuItem Header="_Read" Click="ViewAppointmentWin"/>
+            </MenuItem>
         </Menu>
 
         <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">

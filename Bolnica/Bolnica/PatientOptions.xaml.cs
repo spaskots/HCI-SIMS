@@ -1,5 +1,6 @@
 ﻿using Bolnica.Controller;
 using Bolnica.Table;
+using Bolnica.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,12 @@ namespace Bolnica
             }
 
             MessageBox.Show("Successfully removed patient with JMBG: " + id);
+        }
+
+        private void ViewAppointmentWin(object sender, RoutedEventArgs e)
+        {
+            ViewAllAppointments viewAppointments = new ViewAllAppointments();
+            viewAppointments.Show();
         }
     }
 
