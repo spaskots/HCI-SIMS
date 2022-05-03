@@ -50,6 +50,13 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
+                            <Button x:Name="card" Click="MedicalCard_Click" Content="MedicalCard"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
                             <Button x:Name="update" Content="Update" Click="UpdateBtn_Click"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

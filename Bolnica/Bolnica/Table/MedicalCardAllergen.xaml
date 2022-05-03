@@ -1,0 +1,33 @@
+﻿<Window x:Class="Bolnica.Table.MedicalCardAllergen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.Table"
+        mc:Ignorable="d"
+        Title="MedicalCardAllergen" Height="474" Width="512">
+    <Grid>
+        <TextBox x:Name="Fullname" IsReadOnly="True" HorizontalAlignment="Left" Margin="71,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Id" IsReadOnly="True" HorizontalAlignment="Left" Margin="311,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Fullname" HorizontalAlignment="Left" Margin="102,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="JMBG" HorizontalAlignment="Left" Margin="351,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="Allergens" HorizontalAlignment="Left" Margin="222,94,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGridAllergen" ItemsSource="{Binding Path=Allergens}"
+                  SelectionMode="Extended" AutoGenerateColumns="False" HorizontalAlignment="Left"
+                  Height="181" Margin="71,127,0,0" VerticalAlignment="Top" Width="360" CanUserAddRows="false">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header="Name" Binding="{Binding Name}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="delete" Content="Delete" Click="DeleteBtn_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="AllergenId"  HorizontalAlignment="Left" Margin="171,337,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Allergies" HorizontalAlignment="Left" Margin="89,337,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="325,335,0,0" VerticalAlignment="Top" Click="AddAllergen" Height="24" Width="46"/>
+    </Grid>
+</Window>

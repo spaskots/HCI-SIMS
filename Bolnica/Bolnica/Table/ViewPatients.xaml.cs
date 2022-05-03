@@ -97,6 +97,15 @@ namespace Bolnica.Table
             readPat.Show();
         }
 
+        private void MedicalCard_Click(object sender, RoutedEventArgs e)
+        {
+            Patient patient = (Patient)dataGridPatients.SelectedItem;
+            MedicalCardAllergen medCard = new MedicalCardAllergen(patient.Id);
+            medCard.Show();
+            //this.Close();
+
+
+        }
 
 
     }
