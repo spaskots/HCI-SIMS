@@ -14,9 +14,9 @@ namespace Bolnica.Service
         {
             appointmentRepository.save(ma);
         }
-        public List<MedicalAppointment> getAllAppointment(String id)
+        public List<MedicalAppointment> GetAllAppointmentsByDoctorId(String id)
         {
-           return appointmentRepository.getAllAppointment(id);
+           return appointmentRepository.GetAllAppointmentsByDoctorId(id);
         }
         public void delete(MedicalAppointment ma)
         {
@@ -29,6 +29,10 @@ namespace Bolnica.Service
         public void update(MedicalAppointment ma)
         {
             appointmentRepository.update(ma);
+        }
+        public List<MedicalAppointment> GetAllAppointments()
+        {
+            return appointmentRepository.GetAllAppointments();
         }
         
     }
