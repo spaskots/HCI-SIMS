@@ -40,6 +40,9 @@
     <Compile Update="ReadPatient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Table\MedicalCardAllergen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Table\ViewPatients.xaml.cs">
     </Compile>
     <Compile Update="RoomPage.xaml.cs">
@@ -117,6 +120,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SingleRoom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Table\MedicalCardAllergen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Table\ViewPatients.xaml">
