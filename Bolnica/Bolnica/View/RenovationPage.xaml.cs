@@ -51,7 +51,7 @@ namespace Bolnica.View
             startDate = (DateTime)selectedDate;
             endDateName.DisplayDateStart = new DateTime(startDate.Year, startDate.Month, startDate.Day);
             endDateName.SelectedDate = new DateTime(startDate.Year, startDate.Month, startDate.Day);
-            List<DateTime> sheduledDates = room_repository.takenRoomDates("1");
+            List<DateTime> sheduledDates = room_repository.takenRoomDates(idSobe);
             DateTime gornjaGranica = new DateTime(2030, 12, 31); // 10 dina unapred
             for (int x = 0; x < sheduledDates.Count; x++)
             {

@@ -249,9 +249,7 @@ namespace Bolnica
         }
         private void equipment(object sender, MouseButtonEventArgs e)
         {
-            View.Equipment director = new View.Equipment();
-            director.Show();
-            this.Close();
+            
         }
     }
 }

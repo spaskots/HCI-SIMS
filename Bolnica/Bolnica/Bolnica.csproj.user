@@ -51,6 +51,9 @@
     <Compile Update="View\AddNewRoom.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\DynamicOrStaticEquipmentPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\FourCardsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -120,6 +123,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AddNewRoom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DynamicOrStaticEquipmentPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\FourCardsView.xaml">
