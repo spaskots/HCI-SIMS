@@ -42,13 +42,23 @@ namespace Bolnica
                 ++id;
             }
             String medicine = Medicine.Text;
-            Double quantity = Convert.ToDouble(Quantity.Text);
+            Double quantity;
+            Double.TryParse(Quantity.Text, out quantity);
             String instruction = Instruction.Text;
-            Double howOften = Convert.ToDouble(Howoften.Text);
+            Double howOften;
+            Double.TryParse(Howoften.Text, out howOften);
             String startTime =Starttime.Text;
             String idPatient = MedicalCard.medicalCard.patient.Id;
+            if(Medicine.Text=="" || Quantity.Text=="" || Instruction.Text=="" || Howoften.Text=="" || Starttime.Text=="" )
+            {
+                MessageBox.Show("Greska");
+                return;
+            }
             RecipeR recipe = new RecipeR(id,medicine, quantity, instruction, howOften, startTime,idPatient);
             recipeController.save(recipe);
+            Recipe r = new Recipe();
+            r.Show();
+            this.Close();
 
         }
     }

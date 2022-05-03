@@ -26,6 +26,6 @@
         <Label Content="Description"   Foreground="#FFCC0000" FontFamily="Elephant" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" HorizontalContentAlignment="Left"/>
         <Image Grid.Row="0" Source="/create.png" />
         <Label Content="Back" Grid.Row="1" Grid.Column="2" FontFamily="Elephant" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0"/>
-        <Image x:Name="Back" Grid.Column="2"     HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.682" Height="Auto" Source="/back.png"/>
+        <Image x:Name="Back" Grid.Column="2"  MouseLeftButtonDown="Back_MouseLeftButtonDown"   HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.682" Height="Auto" Source="/back.png"/>
     </Grid>
 </Window>

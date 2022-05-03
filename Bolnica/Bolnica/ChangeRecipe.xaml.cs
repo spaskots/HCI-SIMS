@@ -46,6 +46,9 @@ namespace Bolnica
             String idPatient = Recipe.recipe.patient.Id;
             RecipeR recipe = new RecipeR(id, medicine, quantity, instruction, howOften, startTime,idPatient);
             recipeController.update(recipe);
+            Recipe r = new Recipe();
+            r.Show();
+            this.Close();
 
         }
     }

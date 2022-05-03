@@ -69,8 +69,8 @@ namespace Bolnica
         {
             Anamnesis stari = this.GetOne(idAnamnesis);
             String stariRed = stari.Id + "," + stari.Description + "," + stari.IdAppointment + "," + stari.Date + "," + stari.medicalCard.Id;
-
-            String noviRed = stari.Id + "," + description + "," + stari.IdAppointment + "," + stari.Date + "," + stari.medicalCard.Id;
+            DateTime today = DateTime.Today;
+            String noviRed = stari.Id + "," + description + "," + stari.IdAppointment + "," + today.ToString() + "," + stari.medicalCard.Id;
             string[] lines = System.IO.File.ReadAllLines(lokacija);
 
             for (int i = 0; i < lines.Length; i++)

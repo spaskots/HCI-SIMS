@@ -45,10 +45,25 @@ namespace Bolnica
           
             int idAppointment = LekarPocetna.ma.id;
             String description = Description.Text;
-            String date = "12.12.2012";
+            DateTime today = DateTime.Today;
+            String date = today.ToString();
             MedCard medCard = medicalCardController.getOneByPatientId(idPatient);
             Anamnesis anamnesis = new Anamnesis(id,idAppointment,description,date,medCard);
+            if(Description.Text=="")
+            {
+                MessageBox.Show("Greska");
+                return;
+            }
             anamnesisController.saveOne(anamnesis);
+            MedicalReport mr = new MedicalReport();
+            mr.Show();
+            this.Close();
+        }
+        private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MedicalReport mr = new MedicalReport();
+            mr.Show();
+            this.Close();
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.Controller;
 using Bolnica.Model;
-
+using Bolnica.View;
 
 namespace Bolnica
 {
@@ -52,10 +52,28 @@ namespace Bolnica
             }
             else
             {
-                LekarPocetna lp=new LekarPocetna();
-                Validate.Content = "";
-                this.Close();
-                lp.Show();
+                if(username=="pera" && password=="pera")
+                {
+                    LekarPocetna lp = new LekarPocetna();
+                    Validate.Content = "";
+                    this.Close();
+                    lp.Show();
+                }
+                if (username == "Matke" && password == "Matke")
+                {
+                   PatientOptions po=new PatientOptions();
+                    Validate.Content = "";
+                    this.Close();
+                    po.Show();
+                }
+                if (username == "Spasko" && password == "Spasko")
+                {
+                   MainDirector md=new MainDirector();
+                    Validate.Content = "";
+                    this.Close();
+                    md.Show();
+                }
+
             }
 
         }

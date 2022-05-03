@@ -33,19 +33,6 @@ namespace Bolnica
             this.Close();
         }
 
-        private void PatientOptionsWin(object sender, RoutedEventArgs e)
-        {
-            PatientOptions patientOptions = new PatientOptions();
-            patientOptions.Show();
-            this.Close();
-        }
-        RoomController _controller = new RoomController();
-        private void directorAddRoom(object sender, RoutedEventArgs e)
-        {
-            View.MainDirector room = new View.MainDirector();
-            room.Show();
-            this.Close();
-
-        }
+       
     }
 }
