@@ -66,6 +66,9 @@
     <Compile Update="View\MoveEquipmentPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\PriorityAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\RenovationPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -147,6 +150,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MoveEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PriorityAppointment.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\RenovationPage.xaml">

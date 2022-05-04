@@ -1,5 +1,4 @@
 1,oVd,2,ToRoom,CovidRoom
-
 3,bb,2,asdsad,OperationRoom
 4,oVd,2,ToRoom,CovidRoom
 5,AS,2,Izmena,OperationRoom

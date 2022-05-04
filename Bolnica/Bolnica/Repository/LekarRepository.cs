@@ -48,7 +48,7 @@ namespace Bolnica.Repository
                 string username=fields[7];
                 string password=fields[8];
                 City city = new City(fields[9], fields[10]);
-		String idSobe = fields[14];
+		        String idSobe = fields[14];
                 Doctor doctor=new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, username, password, city,idSobe); 
                 doktori.Add(doctor);
             }

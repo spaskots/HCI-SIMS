@@ -34,5 +34,11 @@ namespace Bolnica.Controller
         {
             return appointmentService.GetAllAppointments();
         }
+
+        public List<MedicalAppointment> FindByPriority(String priority, String doctorId, DateTime startTime, DateTime endTime, int duration, String appointmentType)
+        {
+            List<MedicalAppointment> appointments = appointmentService.FindByPriority(priority, doctorId, startTime, endTime, duration, appointmentType);
+            return appointments;
+        }
     }
 }

@@ -92,6 +92,21 @@ namespace Bolnica.Model
             this.Type = type;
 
         }
+        public MedicalAppointment(String startTime, String doctorId, double duration)
+
+        {
+            this.StartTime = startTime;
+            this.Duration = duration;
+            this.doctor = findDoctor(doctorId);
+        }
+
+        public MedicalAppointment(String startTime, double duration)
+
+        {
+            this.StartTime = startTime;
+            this.Duration = duration;
+        }
+
         public Doctor findDoctor(string id)
         {
             Doctor doctor = null;
