@@ -5,21 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="AddRoomPage" Height="750" Width="430">
-    <Grid>
-        <Label Content="Add New Room Form" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" Foreground="#FF8F0909" RenderTransformOrigin="0.204,3.57"/>
-        <Label Content="IdRoom" HorizontalAlignment="Left" Margin="76,123,0,0" VerticalAlignment="Top" Foreground="#FF8F0909" RenderTransformOrigin="0.204,3.57"/>
-        <TextBox x:Name="idRoom" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
-        <Label Content="NameRoom" HorizontalAlignment="Right" Margin="0,183,281,0" VerticalAlignment="Top" Foreground="#FF8F0909" RenderTransformOrigin="0.584,-2.798"/>
-        <Label Content="Room Type" HorizontalAlignment="Left" Margin="76,249,0,0" VerticalAlignment="Top" Foreground="#FF8F0909" RenderTransformOrigin="0.584,-2.798"/>
-        <TextBox x:Name="nameRoom" HorizontalAlignment="Center" Margin="0,183,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="25"/>
-        <ComboBox x:Name="typeRoom" HorizontalAlignment="Center" Margin="0,249,0,0" VerticalAlignment="Top" Width="100" Height="25" SelectedIndex="1">
+        Title="AddRoomPage" Height="600" Width="430">
+    <Grid Margin="0,1,0,-1">
+        <Label Content="Add New Room" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Foreground="#FFF2CA19" RenderTransformOrigin="0.204,3.57" FontSize="36" FontWeight="Bold"/>
+        <Label Content="You Can Always Change It Later" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Foreground="#FFF2CA19" RenderTransformOrigin="0.204,3.57"/>
+        <Label Content="Id:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.204,3.57" FontWeight="Bold" VerticalContentAlignment="Stretch" Margin="0,140,0,0"/>
+        <TextBox x:Name="idRoom" Text="{Binding Path=ID}" HorizontalAlignment="Center" Margin="0,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" Height="25" FontSize="16" BorderThickness="0,0,0,0" IsEnabled="False"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" IsEnabled="False" FontWeight="Bold"/>
+        <Label Content="Type:" HorizontalAlignment="Left" Margin="0,320,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
+        <TextBox x:Name="nameRoom" HorizontalAlignment="Center" Margin="0,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="25" BorderThickness="1,1,1,1" FontSize="16"/>
+        <ComboBox x:Name="typeRoom" HorizontalAlignment="Center" VerticalAlignment="Top" Width="410" Height="25" SelectedIndex="1" Margin="0,346,0,0">
             <ComboBoxItem Content="Operation Room"/>
             <ComboBoxItem Content="Cancer Room"/>
             <ComboBoxItem Content="Rest Room"/>
             <ComboBoxItem Content="Covid Room"/>
         </ComboBox>
-        <Button Content="Submit" HorizontalAlignment="Center" Margin="0,345,0,0" VerticalAlignment="Top" Height="22" Width="80" Click="addRoomSubmit"/>
-        <Button Content="Back" HorizontalAlignment="Center" Margin="0,436,0,0" VerticalAlignment="Top" Height="22" Width="80" Click="goBack"/>
+        <TextBox x:Name="Floor" HorizontalAlignment="Center" Margin="0,286,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="410" Height="25" BorderThickness="1,1,1,1" FontSize="16"/>
+
+        <Label Content="Floor:" HorizontalAlignment="Left" Margin="0,260,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
+        <Label Content="Description:" HorizontalAlignment="Left" Margin="0,381,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
+        <TextBox x:Name="Description" HorizontalAlignment="Center" Margin="0,407,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="80" FontSize="16"/>
+
+        <Button Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="25" Width="100" Click="addRoomSubmit" FontWeight="Normal" Foreground="Black" Background="#FFF2CA19" BorderThickness="1,1,1,1" BorderBrush="Black" Margin="0,0,0,50"/>
+        <Label MouseDoubleClick="goBack" Content="Go Back" Width="100" Height="25" Foreground="#FF0057E9" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
     </Grid>
 </Window>

@@ -12,13 +12,13 @@ namespace Bolnica.Repository
         String lokacijaAppointment = @"..\..\..\Data\Termin.txt";
         public void save(MedicalAppointment ma)
         {
-            String noviRed =ma.Id +","+ma.StartTime +","+ma.Duration+","+ma.Type+","+ma.Patient.Id+","+ma.room.Id+","+ma.doctor.Id;
+            String noviRed =ma.id+","+ma.StartTime +","+ma.Duration+","+ma.Type+","+ma.Patient.Id+","+ma.room.Id+","+ma.doctor.Id;
             StreamWriter write = new StreamWriter(lokacijaAppointment, true);
             write.WriteLine(noviRed);
             
             write.Close();
         }
-        public List<MedicalAppointment> getAllAppointment(String ids)
+        public List<MedicalAppointment> GetAllAppointmentsByDoctorId(String ids)
         {
 
 
@@ -37,50 +37,28 @@ namespace Bolnica.Repository
                 {
                     AppointmentType type;
                     Enum.TryParse(fields[3], out type);
-                    MedicalAppointment maa = new MedicalAppointment(fields[0], fields[4], fields[6], fields[1], Convert.ToDouble(fields[2]), type, fields[5]);
+                    MedicalAppointment maa = new MedicalAppointment(Convert.ToInt32(fields[0]), fields[4], fields[6], fields[1], Convert.ToDouble(fields[2]), type, fields[5]);
                     ma.Add(maa);
                 }
             }
             return ma;
         }
-
-        public List<MedicalAppointment> getAllAppointment()
-        {
-            List<MedicalAppointment> ma = new List<MedicalAppointment>();
-
-            string[] lines = System.IO.File.ReadAllLines(lokacijaAppointment);
-            foreach (string line in lines)
-            {
-                string[] fields = line.Split(',');
-
-                string id = fields[0];
-                string starttime = fields[1];
-                double duration = Convert.ToDouble(fields[2]);
-                AppointmentType type;
-                Enum.TryParse(fields[3], out type);
-                string patientId = fields[4];
-                string roomId = fields[5];
-                string doctorId = fields[6];
-                MedicalAppointment maa = new MedicalAppointment(id, patientId, doctorId, starttime, duration, type, roomId);
-                ma.Add(maa);
-            }
-            return ma;
-        }
-
         public void delete(MedicalAppointment ma)
         {
-            String obrisiRed = ma.Id + "," + ma.StartTime + "," + ma.Duration + "," + ma.Type + "," + ma.Patient.Id + "," + ma.room.Id + "," + ma.doctor.Id;
+            String obrisiRed = ma.id + "," + ma.StartTime + "," + ma.Duration + "," + ma.Type + "," + ma.Patient.Id + "," + ma.room.Id + "," + ma.doctor.Id;
 
             String text = File.ReadAllText(lokacijaAppointment);
             if (text.Contains(obrisiRed))
             {
                 text = text.Replace(obrisiRed, "");
                 File.WriteAllText(lokacijaAppointment, text);
-               
+                var lines = File.ReadAllLines(lokacijaAppointment).Where(arg => !string.IsNullOrWhiteSpace(arg));
+                File.WriteAllLines(lokacijaAppointment, lines);
+
             }
             
         }
-        public MedicalAppointment GetOne(String id)
+        public MedicalAppointment GetOne(int id)
         {
 
             MedicalAppointment ma = null;
@@ -93,7 +71,7 @@ namespace Bolnica.Repository
                     continue;
                 }
 
-                if (id == fields[0])
+                if (id == Convert.ToInt32(fields[0]))
                 {
                     AppointmentType type;
                     Enum.TryParse(fields[3], out type);
@@ -103,11 +81,35 @@ namespace Bolnica.Repository
             }
             return ma;
         }
+        public List<int> getAllId()
+        {
+
+
+
+            List<int> ids = new List<int>();
+            ids.Clear();
+           
+            string[] lines = System.IO.File.ReadAllLines(lokacijaAppointment);
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(',');
+                if (line == "")
+                {
+                    continue;
+                }
+
+
+                int id = Convert.ToInt32(fields[0]);
+                ids.Add(id);
+
+            }
+            return ids;
+        }
         public void update(MedicalAppointment ma)
         {
-            MedicalAppointment stari = this.GetOne(ma.Id);
-            String stariRed = stari.Id + "," + stari.StartTime + "," + stari.Duration + "," + stari.Type + "," + stari.Patient.Id + "," + stari.room.Id + "," + stari.doctor.Id;
-            String noviRed = ma.Id + "," + ma.StartTime + "," + ma.Duration + "," + ma.Type + "," + ma.Patient.Id + "," + ma.room.Id + "," + ma.doctor.Id;
+            MedicalAppointment stari = this.GetOne(ma.id);
+            String stariRed = stari.id + "," + stari.StartTime + "," + stari.Duration + "," + stari.Type + "," + stari.Patient.Id + "," + stari.room.Id + "," + stari.doctor.Id;
+            String noviRed = ma.id + "," + ma.StartTime + "," + ma.Duration + "," + ma.Type + "," + ma.Patient.Id + "," + ma.doctor.Room.Id + "," + ma.doctor.Id;
             string[] lines = System.IO.File.ReadAllLines(lokacijaAppointment);
 
             for (int i = 0; i < lines.Length; i++)
@@ -119,11 +121,28 @@ namespace Bolnica.Repository
                 }
             }
             File.WriteAllLines(lokacijaAppointment, lines.ToArray());
-
-           
-
         }
 
+        public List<MedicalAppointment> GetAllAppointments()
+        {
+            List<MedicalAppointment> appointments = new List<MedicalAppointment>();
+            string[] lines = System.IO.File.ReadAllLines(lokacijaAppointment);
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(',');
+                if (line == "")
+                {
+                    continue;
+                }
+
+                AppointmentType type;
+                Enum.TryParse(fields[3], out type);
+                MedicalAppointment apointment = new MedicalAppointment(Convert.ToInt32(fields[0]), fields[4], fields[6], fields[1], Convert.ToDouble(fields[2]), type, fields[5]);
+                appointments.Add(apointment);
+            }
+            return appointments;
+
+        }
     }
     }
 

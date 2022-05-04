@@ -25,9 +25,26 @@ namespace Bolnica
         public AddRoomPage()
         {
             InitializeComponent();
+            this.DataContext = this;
+            Int16 minId = 1;
+            Int16 temp = 1;
+            ID = "1";
+            List<Room> sobe = _controller.getAllRooms();
+            foreach (Room soba in sobe)
+            {
+                if (soba == null) { return; }
+                temp = Int16.Parse(soba.Id);
+                if(temp > minId) { minId = temp; }
+            }
+            minId += 1;
+            
+            ID = minId.ToString();
         }
         RoomController _controller = new RoomController();
         RoomRepository _repository = new RoomRepository();
+
+        public object ID { get; set; }
+
         private void addRoomSubmit(object sender, RoutedEventArgs e)
         {
             String id = idRoom.Text.ToString();
@@ -35,15 +52,16 @@ namespace Bolnica
             {
                 Int16 i2 = Int16.Parse(id);   // Error
                 Room roomProvera = _repository.FindById(id);
-                if (roomProvera != null) { return; }
+                if (roomProvera != null) { MessageBox.Show("ID already exists!"); return; }
             }
             catch
             {
+                MessageBox.Show("Invalid ID!");
                 return;
             }
             String name = nameRoom.Text.ToString();
 
-            if (name.Length < 3) { return; }
+            if (name.Length > 3) { MessageBox.Show("Name should have less than three characters!"); return; }
 
             String troom = typeRoom.Text.ToString();
             RoomType roomType;
@@ -51,12 +69,28 @@ namespace Bolnica
             else if (troom == "Cancer Room") { roomType = RoomType.CancerRoom; }
             else if (troom == "Rest Room") { roomType = RoomType.RestRoom; }
             else { roomType = RoomType.CovidRoom; }
-            Room room = new Room(id, name, roomType);
+            String description = Description.Text.ToString();
+            String floor = Floor.Text.ToString();
+            try
+            {
+                Int16 i2 = Int16.Parse(floor);   // Error
+                if (floor == null) { return; }
+            }
+            catch
+            {
+                MessageBox.Show("Floor Must Be Number!");
+                return;
+            }
+            Room room = new Room(id, name, floor, description, roomType);
             _controller.Create(room);
+            MessageBox.Show("Successfully added room!");
+            RoomPage director = new RoomPage();
+            director.Show();
+            this.Close();
         }
         private void goBack(object sender, RoutedEventArgs e)
         {
-            Rooms director = new Rooms();
+            RoomPage director = new RoomPage();
             director.Show();
             this.Close();
         }

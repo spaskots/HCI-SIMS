@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bolnica.Controller;
+using Bolnica.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,23 +28,11 @@ namespace Bolnica
         }
         private void lekarLogIn(object sender, RoutedEventArgs e)
         {
-            LekarWindow lekar = new LekarWindow();
+            LekarPrijava lekar = new LekarPrijava();
             lekar.Show();
             this.Close();
         }
 
-        private void PatientOptionsWin(object sender, RoutedEventArgs e)
-        {
-            PatientOptions patientOptions = new PatientOptions();
-            patientOptions.Show();
-            this.Close();
-        }
-
-        private void directorAddRoom(object sender, RoutedEventArgs e)
-        {
-            Rooms director = new Rooms();
-            director.Show();
-            this.Close();
-        }
+       
     }
 }

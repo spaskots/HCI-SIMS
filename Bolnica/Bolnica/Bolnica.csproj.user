@@ -13,7 +13,19 @@
     <Compile Update="AddPatient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ChangeMedicalReport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChangeRecipe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CreateAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CreateMedicalReport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CreateRecipe.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LekarPocetna.xaml.cs">
@@ -22,16 +34,51 @@
     <Compile Update="LekarPrijava.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LekarR.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="LekarWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="PatientOptions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ReadPatient.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Table\MedicalCardAllergen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Table\ViewPatients.xaml.cs">
+    </Compile>
+    <Compile Update="RoomPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SingleRoom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddNewRoom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DynamicOrStaticEquipmentPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\FourCardsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MainDirector.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MoveEquipmentPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PriorityAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\RenovationPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SingleRoomPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\StaticEquipmentRooms.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ViewAllAppointments.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -45,19 +92,25 @@
     <Page Update="AddRoomPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ChangeMedicalReport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChangeRecipe.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CreateAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CreateMedicalReport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CreateRecipe.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LekarPocetna.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LekarPrijava.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="LekarR.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="LekarWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -69,7 +122,49 @@
     <Page Update="ReadPatient.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Rooms.xaml">
+    <Page Update="RoomPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SingleRoom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Table\MedicalCardAllergen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Table\ViewPatients.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddNewRoom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditAppointmentSecretary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DynamicOrStaticEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\FourCardsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainDirector.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MoveEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PriorityAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\RenovationPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SingleRoomPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\StaticEquipmentRooms.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ViewAllAppointments.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

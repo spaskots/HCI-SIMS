@@ -187,27 +187,25 @@ namespace Bolnica.Repository
 
         public List<Patient> getAllPatient()
         {
-            List<Patient> pacijenti = new List<Patient>();
+            List<Patient> patients = new List<Patient>();
 
             string[] lines = System.IO.File.ReadAllLines(PATIENT_FILE);
             foreach (string line in lines)
             {
+                if (line == "") { continue; }
                 string[] fields = line.Split(',');
 
-                string name = fields[0];
-                string surname = fields[1];
-               String dateOFBirth = fields[2];
-                string phoneNumber = fields[3];
-                string email = fields[4];
-                string Id = fields[5];
-                bool isAvailable = Convert.ToBoolean(fields[6]);
-                string username = fields[7];
-                string password = fields[8];
-                City city = new City(fields[9], fields[10]);
-                Patient pacijent=new Patient(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, username, password, city); ;
-                pacijenti.Add(pacijent);
+                City city = new City(fields[9], fields[12]);
+                Country country = new Country(fields[10], fields[11]);
+                city.SetCountry(country);
+
+                bool active = bool.Parse(fields[8]);
+                patients.Add(new Patient(fields[1], fields[2], fields[3], fields[4], fields[5], fields[0],
+                                              active, fields[6], fields[7], city));
             }
-            return pacijenti;
+
+//            if (patients.Count > 0)
+            return patients;
         }
         public List<String> getAllId()
         {
@@ -216,7 +214,7 @@ namespace Bolnica.Repository
             foreach (String line in lines)
             {
                 string[] fields = line.Split(',');
-                string id = fields[5];
+                string id = fields[0];
                 ids.Add(id);
             }
             return ids;

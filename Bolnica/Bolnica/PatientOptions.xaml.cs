@@ -1,4 +1,6 @@
 ﻿using Bolnica.Controller;
+using Bolnica.Table;
+using Bolnica.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,15 +42,21 @@ namespace Bolnica
 
         private void ReadPatientWin(object sender, RoutedEventArgs e)
         {
-            string id = ID.Text.ToString();
+            string id = "0";
             ReadPatient readPatient = new ReadPatient(id);
             readPatient.Show();
 
         }
 
+        private void ViewPatientWin(object sender, RoutedEventArgs e)
+        {
+            ViewPatients viewPatient = new ViewPatients();
+            viewPatient.Show();
+        }
+
         private void RemovePatient(object sender, RoutedEventArgs e)
         {
-            string id = ID.Text.ToString();
+            string id = "0";
             
             if (!patientController.DeleteById(id))
             {
@@ -57,6 +65,18 @@ namespace Bolnica
             }
 
             MessageBox.Show("Successfully removed patient with JMBG: " + id);
+        }
+
+        private void ViewAppointmentWin(object sender, RoutedEventArgs e)
+        {
+            ViewAllAppointments viewAppointments = new ViewAllAppointments();
+            viewAppointments.Show();
+        }
+
+        private void PriorityAppointmentWin(object sender, RoutedEventArgs e)
+        {
+            PriorityAppointment priority = new PriorityAppointment();
+            priority.Show();
         }
     }
 

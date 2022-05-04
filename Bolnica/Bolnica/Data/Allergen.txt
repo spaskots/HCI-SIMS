@@ -1,0 +1,7 @@
+1,Milk
+2,Peanuts
+3,Almonds
+4,Egg
+5,Fish
+6,Wheat
+7,Soybeans

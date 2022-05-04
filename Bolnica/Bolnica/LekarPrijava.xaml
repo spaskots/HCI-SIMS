@@ -5,44 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="LekarPrijava" Height="450" Width="800" Background="#FFE2D5D5">
+        Title="LekarPrijava" Height="490" Width="800" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100*" />
+            <RowDefinition Height="150*" />
             <RowDefinition Height="100*" />
             <RowDefinition Height="45*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="44*" />
-            <RowDefinition Height="50*" />
+            <RowDefinition Height="43*" />
+            <RowDefinition Height="45*" />
+            <RowDefinition Height="43*" />
             <RowDefinition Height="66*" />
             <RowDefinition Height="90*" />
             <RowDefinition Height="149*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="21*" />
-            <ColumnDefinition Width="24*" />
+            <ColumnDefinition Width="22*" />
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="10*" />
             <ColumnDefinition Width="22*" />
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="Username"  Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="166" Height="25" TextChanged="TextBox_username" Margin="87,3,0,0" Grid.RowSpan="2" />
-        <Label x:Name="Validate" Content=""  Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Foreground="#FF8F0909" Margin="87,0,0,0" Width="165"/>
-
-
-        <PasswordBox x:Name="Password"  Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"   VerticalAlignment="Top" Width="166" Height="25
-                 "  Margin="87,0,0,0" />
-
-
-        <Button x:Name="Prijava" Content="Sign up" HorizontalAlignment="Left" Height="35"  VerticalAlignment="Top" Width="120
-                " Click="Button_Click" Background="#FF85BBE2" Foreground="Black" FontSize="20" FontFamily="Elephant" BorderBrush="Black" BorderThickness="3" Grid.Column="1" Margin="133,21,0,0" Grid.Row="7" Grid.RowSpan="2"  />
-
-
-        <Label Content="USERNAME"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF8F0909" Margin="11,28,0,0" Grid.RowSpan="2"/>
-
-
-        <Label Content="PASSWORD"  Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF8F0909" RenderTransformOrigin="0.562,-0.938" Margin="10,27,0,0" Grid.RowSpan="2"/>
-
-        <Image  Height="41"   Width="37" Source="/sign in.png" Grid.Column="1" Margin="83,15,166,8"/>
-        <Label Content="Sign up"    VerticalAlignment="Top" Foreground="#FFCC0000" FontFamily="Elephant" FontSize="24" Width="124" Grid.Column="1" Margin="125,15,37,0" />
-
+        <Label Content="Sign up"     Background="#FFF3EDED" Foreground="Black" FontFamily="Elephant" FontSize="72" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="0,0,0,0" Grid.ColumnSpan="5"  />
+        <Label Grid.Column="2" Grid.Row="2" Content="Username"  HorizontalAlignment="Left"   VerticalAlignment="Center" FontSize="20" VerticalContentAlignment="Center"  FontFamily="Segoe UI Black" Height="37" Margin="0,4" Width="108" Foreground="#FFCC0000"  />
+        <TextBox x:Name="Username"    FontFamily="Segoe UI Black"  Grid.Column="2" Grid.Row="3"  Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" FontSize="15"  VerticalContentAlignment="Center" TextChanged="Username_TextChanged" Width="Auto" Height="Auto" />
+        <Label Grid.Column="2" Grid.Row="4" Content="Password"  HorizontalAlignment="Left"   VerticalAlignment="Center" FontSize="20" VerticalContentAlignment="Center"  FontFamily="Segoe UI Black" Height="38" Margin="0,3" Width="105" Foreground="#FFCC0000"  />
+        <PasswordBox x:Name="Password"    KeyDown="Password_KeyDown" Grid.Column="2" Grid.Row="5"  FontFamily="Segoe UI Black" Background="#FFECDFDF" BorderThickness="3"  BorderBrush="#FF4D4B4B" FontSize="15"  VerticalContentAlignment="Center" VerticalAlignment="Stretch" Width="Auto" />
+        <Label x:Name="Validate" Content="" BorderBrush="Black"   Foreground="Black" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontStyle="Normal" Width="Auto" />
+        <Button x:Name="Prijava" Content="Sign up"  Click="Button_Click" Background="#FF082F4B" Foreground="White" FontSize="20" FontFamily="Elephant" BorderBrush="Black" BorderThickness="3" Height="50"  Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="270"   />
+        <Image  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3"  Width="Auto" Source="/Username.png"/>
+        <Image Source="/sign in.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1"/>
+        <Image Grid.Row="5" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Password.png" />
     </Grid>
 </Window>

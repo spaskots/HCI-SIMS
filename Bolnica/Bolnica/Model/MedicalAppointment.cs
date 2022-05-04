@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Bolnica.Service;
+
 namespace Bolnica.Model
 {
 
 
     public class MedicalAppointment
     {
-        public String Id { set; get; }
+
+        public int id { get; set; }
+
         public String StartTime { set; get; }
         public double Duration { set; get; }
         public AppointmentType Type { set; get; }
@@ -44,26 +48,73 @@ namespace Bolnica.Model
                 }
             }
         }
-        public MedicalAppointment(string id, string patientId, string doctorId,  String startTime, double duration, AppointmentType type, String roomId)
+        public void SetRoom(Room r)
+        {
+            this.room = r;
+        }
+
+        public MedicalAppointment(int id, string patientId, string doctorId, String startTime, double duration, AppointmentType type)
 
         {
-            this.Id = id;
+
+            this.id = id;
             this.doctor = findDoctor(doctorId);
             this.Patient = findPatient(patientId);
             this.StartTime = startTime;
             this.Duration = duration;
             this.Type = type;
-            this.room = findRoom(roomId);
+
+
         }
-        
+        public MedicalAppointment(string patientId, string doctorId, String startTime, double duration, AppointmentType type)
+
+        {
+
+            this.id = id;
+            this.doctor = findDoctor(doctorId);
+            this.Patient = findPatient(patientId);
+            this.StartTime = startTime;
+            this.Duration = duration;
+            this.Type = type;
+
+
+        }
+        public MedicalAppointment(int id, string patientId, string doctorId, String startTime, double duration, AppointmentType type, string roomId)
+
+        {
+
+            this.id = id;
+            this.doctor = findDoctor(doctorId);
+            this.Patient = findPatient(patientId);
+            this.room = findRoom(roomId);
+            this.StartTime = startTime;
+            this.Duration = duration;
+            this.Type = type;
+
+        }
+        public MedicalAppointment(String startTime, String doctorId, double duration)
+
+        {
+            this.StartTime = startTime;
+            this.Duration = duration;
+            this.doctor = findDoctor(doctorId);
+        }
+
+        public MedicalAppointment(String startTime, double duration)
+
+        {
+            this.StartTime = startTime;
+            this.Duration = duration;
+        }
+
         public Doctor findDoctor(string id)
         {
             Doctor doctor = null;
             LekarService lekarService = new LekarService();
-            List<Doctor> lekari =lekarService.getAllDoctors();
+            List<Doctor> lekari = lekarService.getAllDoctors();
             foreach (Doctor l in lekari)
             {
-                if (l.Id==id)
+                if (l.Id == id)
                 {
                     doctor = l;
                     break;
@@ -78,7 +129,7 @@ namespace Bolnica.Model
             List<Patient> pacijenti = patientService.getAllPatient();
             foreach (Patient p in pacijenti)
             {
-                if (p.Id==id)
+                if (p.Id == id)
                 {
                     patient = p;
                     break;
@@ -105,4 +156,6 @@ namespace Bolnica.Model
         }
 
     }
+
 }
+

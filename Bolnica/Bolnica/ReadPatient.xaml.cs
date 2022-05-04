@@ -37,7 +37,7 @@ namespace Bolnica
                 PhoneNumber.Text = patient.PhoneNumber;
                 Email.Text = patient.Email;
                 Id.Text = patient.Id;
-                Country.Text = patient.city.country.Name;
+                Country.Text = patient.city.Name + ", " + patient.city.country.Name;
             }
         }
 

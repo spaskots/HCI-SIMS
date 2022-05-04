@@ -14,7 +14,7 @@ namespace Bolnica.Repository
 
         public void saveDoctor(Doctor doctor)
         {
-            String noviRed = doctor.Name + "," + doctor.Surname + "," + doctor.DateOfBirth + "," + doctor.PhoneNumber + "," + doctor.Email + "," + doctor.Id + "," + doctor.Active + "," + doctor.Username + "," + doctor.Password + "," + doctor.city.Name + "," + doctor.city.PostalCode+","+doctor.Specialization+","+doctor.LicenseId+","+doctor.Salary+","+doctor.Room.Name;
+            String noviRed = doctor.Name + "," + doctor.Surname + "," + doctor.DateOfBirth + "," + doctor.PhoneNumber + "," + doctor.Email + "," + doctor.Id + "," + doctor.Active + "," + doctor.Username + "," + doctor.Password + "," + doctor.city.Name + "," + doctor.city.PostalCode+","+doctor.Specialization+","+doctor.LicenseId+","+doctor.Salary+","+doctor.Room.Id;
             StreamWriter write = new StreamWriter(lokacijaLekar, true);
             write.WriteLine(noviRed);
             write.Close();
@@ -48,7 +48,8 @@ namespace Bolnica.Repository
                 string username=fields[7];
                 string password=fields[8];
                 City city = new City(fields[9], fields[10]);
-                Doctor doctor=new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, username, password, city); 
+		        String idSobe = fields[14];
+                Doctor doctor=new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, username, password, city,idSobe); 
                 doktori.Add(doctor);
             }
             return doktori;
@@ -69,7 +70,7 @@ namespace Bolnica.Repository
             }
             return ids;
         }
-        public  Doctor GetOneByUsername(String username)
+        public Doctor GetOneByUsername(String username)
 
         {
             string[] lines = System.IO.File.ReadAllLines(lokacijaLekar);
@@ -92,7 +93,8 @@ namespace Bolnica.Repository
                     string Username = fields[7];
                     string password = fields[8];
                     City city = new City(fields[9], fields[10]);
-                    Doctor doctor = new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, Username, password, city); 
+		    String idSobe = fields[14];
+                    Doctor doctor = new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, Username, password, city,idSobe); 
                     return doctor;
                 }
             }

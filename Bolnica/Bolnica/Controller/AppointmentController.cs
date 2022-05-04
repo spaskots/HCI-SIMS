@@ -14,9 +14,9 @@ namespace Bolnica.Controller
         {
             appointmentService.save(ma);
         }
-        public List<MedicalAppointment> getAllAppointment(String id)
+        public List<MedicalAppointment> GetAllAppointmentsByDoctorId(String id)
         {
-            return appointmentService.getAllAppointment(id);
+            return appointmentService.GetAllAppointmentsByDoctorId(id);
         }
         public void delete(MedicalAppointment ma)
         {
@@ -26,6 +26,19 @@ namespace Bolnica.Controller
         {
             appointmentService.update(ma);
         }
-       
+        public List<int> getAllId()
+        {
+            return appointmentService.getAllId();
+        }
+        public List<MedicalAppointment> GetAllAppointments()
+        {
+            return appointmentService.GetAllAppointments();
+        }
+
+        public List<MedicalAppointment> FindByPriority(String priority, String doctorId, DateTime startTime, DateTime endTime, int duration, String appointmentType)
+        {
+            List<MedicalAppointment> appointments = appointmentService.FindByPriority(priority, doctorId, startTime, endTime, duration, appointmentType);
+            return appointments;
+        }
     }
 }

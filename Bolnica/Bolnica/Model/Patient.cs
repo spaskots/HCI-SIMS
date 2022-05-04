@@ -27,6 +27,8 @@ namespace Bolnica.Model
         }
 
         public Patient(string name, string surname, string id) : base(name, surname, id) { }
-       
+
+        public Patient() { }
+
     }
 }

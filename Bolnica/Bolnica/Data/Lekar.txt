@@ -1,3 +1,4 @@
-
-Nidza,Fidza,12/12/1992,1691982206,asdsada@gmail.com,1234567890123,True,Burek,123123,Novi Sad,21000,abc,saddsadasdsadsa,null,
-Je,Ne,12/12/1992,651615,akakak@gmail.com,1234567890125,True,test,123,Beograd,21000,Kaaaa,Kaaaa,null,Hello
+Pera,Peric,12.12.2012,0651234569,pera@gmail.com,4587452105412,True,pera,pera,Salzburg,15000,,,null,2
+Nikola,Nikolic,12.10.1972,0641234569,nikola@gmail.com,3587432105412,True,nikola,nikola22,Salzburg,15000,,,null,1
+Milana,Milanic,15.01.1970,0623234569,milana@gmail.com,1227432105412,True,mila,mila123,Salzburg,15000,,,null,12
+Djordje,Djordjic,25.04.1965,06912234569,djordje@gmail.com,1528432105412,True,djordje,djordje,Salzburg,15000,,,null,5

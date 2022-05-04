@@ -22,22 +22,19 @@ namespace Bolnica
     {
         AppointmentController appointmentController=new AppointmentController();
         LekarController lekarController=new LekarController();
-        RoomController roomController = new RoomController();
         PatientController patientController = new PatientController();
+        AutoIncrementController autoIncrementController = new AutoIncrementController();
+        List<int> medicalAppointmentId = null;
+        MedicalAppointment ma = null;
 
         public CreateAppointment()
         {
             InitializeComponent();
             List<String> doctorId = lekarController.getAllId();
-            List<String> roomId = roomController.getAllId();
             List<String> patientId = patientController.getAllId();
             foreach (String id in doctorId)
             {
                 DoctorId.Items.Add(id);
-            }
-            foreach (String id in roomId)
-            {
-                RoomId.Items.Add(id);
             }
             foreach (String id in patientId)
             {
@@ -45,31 +42,51 @@ namespace Bolnica
             }
             TypeId.Items.Add(0);
             TypeId.Items.Add(1);
+            STARTTIME.Focus();
+            DoctorId.SelectedIndex = 0;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            String id=ID.Text.ToString();
-            String startTime = StartTime.Text.ToString();
+            medicalAppointmentId = appointmentController.getAllId();
+            int id;
+            String startTime = STARTTIME.Text.ToString();
             Double duration;
-            Double.TryParse(Duration.Text, out duration);           
-            
-            String idPacijenta=PatientId.Text.ToString();
-            String idSobe = RoomId.Text.ToString();
+            Double.TryParse(DURATION.Text, out duration);
+
+            String idPacijenta = PatientId.Text.ToString();
+
             String idDoktora = DoctorId.Text.ToString();
+
             AppointmentType type;
 
             Enum.TryParse(TypeId.Text.ToString(), out type);
-            MedicalAppointment ma = new MedicalAppointment(id, idPacijenta, idDoktora, startTime, duration, type, idSobe);
-            if(ID.Text=="" || StartTime.Text=="" || Duration.Text=="" || PatientId.Text=="" || RoomId.Text=="" || DoctorId.Text=="")
+            if (medicalAppointmentId == null)
+            {
+                id = 0;
+            }
+            else
+            {
+                id = medicalAppointmentId.Last();
+                ++id;
+            }
+            ma = new MedicalAppointment(id, idPacijenta, idDoktora, startTime, duration, type);
+            Doctor d = ma.findDoctor(idDoktora);
+
+
+            Room r = ma.findRoom(d.Room.Id);
+
+
+            ma.SetRoom(r);
+            if (STARTTIME.Text == "" || DURATION.Text == "" || PatientId.Text == "" || DoctorId.Text == "")
             {
                 MessageBox.Show("Greska");
                 return;
             }
             appointmentController.save(ma);
-            this.Close();
-            LekarPocetna lp=new LekarPocetna();
+            LekarPocetna lp = new LekarPocetna();
             lp.Show();
+            this.Close();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -77,5 +94,21 @@ namespace Bolnica
            
 
         }
+
+        
+        private void Button_KeyDown(object sender,KeyEventArgs e)
+        {
+            if(e.Key==Key.Enter)
+            {
+                Button_Click_1(sender, e);
+            }
+        }
+        private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            LekarPocetna lp = new LekarPocetna();
+            lp.Show();
+            this.Close();
+        }
+
     }
 }
