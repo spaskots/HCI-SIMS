@@ -72,6 +72,12 @@ namespace Bolnica
             ViewAllAppointments viewAppointments = new ViewAllAppointments();
             viewAppointments.Show();
         }
+
+        private void PriorityAppointmentWin(object sender, RoutedEventArgs e)
+        {
+            PriorityAppointment priority = new PriorityAppointment();
+            priority.Show();
+        }
     }
 
    

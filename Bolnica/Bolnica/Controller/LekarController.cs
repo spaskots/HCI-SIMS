@@ -26,5 +26,9 @@ namespace Bolnica.Controller
         {
             return lekarService.GetOneByUsername(username);
         }
+        public List<Doctor> GetAll()
+        {
+            return lekarService.getAllDoctors();
+        }
     }
 }

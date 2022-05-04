@@ -16,7 +16,7 @@
                 <MenuItem Header="_Read" Click="ViewPatientWin"/>
             </MenuItem>
             <MenuItem Header="_Appointment">
-                <MenuItem Header="_Create" >
+                <MenuItem Header="_Create" Click="PriorityAppointmentWin">
                 </MenuItem>
                 <MenuItem Header="_Read" Click="ViewAppointmentWin"/>
             </MenuItem>
