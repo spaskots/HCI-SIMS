@@ -45,12 +45,6 @@
     </Compile>
     <Compile Update="Table\ViewPatients.xaml.cs">
     </Compile>
-    <Compile Update="RoomPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="SingleRoom.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="View\AddNewRoom.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -120,12 +114,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ReadPatient.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="RoomPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="SingleRoom.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Table\MedicalCardAllergen.xaml">
