@@ -201,5 +201,22 @@ namespace Bolnica.Repository
             }
             return allEqInChosenRoom;
         }
+        public List<StaticEquipment> search(String Name, String idRoom)
+        {
+            List<StaticEquipment> staticEquipments = new List<StaticEquipment>();
+            if(idRoom == "-") { staticEquipments.AddRange(GetAllStaticEquipment()); }
+            else { staticEquipments.AddRange(getEquipmentInChosenRoom(idRoom)); }
+
+            List<StaticEquipment> results = new List<StaticEquipment>();
+            foreach (StaticEquipment staticEquipment in staticEquipments)
+            {
+
+                if (staticEquipment.Name.Contains(Name, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    results.Add(staticEquipment);
+                }
+            }
+            return results;
+        }
     }
 }

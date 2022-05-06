@@ -43,5 +43,19 @@ namespace Bolnica.Repository
             }
             return dynamicEquipments;
         }
+        public List<DynamicEquipment> search(String Name)
+        {
+            List<DynamicEquipment> dynamicEquipments = GetAllDynamicEquipments();
+            List<DynamicEquipment> results = new List<DynamicEquipment>();
+            foreach (DynamicEquipment dynamicEquipment in dynamicEquipments)
+            {
+
+                if(dynamicEquipment.Name.Contains(Name, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    results.Add(dynamicEquipment);
+                }
+            }
+            return results;
+        }
     }
 }

@@ -3,6 +3,7 @@ using Bolnica.Model;
 using Bolnica.Repository;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,8 @@ namespace Bolnica.View
 
             if (oznaka == "DynamicEquipmentSelected")
             {
-                dynamicEquipmentIspis();
+                List<DynamicEquipment> equipments = dynamicEquipment_controller.GetAllDynamicEquipments();
+                dynamicEquipmentIspis(equipments);
             }
             skrol = 0;
             temp = skrol * korak;
@@ -49,7 +51,7 @@ namespace Bolnica.View
                 room_repository.advancedRenovationMergeSplit();
                 MessageBox.Show("Watched Over All Advanced Renovations!");
                 AddNewRoomButton.Visibility = Visibility.Visible;
-                
+
                 eventNaClick = "Room";
                 for (Int64 x = 0; x < 4; x++)
                 {
@@ -181,7 +183,7 @@ namespace Bolnica.View
                 if (room == null) { return; }
                 FourCardsViewName.Visibility = Visibility.Hidden;
                 SingleRoomFrame.Content = new SingleRoomPage(room);
-                
+
             }
             if (eventNaClick == "SingleStaticEquipment")
             {
@@ -277,6 +279,7 @@ namespace Bolnica.View
             NewSupplyRequestButton.Visibility = Visibility.Hidden;
             CurrentRoomNameEq.Visibility = Visibility.Visible;
             CurrentRoomIdEq.Visibility = Visibility.Visible;
+            searchName.Visibility = Visibility.Visible;
 
             CurrentRoomNameEq.Text = "All Equipment";
             CurrentRoomIdEq.Text = "-";
@@ -339,6 +342,7 @@ namespace Bolnica.View
 
             CurrentRoomNameEq.Visibility = Visibility.Visible;
             CurrentRoomIdEq.Visibility = Visibility.Visible;
+            searchName.Visibility = Visibility.Visible;
             Room RoomNameId = room_repository.FindById(IdSobe);
             CurrentRoomNameEq.Text = RoomNameId.RoomType.ToString() + " " + RoomNameId.Name;
             CurrentRoomIdEq.Text = RoomNameId.Id;
@@ -394,12 +398,12 @@ namespace Bolnica.View
             }
             temp = 4;
         }
-        
-        public void dynamicEquipmentIspis()
+
+        public void dynamicEquipmentIspis(List<DynamicEquipment> equipments)
         {
             eventNaClick = "dynamicEquipmentScroll";
             skrol = 0;
-            List<DynamicEquipment> equipments = dynamicEquipment_controller.GetAllDynamicEquipments();
+            searchName.Visibility = Visibility.Visible;
             temp = 0;
             for (Int64 x = 0; x < equipments.Count; x++) // idi do kraja liste
             {
@@ -445,7 +449,59 @@ namespace Bolnica.View
             }
             temp = 4;
         }
-
+    
+        public void PrintSearchStaticEquipment(List<StaticEquipment> equipments)
+        {
+            eventNaClick = "SingleStaticEquipment";
+            skrol = 0;
+            temp = 0;
+            for (Int64 x = 0; x < equipments.Count; x++) // idi do kraja liste
+            {
+                StaticEquipment equipment = new StaticEquipment();
+                StaticEquipment oprema = equipments.ElementAt((int)x);
+                {
+                    equipment.Id = oprema.Id; equipment.Name = oprema.Name; equipment.Quantity = oprema.Quantity;
+                    if (temp == 0)
+                    {
+                        Type1.Text = equipment.Name.ToString(); Id1.Text = equipment.Id.ToString(); AdditionInfo1.Text = "Available Quantity: " + equipment.Quantity.ToString();
+                    }
+                    if (temp == 1)
+                    {
+                        Type2.Text = equipment.Name.ToString(); Id2.Text = equipment.Id.ToString(); AdditionInfo2.Text = "Available Quantity: " + equipment.Quantity.ToString();
+                    }
+                    if (temp == 2)
+                    {
+                        Type3.Text = equipment.Name.ToString(); Id3.Text = equipment.Id.ToString(); AdditionInfo3.Text = "Available Quantity: " + equipment.Quantity.ToString();
+                    }
+                    if (temp == 3)
+                    {
+                        Type4.Text = equipment.Name.ToString(); Id4.Text = equipment.Id.ToString(); AdditionInfo4.Text = "Available Quantity: " + equipment.Quantity.ToString();
+                        return;
+                    }
+                    temp++;
+                }
+            }
+            EmptyPrintChecker(temp);
+        }
+        public void EmptyPrintChecker(long temp, long val = 4) {
+            if (temp == 0)
+            {
+                Type1.Text = ""; Id1.Text = ""; AdditionInfo1.Text = ""; Type2.Text = ""; Id2.Text = ""; AdditionInfo2.Text = ""; Type3.Text = ""; Id3.Text = ""; AdditionInfo3.Text = ""; Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
+            }
+            if (temp == 1)
+            {
+                Type2.Text = ""; Id2.Text = ""; AdditionInfo2.Text = ""; Type3.Text = ""; Id3.Text = ""; AdditionInfo3.Text = ""; Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
+            }
+            if (temp == 2)
+            {
+                Type3.Text = ""; Id3.Text = ""; AdditionInfo3.Text = ""; Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
+            }
+            if (temp == 3)
+            {
+                Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
+            }
+            temp = val;
+        }
         private void next(object sender, RoutedEventArgs e)
         {
            if(eventNaClick == "Room")
@@ -662,6 +718,21 @@ namespace Bolnica.View
                     return;
                 }
             }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (eventNaClick == "dynamicEquipmentScroll")
+            {
+                List<DynamicEquipment> dynamicEquipments = dynamicEquipment_controller.search(searchName.Text);
+                dynamicEquipmentIspis(dynamicEquipments);
+            }
+            if (eventNaClick == "SingleStaticEquipment")
+            {
+                List<StaticEquipment> staticEquipments = staticEquipment_controller.search(searchName.Text, CurrentRoomIdEq.Text);
+                PrintSearchStaticEquipment(staticEquipments);
+            }
+
         }
     }
 }

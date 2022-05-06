@@ -41,6 +41,10 @@ namespace Bolnica.Service
         {
             return _repository.GetAllStaticEquipment();
         }
-        
+        public List<StaticEquipment> search(String name, String idRoom)
+        {
+            return _repository.search(name, idRoom);
+        }
+
     }
 }

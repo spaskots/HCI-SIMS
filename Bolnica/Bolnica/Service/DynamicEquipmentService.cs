@@ -18,5 +18,9 @@ namespace Bolnica.Service
         {
             return _repository.GetAllDynamicEquipments();
         }
+        public List<DynamicEquipment> search(String Name)
+        {
+            return _repository.search(Name);
+        }
     }
 }
