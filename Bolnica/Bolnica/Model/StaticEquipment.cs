@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bolnica.Model
 {
-    internal class StaticEquipment
+    public class StaticEquipment
     {
         
 

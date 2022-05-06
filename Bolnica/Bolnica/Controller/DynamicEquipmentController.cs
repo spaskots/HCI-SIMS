@@ -18,5 +18,9 @@ namespace Bolnica.Controller
         {
             return _service.GetAllDynamicEquipments();
         }
+        public List<DynamicEquipment> search(String Name)
+        {
+            return _service.search(Name);
+        }
     }
 }
