@@ -17,7 +17,7 @@
         <Border  Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,3" />
         <Image Width="30" Height="30" HorizontalAlignment="Left" Margin="20,20,0,0" Grid.Row="0" Source="/icons8-back-96.png" MouseLeftButtonDown="back" />
         <Label Grid.Row="0" Content="Renovation" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,0"/>
-        <Image Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Row="0" Source="/icons8-edit-60.png" MouseLeftButtonDown="submitRenovation"  VerticalAlignment="Bottom" />
+        <Image Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Row="0" Source="..\View\icons8-save-64.png" MouseLeftButtonDown="submitRenovation"  VerticalAlignment="Bottom" />
 
         <Label Grid.Row="1" Content="Room:" FontWeight="Bold" FontStyle="Normal" Width="100" Height="25" Margin="0,37,0,478" Foreground="Black" HorizontalAlignment="Left"/>
         <TextBox Grid.Row="1" x:Name="RoomRenovationName" HorizontalAlignment="Center" TextWrapping="Wrap" Width="410" Height="30" Margin="0,62,0,0" FontWeight="Normal" VerticalAlignment="Top" TextAlignment="Left" FontSize="16" IsEnabled="False" BorderThickness="0,0,0,0" />

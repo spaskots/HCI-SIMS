@@ -22,6 +22,8 @@
     <None Remove="icons8-info-60.png" />
     <None Remove="icons8-survey-50.png" />
     <None Remove="icons8-tool-64.png" />
+    <None Remove="ImageDirector\pexels-nick-demou-1319460.jpg" />
+    <None Remove="ImageDirector\pexels-pixabay-236380.jpg" />
     <None Remove="MedicalCard.jpg" />
     <None Remove="MedicalReport.jpg" />
     <None Remove="olovka.png" />
@@ -32,11 +34,10 @@
     <None Remove="sign in.png" />
     <None Remove="sign out.png" />
     <None Remove="Username.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ImageDirector\" />
-    <Folder Include="Validation\" />
+    <None Remove="View\icons8-paint-brush-60.png" />
+    <None Remove="View\icons8-paper-64.png" />
+    <None Remove="View\icons8-save-64.png" />
+    <None Remove="View\pexels-nick-demou-1319460.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +55,12 @@
     <Resource Include="icons8-info-60.png" />
     <Resource Include="icons8-survey-50.png" />
     <Resource Include="icons8-tool-64.png" />
+    <Resource Include="ImageDirector\pexels-nick-demou-1319460.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImageDirector\pexels-pixabay-236380.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="MedicalCard.jpg" />
     <Resource Include="MedicalReport.jpg" />
     <Resource Include="olovka.png" />
@@ -64,6 +71,12 @@
     <Resource Include="sign in.png" />
     <Resource Include="sign out.png" />
     <Resource Include="Username.png" />
+    <Resource Include="View\icons8-paint-brush-60.png" />
+    <Resource Include="View\icons8-paper-64.png" />
+    <Resource Include="View\icons8-save-64.png" />
+    <Resource Include="View\pexels-nick-demou-1319460.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

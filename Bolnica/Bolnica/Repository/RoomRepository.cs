@@ -83,7 +83,7 @@ namespace Bolnica.Repository
             if (text.Contains(obrisiRed))
             {
                 text = text.Replace(obrisiRed, "");
-                File.WriteAllText(lokacijaDirector, text);
+                File.WriteAllText(lokacijaDirector, text); //Treba se doraditi zbog opreme koja se nalazi u ovoj sobi radi kasnijeg ispisa.
                 return true;
             }
             return false;

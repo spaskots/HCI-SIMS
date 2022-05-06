@@ -32,7 +32,7 @@
         <TextBox Grid.Row="1" x:Name="DescriptionMove" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="80" Margin="0,420,0,0" FontSize="16" />
         <Label Grid.Row="1" Content="Description:" FontWeight="Bold" FontStyle="Normal" Height="30" Margin="0,390,0,120" Width="200" HorizontalContentAlignment="Left" Foreground="Black" IsEnabled="False" HorizontalAlignment="Left"/>
         <!-- <Button Content="Delete" Width="30" Height="30" HorizontalAlignment="Left" Margin="360,0,10,30" Grid.Row="2" FontSize="9" FontWeight="Bold" FontStyle="Italic"  Click="submitDeleteRoom"></Button>-->
-        <Image Width="25" Height="25" HorizontalAlignment="Right" Grid.Row="0" Source="/icons8-edit-60.png" VerticalAlignment="Bottom" Margin="0,0,10,10" PreviewMouseDown ="submitMoveEquipment" />
+        <Image Width="25" Height="25" HorizontalAlignment="Right" Grid.Row="0" Source="..\View\icons8-paper-64.png" VerticalAlignment="Bottom" Margin="0,0,10,10" PreviewMouseDown ="submitMoveEquipment" />
 
     </Grid>
         <Frame x:Name="PagesFrame" Grid.Row="0" NavigationUIVisibility="Hidden"></Frame>

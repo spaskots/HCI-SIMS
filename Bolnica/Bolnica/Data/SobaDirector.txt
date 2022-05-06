@@ -1,13 +1,15 @@
-1,oVd,2,ToRoom,CovidRoom
-3,bb,2,asdsad,OperationRoom
-4,oVd,2,ToRoom,CovidRoom
+
+2,oVd,2,ToRoom,OperationRoom
+
+4,oVd,2,ToRoom,OperationRoom
 5,AS,2,Izmena,OperationRoom
-6,MI2,2,ToRoom,CovidRoom
-7,4A,1,asdad,CovidRoom
+6,MI3,2,ToRoom,OperationRoom
+7,4A,1,hahah,OperationRoom
 8,bb,2,asdsad,OperationRoom
 9,AS,2,Izmena,OperationRoom
 10,da,1,Uzasan je bio prethodni opis zato sam morao da ga izmenim.,OperationRoom
 12,bb,2,asdsad,OperationRoom
 13,AS,2,Izmena,OperationRoom
 14,da,1,Uzasan je bio prethodni opis zato sam morao da ga izmenim.,OperationRoom1,4A,dsa,asdad,OperationRoom
-2,oVd,2,ToRoom,OperationRoom
+1,oVd,2,ToRoom,OperationRoom
+3,bb,2,Soba 3 usPESNO,OperationRoom
