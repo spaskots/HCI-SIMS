@@ -1,9 +1,8 @@
-
+1,MAG,0,Magacin!!,OperationRoom
 2,oVd,2,ToRoom,OperationRoom
-
 4,oVd,2,ToRoom,OperationRoom
-5,AS,2,Izmena,OperationRoom
-6,MI3,2,ToRoom,OperationRoom
+
+
 7,4A,1,hahah,OperationRoom
 8,bb,2,asdsad,OperationRoom
 9,AS,2,Izmena,OperationRoom
@@ -11,5 +10,6 @@
 12,bb,2,asdsad,OperationRoom
 13,AS,2,Izmena,OperationRoom
 14,da,1,Uzasan je bio prethodni opis zato sam morao da ga izmenim.,OperationRoom1,4A,dsa,asdad,OperationRoom
-1,oVd,2,ToRoom,OperationRoom
 3,bb,2,Soba 3 usPESNO,OperationRoom
+5,AS,2,Mergovana soba 5 sa sobom 6,OperationRoom
+15,AS,2,New Room From Split!,OperationRoom

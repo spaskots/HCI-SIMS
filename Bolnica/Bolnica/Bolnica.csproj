@@ -34,9 +34,11 @@
     <None Remove="sign in.png" />
     <None Remove="sign out.png" />
     <None Remove="Username.png" />
+    <None Remove="View\icons8-back-48.png" />
     <None Remove="View\icons8-paint-brush-60.png" />
     <None Remove="View\icons8-paper-64.png" />
     <None Remove="View\icons8-save-64.png" />
+    <None Remove="View\icons8-x-50.png" />
     <None Remove="View\pexels-nick-demou-1319460.jpg" />
   </ItemGroup>
 
@@ -71,9 +73,11 @@
     <Resource Include="sign in.png" />
     <Resource Include="sign out.png" />
     <Resource Include="Username.png" />
+    <Resource Include="View\icons8-back-48.png" />
     <Resource Include="View\icons8-paint-brush-60.png" />
     <Resource Include="View\icons8-paper-64.png" />
     <Resource Include="View\icons8-save-64.png" />
+    <Resource Include="View\icons8-x-50.png" />
     <Resource Include="View\pexels-nick-demou-1319460.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

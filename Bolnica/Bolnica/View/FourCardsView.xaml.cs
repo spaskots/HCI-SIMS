@@ -46,6 +46,8 @@ namespace Bolnica.View
             List<StaticEquipment> staticEquipments = staticEquipment_controller.getAllStaticEquipment();
             if (oznaka == "PrikazSoba")
             {
+                room_repository.advancedRenovationMergeSplit();
+                MessageBox.Show("Watched Over All Advanced Renovations!");
                 AddNewRoomButton.Visibility = Visibility.Visible;
                 
                 eventNaClick = "Room";

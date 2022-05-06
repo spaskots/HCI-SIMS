@@ -13,13 +13,13 @@
             <RowDefinition Height="300" />
             <RowDefinition Height="300" />
         </Grid.RowDefinitions>
-            <Grid HorizontalAlignment="Center" Height="Auto" Grid.Row="0" PreviewMouseDown="staticEquipmentPage" >
-            <Image  Width="400" Height="350" HorizontalAlignment="Center" Margin="0,0,0,0" Source="../ImageDirector/pexels-nick-demou-1319460.jpg" OpacityMask="Black" Opacity="0.9" />
-            <Label  Content="Static Equipmenet" Width="400" Height="100" HorizontalContentAlignment="Center" Margin="0,115,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36"/>
+            <Grid HorizontalAlignment="Center" Height="Auto" Grid.Row="0" PreviewMouseDown="staticEquipmentPage">
+                <Image  Width="400" Height="350" HorizontalAlignment="Center" Margin="0,0,0,0" Source="../ImageDirector/pexels-nick-demou-1319460.jpg" OpacityMask="Black" />
+            <Label Grid.Row="0" Content="Static Equipmenet" Width="400" Height="100" HorizontalContentAlignment="Center" Margin="0,115,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36" Foreground="White"/>
         </Grid>
-            <Grid HorizontalAlignment="Center" Height="Auto" Grid.Row="1" PreviewMouseDown="dynamicEquipmentPage" >
-                <Image Width="400" Height="350" HorizontalAlignment="Center" Source="..\ImageDirector\pexels-pixabay-236380.jpg" OpacityMask="Black" Opacity="0.9" />
-            <Label Content="Dynamic Equipmenet" Width="400" Height="100" HorizontalContentAlignment="Center" Margin="0,115,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36"/>
+            <Grid HorizontalAlignment="Center" Height="Auto" Grid.Row="1" PreviewMouseDown="dynamicEquipmentPage"  >
+                <Image Width="400" Height="350" HorizontalAlignment="Center" Source="..\ImageDirector\pexels-pixabay-236380.jpg" OpacityMask="Black"  />
+            <Label Grid.Row="1" Content="Dynamic Equipmenet" Width="400" Height="100" HorizontalContentAlignment="Center" Margin="0,115,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36" Foreground="Black"/>
         </Grid>
         </Grid>
         <Frame x:Name="PagesFrame" Grid.Row="0" NavigationUIVisibility="Hidden"></Frame>
