@@ -587,6 +587,30 @@ namespace Bolnica.View
                     return;
                 }
             }
+            if (eventNaClick == "cureScroll")
+            {
+                if (temp < 4)
+                    temp = 4;
+                List<Cure> cures = cure_controller.GetAllCures();
+
+                try
+                {
+                    Cure cure = cures.ElementAt((int)temp);
+                    //Ako nije otisao u exception znaci da ima element iza i treba sve da zamenimo
+                    Type1.Text = Type2.Text; Id1.Text = Id2.Text; AdditionInfo1.Text = AdditionInfo2.Text;
+                    Type2.Text = Type3.Text; Id2.Text = Id3.Text; AdditionInfo2.Text = AdditionInfo3.Text;
+                    Type3.Text = Type4.Text; Id3.Text = Id4.Text; AdditionInfo3.Text = AdditionInfo4.Text;
+
+                    Type4.Text = cure.Name.ToString(); Id4.Text = cure.Id.ToString(); AdditionInfo4.Text = "Available Quantity: " + cure.Quantity.ToString();
+                    if (ButtonPreviousName.Visibility == Visibility.Hidden) { ButtonPreviousName.Visibility = Visibility.Visible; }
+                    temp++;
+                }
+                catch (Exception nekaGreska)
+                {
+                    ButtonNextName.Visibility = Visibility.Hidden;
+                    return;
+                }
+            }
             if (eventNaClick == "SingleStaticEquipment")
             {
                 if (temp < 4)
@@ -692,6 +716,27 @@ namespace Bolnica.View
                     Type2.Text = Type1.Text; Id2.Text = Id1.Text; AdditionInfo2.Text = AdditionInfo1.Text;
 
                     Type1.Text = staticEquipment.Name.ToString(); Id1.Text = staticEquipment.Id.ToString(); AdditionInfo1.Text = "Available Quantity: " + staticEquipment.Quantity.ToString();
+                    temp--;
+                    if (ButtonNextName.Visibility == Visibility.Hidden) { ButtonNextName.Visibility = Visibility.Visible; }
+                }
+                catch (Exception nekaGreska)
+                {
+                    ButtonPreviousName.Visibility = Visibility.Hidden;
+                    return;
+                }
+            }
+            if (eventNaClick == "cureScroll")
+            {
+                List<Cure> cures = cure_controller.GetAllCures();
+                try
+                {
+                    Cure cure = cures.ElementAt((int)(temp - 5));
+                    //Ako nije otisao u exception znaci da ima element iza i treba sve da zamenimo
+                    Type4.Text = Type3.Text; Id4.Text = Id3.Text; AdditionInfo4.Text = AdditionInfo3.Text;
+                    Type3.Text = Type2.Text; Id3.Text = Id2.Text; AdditionInfo3.Text = AdditionInfo2.Text;
+                    Type2.Text = Type1.Text; Id2.Text = Id1.Text; AdditionInfo2.Text = AdditionInfo1.Text;
+
+                    Type1.Text = cure.Name.ToString(); Id1.Text = cure.Id.ToString(); AdditionInfo1.Text = "Available Quantity: " + cure.Quantity.ToString();
                     temp--;
                     if (ButtonNextName.Visibility == Visibility.Hidden) { ButtonNextName.Visibility = Visibility.Visible; }
                 }
