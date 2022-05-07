@@ -23,20 +23,6 @@ namespace Bolnica.Repository
                     sw.Write("");
                 }
             }
-            if (!File.Exists(lokacijaStaticEquipment))
-            {
-                using (StreamWriter sw = File.CreateText(lokacijaStaticEquipment))
-                {
-                    sw.Write("");
-                }
-            }
-            if (!File.Exists(lokacijaMoveExecution))
-            {
-                using (StreamWriter sw = File.CreateText(lokacijaMoveExecution))
-                {
-                    sw.Write("");
-                }
-            }
             if (!File.Exists(lokacijaMoveExecution))
             {
                 using (StreamWriter sw = File.CreateText(lokacijaMoveExecution))

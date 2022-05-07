@@ -33,6 +33,7 @@ namespace Bolnica.View
         StaticEquipmentController staticEquipment_controller = new StaticEquipmentController();
         StaticEquipmentRepository staticEquipment_repository = new StaticEquipmentRepository();
         DynamicEquipmentController dynamicEquipment_controller = new DynamicEquipmentController();
+        CureController cure_controller = new CureController();
         public FourCardsView(String oznaka)
         {
             InitializeComponent();
@@ -41,6 +42,11 @@ namespace Bolnica.View
             {
                 List<DynamicEquipment> equipments = dynamicEquipment_controller.GetAllDynamicEquipments();
                 dynamicEquipmentIspis(equipments);
+            }
+            if (oznaka == "CuresSelected")
+            {
+                List<Cure> cures = cure_controller.GetAllCures();
+                curePrint(cures);
             }
             skrol = 0;
             temp = skrol * korak;
@@ -380,25 +386,8 @@ namespace Bolnica.View
                     temp++;
                 }
             }
-            if (temp == 0)
-            {
-                Type1.Text = ""; Id1.Text = ""; AdditionInfo1.Text = ""; Type2.Text = ""; Id2.Text = ""; AdditionInfo2.Text = ""; Type3.Text = ""; Id3.Text = ""; AdditionInfo3.Text = ""; Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
-            }
-            if (temp == 1)
-            {
-                Type2.Text = ""; Id2.Text = ""; AdditionInfo2.Text = ""; Type3.Text = ""; Id3.Text = ""; AdditionInfo3.Text = ""; Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
-            }
-            if (temp == 2)
-            {
-                Type3.Text = ""; Id3.Text = ""; AdditionInfo3.Text = ""; Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
-            }
-            if (temp == 3)
-            {
-                Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
-            }
-            temp = 4;
+            EmptyPrintChecker(temp);
         }
-
         public void dynamicEquipmentIspis(List<DynamicEquipment> equipments)
         {
             eventNaClick = "dynamicEquipmentScroll";
@@ -431,23 +420,38 @@ namespace Bolnica.View
                     temp++;
                 }
             }
-            if (temp == 0)
+            EmptyPrintChecker(temp);
+        }
+        public void curePrint(List<Cure> cures)
+        {
+            eventNaClick = "cureScroll";
+            skrol = 0;
+            temp = 0;
+            for (Int64 x = 0; x < cures.Count; x++) // idi do kraja liste
             {
-                Type1.Text = ""; Id1.Text = ""; AdditionInfo1.Text = ""; Type2.Text = ""; Id2.Text = ""; AdditionInfo2.Text = ""; Type3.Text = ""; Id3.Text = ""; AdditionInfo3.Text = ""; Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
+                Cure cure = cures.ElementAt((int)x);
+                {
+                    if (temp == 0)
+                    {
+                        Type1.Text = cure.Name.ToString(); Id1.Text = cure.Id.ToString(); AdditionInfo1.Text = "Available Quantity: " + cure.Quantity.ToString();
+                    }
+                    if (temp == 1)
+                    {
+                        Type2.Text = cure.Name.ToString(); Id2.Text = cure.Id.ToString(); AdditionInfo2.Text = "Available Quantity: " + cure.Quantity.ToString();
+                    }
+                    if (temp == 2)
+                    {
+                        Type3.Text = cure.Name.ToString(); Id3.Text = cure.Id.ToString(); AdditionInfo3.Text = "Available Quantity: " + cure.Quantity.ToString();
+                    }
+                    if (temp == 3)
+                    {
+                        Type4.Text = cure.Name.ToString(); Id4.Text = cure.Id.ToString(); AdditionInfo4.Text = "Available Quantity: " + cure.Quantity.ToString();
+                        return;
+                    }
+                    temp++;
+                }
             }
-            if (temp == 1)
-            {
-                Type2.Text = ""; Id2.Text = ""; AdditionInfo2.Text = ""; Type3.Text = ""; Id3.Text = ""; AdditionInfo3.Text = ""; Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
-            }
-            if (temp == 2)
-            {
-                Type3.Text = ""; Id3.Text = ""; AdditionInfo3.Text = ""; Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
-            }
-            if (temp == 3)
-            {
-                Type4.Text = ""; Id4.Text = ""; AdditionInfo4.Text = ""; return;
-            }
-            temp = 4;
+            EmptyPrintChecker(temp);
         }
     
         public void PrintSearchStaticEquipment(List<StaticEquipment> equipments)
