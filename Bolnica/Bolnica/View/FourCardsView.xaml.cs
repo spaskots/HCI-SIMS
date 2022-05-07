@@ -34,6 +34,7 @@ namespace Bolnica.View
         StaticEquipmentRepository staticEquipment_repository = new StaticEquipmentRepository();
         DynamicEquipmentController dynamicEquipment_controller = new DynamicEquipmentController();
         CureController cure_controller = new CureController();
+        CureRepository cure_repository = new CureRepository();
         public FourCardsView(String oznaka)
         {
             InitializeComponent();
@@ -45,6 +46,8 @@ namespace Bolnica.View
             }
             if (oznaka == "CuresSelected")
             {
+                AddNewButton.Content = "Add New Cure";
+                AddNewButton.Visibility = Visibility.Visible;
                 List<Cure> cures = cure_controller.GetAllCures();
                 curePrint(cures);
             }
@@ -55,8 +58,10 @@ namespace Bolnica.View
             if (oznaka == "PrikazSoba")
             {
                 room_repository.advancedRenovationMergeSplit();
-                MessageBox.Show("Watched Over All Advanced Renovations!");
-                AddNewRoomButton.Visibility = Visibility.Visible;
+
+
+                AddNewButton.Content = "Add New Room";
+                AddNewButton.Visibility = Visibility.Visible;
 
                 eventNaClick = "Room";
                 for (Int64 x = 0; x < 4; x++)
@@ -173,14 +178,23 @@ namespace Bolnica.View
                 }
             }
         }
-        private void addNewRoom(object sender, RoutedEventArgs e)
+        private void addNew(object sender, RoutedEventArgs e)
         {
-            FourCardsViewName.Visibility = Visibility.Hidden;
-            MoveEquipmentFrame.Content = new AddNewRoom();
+            if (eventNaClick == "Room")
+            {
+                FourCardsViewName.Visibility = Visibility.Hidden;
+                MoveEquipmentFrame.Content = new AddNewRoom("AddNewRoom");
+            }
+            else if(eventNaClick == "cureScroll")
+            {
+                FourCardsViewName.Visibility = Visibility.Hidden;
+                MoveEquipmentFrame.Content = new AddNewRoom("AddNewCure");
+            }
         }
         private void Grid_MouseDown1(object sender, MouseButtonEventArgs e)
         {
             String IdSobe = Id1.Text;
+            int IdCure = Int32.Parse(Id1.Text);
             if (IdSobe == "") { return; }
 
             if (eventNaClick == "Room")
@@ -190,6 +204,13 @@ namespace Bolnica.View
                 FourCardsViewName.Visibility = Visibility.Hidden;
                 SingleRoomFrame.Content = new SingleRoomPage(room);
 
+            }
+            if(eventNaClick == "cureScroll")
+            {
+                Cure cure = cure_repository.FindById(IdCure);
+                if (cure == null) { return; }
+                FourCardsViewName.Visibility = Visibility.Hidden;
+                SingleRoomFrame.Content = new SingleCurePage(cure);
             }
             if (eventNaClick == "SingleStaticEquipment")
             {
@@ -222,6 +243,14 @@ namespace Bolnica.View
                 SingleRoomFrame.Content = new SingleRoomPage(room);
 
             }
+            if (eventNaClick == "cureScroll")
+            {
+                int IdCure = Int32.Parse(Id2.Text);
+                Cure cure = cure_repository.FindById(IdCure);
+                if (cure == null) { return; }
+                FourCardsViewName.Visibility = Visibility.Hidden;
+                SingleRoomFrame.Content = new SingleCurePage(cure);
+            }
             if (eventNaClick == "SingleStaticEquipment")
             {
                 FourCardsViewName.Visibility = Visibility.Hidden;
@@ -246,6 +275,14 @@ namespace Bolnica.View
                 SingleRoomFrame.Content = new SingleRoomPage(room);
 
             }
+            if (eventNaClick == "cureScroll")
+            {
+                int IdCure = Int32.Parse(Id3.Text);
+                Cure cure = cure_repository.FindById(IdCure);
+                if (cure == null) { return; }
+                FourCardsViewName.Visibility = Visibility.Hidden;
+                SingleRoomFrame.Content = new SingleCurePage(cure);
+            }
             if (eventNaClick == "SingleStaticEquipment")
             {
                 FourCardsViewName.Visibility = Visibility.Hidden;
@@ -267,6 +304,14 @@ namespace Bolnica.View
                 FourCardsViewName.Visibility = Visibility.Hidden;
                 SingleRoomFrame.Content = new SingleRoomPage(room);
 
+            }
+            if (eventNaClick == "cureScroll")
+            {
+                int IdCure = Int32.Parse(Id4.Text);
+                Cure cure = cure_repository.FindById(IdCure);
+                if (cure == null) { return; }
+                FourCardsViewName.Visibility = Visibility.Hidden;
+                SingleRoomFrame.Content = new SingleCurePage(cure);
             }
             if (eventNaClick == "SingleStaticEquipment")
             {
@@ -394,32 +439,7 @@ namespace Bolnica.View
             skrol = 0;
             searchName.Visibility = Visibility.Visible;
             temp = 0;
-            for (Int64 x = 0; x < equipments.Count; x++) // idi do kraja liste
-            {
-                DynamicEquipment equipment = new DynamicEquipment();
-                DynamicEquipment oprema = equipments.ElementAt((int)x);
-                {
-                    equipment.Id = oprema.Id; equipment.Name = oprema.Name; equipment.Quantity = oprema.Quantity;
-                    if (temp == 0)
-                    {
-                        Type1.Text = equipment.Name.ToString(); Id1.Text = equipment.Id.ToString(); AdditionInfo1.Text = "Available Quantity: " + equipment.Quantity.ToString();
-                    }
-                    if (temp == 1)
-                    {
-                        Type2.Text = equipment.Name.ToString(); Id2.Text = equipment.Id.ToString(); AdditionInfo2.Text = "Available Quantity: " + equipment.Quantity.ToString();
-                    }
-                    if (temp == 2)
-                    {
-                        Type3.Text = equipment.Name.ToString(); Id3.Text = equipment.Id.ToString(); AdditionInfo3.Text = "Available Quantity: " + equipment.Quantity.ToString();
-                    }
-                    if (temp == 3)
-                    {
-                        Type4.Text = equipment.Name.ToString(); Id4.Text = equipment.Id.ToString(); AdditionInfo4.Text = "Available Quantity: " + equipment.Quantity.ToString();
-                        return;
-                    }
-                    temp++;
-                }
-            }
+            temp = PrintNameIdQuantity(null, equipments, null, temp);
             EmptyPrintChecker(temp);
         }
         public void curePrint(List<Cure> cures)
@@ -427,30 +447,10 @@ namespace Bolnica.View
             eventNaClick = "cureScroll";
             skrol = 0;
             temp = 0;
-            for (Int64 x = 0; x < cures.Count; x++) // idi do kraja liste
-            {
-                Cure cure = cures.ElementAt((int)x);
-                {
-                    if (temp == 0)
-                    {
-                        Type1.Text = cure.Name.ToString(); Id1.Text = cure.Id.ToString(); AdditionInfo1.Text = "Available Quantity: " + cure.Quantity.ToString();
-                    }
-                    if (temp == 1)
-                    {
-                        Type2.Text = cure.Name.ToString(); Id2.Text = cure.Id.ToString(); AdditionInfo2.Text = "Available Quantity: " + cure.Quantity.ToString();
-                    }
-                    if (temp == 2)
-                    {
-                        Type3.Text = cure.Name.ToString(); Id3.Text = cure.Id.ToString(); AdditionInfo3.Text = "Available Quantity: " + cure.Quantity.ToString();
-                    }
-                    if (temp == 3)
-                    {
-                        Type4.Text = cure.Name.ToString(); Id4.Text = cure.Id.ToString(); AdditionInfo4.Text = "Available Quantity: " + cure.Quantity.ToString();
-                        return;
-                    }
-                    temp++;
-                }
-            }
+
+           temp = PrintNameIdQuantity(null,null,cures,temp);
+
+           if(temp == 4) { return; }
             EmptyPrintChecker(temp);
         }
     
@@ -486,6 +486,41 @@ namespace Bolnica.View
                 }
             }
             EmptyPrintChecker(temp);
+        }
+        public long PrintNameIdQuantity(List<StaticEquipment> staticEquipments, List<DynamicEquipment> dynamicEquipments, List<Cure> cures, long temp)
+        {
+            List<StaticEquipment> equipments = new List<StaticEquipment>();
+            if(staticEquipments != null) { equipments.AddRange(staticEquipments); }
+            if (dynamicEquipments != null) { foreach (DynamicEquipment de in dynamicEquipments) { equipments.Add(new StaticEquipment(de.Id, de.Name, de.Quantity)); } }
+            if (cures != null) {
+                foreach(Cure c in cures) { equipments.Add(new StaticEquipment(c.Id,c.Name, c.Quantity)); }
+            }
+
+            for (Int64 x = 0; x < equipments.Count; x++) // idi do kraja liste
+            {
+                StaticEquipment equipment = equipments.ElementAt((int)x);
+                if (temp == 0)
+                {
+                    Type1.Text = equipment.Name; Id1.Text = equipment.Id.ToString(); AdditionInfo1.Text = "Available Quantity: " + equipment.Quantity.ToString();
+                }
+                if (temp == 1)
+                {
+                    Type2.Text = equipment.Name.ToString(); Id2.Text = equipment.Id.ToString(); AdditionInfo2.Text = "Available Quantity: " + equipment.Quantity.ToString();
+                }
+                if (temp == 2)
+                {
+                    Type3.Text = equipment.Name.ToString(); Id3.Text = equipment.Id.ToString(); AdditionInfo3.Text = "Available Quantity: " + equipment.Quantity.ToString();
+                }
+                if (temp == 3)
+                {
+                    Type4.Text = equipment.Name.ToString(); Id4.Text = equipment.Id.ToString(); AdditionInfo4.Text = "Available Quantity: " + equipment.Quantity.ToString();
+                    //return;
+                }
+                temp++;
+            }
+            //temp = 4;
+            return temp;
+            
         }
         public void EmptyPrintChecker(long temp, long val = 4) {
             if (temp == 0)

@@ -11,7 +11,7 @@ namespace Bolnica.Model
         public int Id { get; set; }
         public String Name { get; set; }
         public int Quantity { get; set; }
-        public bool VerificationState;
+        public Boolean VerificationState { get; set; }
 
         public Cure() { }
         public Cure(int Id, String Name, int Quantity)
@@ -21,7 +21,7 @@ namespace Bolnica.Model
             this.Quantity = Quantity;
             this.VerificationState = false; // Nije verifikovan nakon kreiranja
         }
-        public Cure(int Id, String Name, int Quantity, bool verificationState)
+        public Cure(int Id, String Name, int Quantity, Boolean verificationState)
         {
             this.Id = Id;
             this.Name = Name;

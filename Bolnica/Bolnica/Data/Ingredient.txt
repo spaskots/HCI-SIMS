@@ -1,0 +1,6 @@
+﻿1,Nsaid
+2,Corn Starch
+3,Hypromellose
+4,Powdered 
+5,Cellulose
+6,Triacetin

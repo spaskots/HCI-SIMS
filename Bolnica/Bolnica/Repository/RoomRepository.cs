@@ -68,9 +68,10 @@ namespace Bolnica.Repository
             write.Close();
             return room;
         }
-
+        
         public Boolean Delete(Room room)
         {
+            if(room.Id == "1") { return false; }
             String obrisiRed = room.Id + "," + room.Name + "," + room.Floor + "," + room.Description + "," + room.RoomType;
 
             String text = File.ReadAllText(lokacijaDirector);
@@ -87,8 +88,15 @@ namespace Bolnica.Repository
         public Room Update(Room room)
         {
             Room oldRoom = FindById(room.Id);
-            Delete(oldRoom);
-            Create(room);
+            String oldRow = oldRoom.Id + "," + oldRoom.Name + "," + oldRoom.Floor + "," + oldRoom.Description + "," + oldRoom.RoomType;
+            String newRow = room.Id + "," + room.Name + "," + room.Floor + "," + room.Description + "," + room.RoomType;
+
+            String text = File.ReadAllText(lokacijaDirector);
+            if (text.Contains(oldRow))
+            {
+                text = text.Replace(oldRow, newRow);
+                File.WriteAllText(lokacijaDirector, text); 
+            }
             return room;
         }
         public Room FindById(String id)
