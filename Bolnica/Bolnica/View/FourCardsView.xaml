@@ -17,13 +17,13 @@
                 <RowDefinition Height="125" />
             </Grid.RowDefinitions>
             <Frame x:Name="HeaderFourCards"  Grid.Row="0" NavigationUIVisibility="Hidden"></Frame>
-            <TextBox x:Name="searchName" FontSize="20" Foreground="Gray" Width="410" Height="35" DockPanel.Dock="Bottom"  HorizontalAlignment="Center" FontWeight="Bold" Grid.Row="0"  VerticalAlignment="Top" Margin="0,40,0,0" TextChanged="TextBox_TextChanged" Visibility="Hidden" >
+            <TextBox x:Name="searchName" FontSize="20" Foreground="Gray" Width="410" Height="35" DockPanel.Dock="Bottom"  HorizontalAlignment="Center" FontWeight="Bold" Grid.Row="0"  VerticalAlignment="Top" Margin="0,40,0,0" TextChanged="TextBox_TextChanged" Visibility="Hidden"  >
                 
             </TextBox>
 
                 <TextBox x:Name="CurrentRoomNameEq" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="40" FontSize="20" BorderThickness="0,0,0,0" Margin="0,10,0,0" FontWeight="Bold" IsEnabled="False" Visibility="Hidden"  />
             <TextBox x:Name="CurrentRoomIdEq" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" Height="40" FontSize="20" BorderThickness="0,0,0,0" Margin="20,10,20,0" FontWeight="Bold" IsEnabled="False" Visibility="Hidden" />
-            <Button x:Name="AddNewRoomButton" Content="Add New Room" Width="410" Height="35" DockPanel.Dock="Bottom" Background="#f2ca19" HorizontalAlignment="Center" FontWeight="Bold" Grid.Row="0" Click="addNewRoom" VerticalAlignment="Top" Margin="0,10,0,0" Visibility="Hidden" />
+            <Button x:Name="AddNewButton"  Width="410" Height="35" DockPanel.Dock="Bottom" Background="#f2ca19" HorizontalAlignment="Center" FontWeight="Bold" Grid.Row="0" Click="addNew" VerticalAlignment="Top" Margin="0,10,0,0" Visibility="Hidden" />
             <Button x:Name="NewSupplyRequestButton" Content="New Supply Request" Width="410" Height="35" DockPanel.Dock="Bottom" Background="#f2ca19" HorizontalAlignment="Center" FontWeight="Bold" Grid.Row="0"  VerticalAlignment="Top" Margin="0,10,0,0" Visibility="Hidden" IsEnabled="False" />
             <Border  Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" />
 

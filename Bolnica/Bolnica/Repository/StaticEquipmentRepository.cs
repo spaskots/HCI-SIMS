@@ -109,8 +109,17 @@ namespace Bolnica.Repository
         public StaticEquipment Update(StaticEquipment staticEquipment)
         {
             StaticEquipment oldStaticEquipment = FindById(staticEquipment.Id);
-            Delete(oldStaticEquipment);
-            AddStaticEquipment(staticEquipment);
+            String oldRow = oldStaticEquipment.Id + "," + oldStaticEquipment.Name + "," + oldStaticEquipment.Quantity + "," + oldStaticEquipment.roomId;
+            String newRow = staticEquipment.Id + "," + staticEquipment.Name + "," + staticEquipment.Quantity + "," + staticEquipment.roomId;
+
+
+            String text = File.ReadAllText(lokacijaStaticEquipment);
+            if (text.Contains(oldRow))
+            {
+                text = text.Replace(oldRow, newRow);
+                File.WriteAllText(lokacijaStaticEquipment, text);
+
+            }
             return staticEquipment;
         }
 

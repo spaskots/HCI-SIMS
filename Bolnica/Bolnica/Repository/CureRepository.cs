@@ -11,12 +11,20 @@ namespace Bolnica.Repository
     internal class CureRepository
     {
         String locationCure = @"..\..\..\Data\Cure.txt";
+        String locationCureIngredients = @"..\..\..\Data\CureIngredients.txt";
 
         public CureRepository()
         {
             if (!File.Exists(locationCure))
             {
                 using (StreamWriter sw = File.CreateText(locationCure))
+                {
+                    sw.Write("");
+                }
+            }
+            if (!File.Exists(locationCureIngredients))
+            {
+                using (StreamWriter sw = File.CreateText(locationCureIngredients))
                 {
                     sw.Write("");
                 }
@@ -39,15 +47,15 @@ namespace Bolnica.Repository
                     int quantity = Convert.ToInt32(fields[2]);
                     bool verificationState = Convert.ToBoolean(fields[3]);
 
-                    Cure staticEquipment = new Cure(id, name, quantity, verificationState);
-                    cures.Add(staticEquipment);
+                    Cure cure = new Cure(id, name, quantity, verificationState);
+                    cures.Add(cure);
                 }
             }
             return cures;
         }
         public Cure AddCure(Cure cure)
         {
-            String noviRed = cure.Id + "," + cure.Name + "," + cure.Quantity;
+            String noviRed = cure.Id + "," + cure.Name + "," + cure.Quantity + "," + "false";
             StreamWriter write = new StreamWriter(locationCure, true);
             write.WriteLine(noviRed);
             write.Close();
@@ -80,9 +88,16 @@ namespace Bolnica.Repository
         }
         public Cure Update(Cure cure)
         {
-            Cure oldCure = FindById(cure.Id);
-            Delete(oldCure);
-            AddCure(cure);
+            Cure oldCureR = FindById(cure.Id);
+            String oldCure = oldCureR.Id + "," + oldCureR.Name + "," + oldCureR.Quantity + "," + oldCureR.VerificationState;
+            String newCure = cure.Id + "," + cure.Name + "," + cure.Quantity + "," + cure.VerificationState;
+
+            String text = File.ReadAllText(locationCure);
+            if (text.Contains(oldCure))
+            {
+                text = text.Replace(oldCure, newCure);
+                File.WriteAllText(locationCure, text);
+            }
             return cure;
         }
 
@@ -99,6 +114,54 @@ namespace Bolnica.Repository
             }
             maxId += 1;
             return maxId;
+        }
+        public List<Ingredient> AddCureIngredients(int cureId, List<Ingredient> ingredients)
+        {
+            StreamWriter write = new StreamWriter(locationCureIngredients, true);
+            foreach (Ingredient ig in ingredients)
+            {
+                String noviRed = cureId + "," + ig.Id;
+                write.WriteLine(noviRed);
+            }
+            write.Close();
+            return ingredients;
+        }
+        public List<int> ReadCureIngredientFile()
+        {
+            List<int> cureIngredientIds = new List<int>();
+
+            string[] lines = System.IO.File.ReadAllLines(locationCureIngredients);
+            foreach (string line in lines)
+            {
+                if (line == "")
+                    continue;
+                else
+                {
+                    string[] fields = line.Split(',');
+                    int idCure = Convert.ToInt32(fields[0]);
+                    int idIngredient = Convert.ToInt32(fields[1]);
+                    cureIngredientIds.Add(idCure);
+                    cureIngredientIds.Add(idIngredient);
+
+                }
+            }
+            return cureIngredientIds;
+        }
+        IngredientRepository ingredient_repository = new IngredientRepository();
+        public List<Ingredient> getAllIngredientsForChosenCure(Cure cure)
+        {
+            List<int> cureIngredientsIds = ReadCureIngredientFile();
+            List<Ingredient> allIngredients = new List<Ingredient>();
+            for(int i = 0; i < cureIngredientsIds.Count; i++)
+            {
+                if(i%2 == 0) { 
+                    if (cure.Id == cureIngredientsIds.ElementAt(i)) //znaci id cure je jednak i treba mi njegov ingredient koji je odmah na sl pozciji.
+                    {
+                        allIngredients.Add(ingredient_repository.FindById(cureIngredientsIds.ElementAt(i+1)));
+                    }
+                }
+            }
+            return allIngredients;
         }
     }
 }

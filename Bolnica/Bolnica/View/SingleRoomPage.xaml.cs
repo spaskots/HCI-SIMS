@@ -38,7 +38,7 @@ namespace Bolnica.View
 
         private void backClick(object sender, RoutedEventArgs e)
         {
-            if (HeaderTittleName.Content.ToString() == "Single Room")
+            if (HeaderTittleName.Content.ToString() == "Single Room" || HeaderTittleName.Content.ToString() == "Edit Room")
             {
                 SingleRoomPageName.Visibility = Visibility.Hidden;
                 PagesFrame.Content = new FourCardsView("PrikazSoba");

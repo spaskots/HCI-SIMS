@@ -1,5 +1,2 @@
-4,Bromazepan,35,false
-3,Brufen,2,false
-1,Morphine,3,false
-5,Insulin,2,false
-6,Ether,10,false
+2,Stani,22,false
+3,AA,44,false
