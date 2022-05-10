@@ -10,7 +10,7 @@ namespace Bolnica.Service
 {
     internal class StaticEquipmentService
     {
-    StaticEquipmentRepository _repository = new StaticEquipmentRepository();
+        StaticEquipmentRepository _repository = new StaticEquipmentRepository();
         public StaticEquipmentService()
         {
         }
@@ -24,7 +24,7 @@ namespace Bolnica.Service
             // TODO: implement
             return _repository.MoveExecutionSubmit(me);
         }
-        
+
 
         public StaticEquipment Update(StaticEquipment staticEquipment)
         {
@@ -45,6 +45,10 @@ namespace Bolnica.Service
         {
             return _repository.search(name, idRoom);
         }
-
+        public Boolean MoveExecutionDo()
+        {
+            return _repository.MoveExecutionDo();
+        }
+       
     }
 }

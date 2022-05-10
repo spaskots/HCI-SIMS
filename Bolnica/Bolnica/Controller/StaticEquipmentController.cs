@@ -43,5 +43,9 @@ namespace Bolnica.Controller
         {
             return _service.search(name, idRoom);
         }
+        public Boolean MoveExecutionDo()
+        {
+            return _service.MoveExecutionDo();
+        }
     }
 }

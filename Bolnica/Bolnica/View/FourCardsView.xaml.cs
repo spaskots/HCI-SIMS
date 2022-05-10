@@ -194,7 +194,7 @@ namespace Bolnica.View
         private void Grid_MouseDown1(object sender, MouseButtonEventArgs e)
         {
             String IdSobe = Id1.Text;
-            int IdCure = Int32.Parse(Id1.Text);
+            
             if (IdSobe == "") { return; }
 
             if (eventNaClick == "Room")
@@ -207,6 +207,7 @@ namespace Bolnica.View
             }
             if(eventNaClick == "cureScroll")
             {
+                int IdCure = Int32.Parse(Id1.Text);
                 Cure cure = cure_repository.FindById(IdCure);
                 if (cure == null) { return; }
                 FourCardsViewName.Visibility = Visibility.Hidden;

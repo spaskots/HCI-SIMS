@@ -184,6 +184,7 @@ namespace Bolnica.Repository
             maxId += 1;
             return maxId.ToString();
         }
+        
         public void advancedRenovationMergeSplit()
         {
             //Promenjive koje koristim iz prvog ali i u drugom delu.
@@ -259,8 +260,8 @@ namespace Bolnica.Repository
                             //Sada mozemo obrisati sobu 2 Komotno i usput promeniti opis prvoj sobi cisto da znamo da se desila izmena
                             Delete(FindById(roomId2)); //Brisi ovu sobu
                             Room firstRoomUpdate = FindById(roomId1);
-                            firstRoomUpdate.Description = "Merged room with id " + roomId1 + " with room " + roomId2;
-                            Update(firstRoomUpdate);
+                            firstRoomUpdate.Description = "This Room Was Merged With Room Which Had Id:" + roomId2;
+                            Update(firstRoomUpdate); //Sva oprema iz ove se prebacuje u magacin po defaultu
                             //Sada mogu da obrisem ovu liniju
 
                             String text = File.ReadAllText(lokacijaRoomShedule); //Brisanje te linije.

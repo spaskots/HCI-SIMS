@@ -136,6 +136,7 @@ namespace Bolnica.Repository
             maxId += 1;
             return maxId;
         }
+        
         public Boolean MoveExecutionDo()
         {
             DateTime now = DateTime.Now;
@@ -172,10 +173,11 @@ namespace Bolnica.Repository
                             }
                             else { destinacijaEquip.Quantity += quantity; Update(destinacijaEquip); }
 
-                            String text = File.ReadAllText(lokacijaMoveExecution); //Brisanje te linije.
-                            text = text.Replace(line, "");
-                            File.WriteAllText(lokacijaMoveExecution, text);
+                            
                         }
+                        String text = File.ReadAllText(lokacijaMoveExecution); //Brisanje te linije.
+                        text = text.Replace(line, "");
+                        File.WriteAllText(lokacijaMoveExecution, text);
 
                     }
                 };
@@ -183,6 +185,7 @@ namespace Bolnica.Repository
 
             return true; //Nije zavrsena metoda.
         }
+
         public List<StaticEquipment> getEquipmentInChosenRoom(String roomId)
         {
             List<StaticEquipment> staticEquipments = GetAllStaticEquipment();

@@ -1,4 +1,4 @@
-1,MAG,0,Magacin!!,OperationRoom
+1,MAG,0,Merged room with id 1 with room 16,OperationRoom
 
 4,oVd,2,ToRoom,OperationRoom
 
@@ -9,8 +9,9 @@
 10,da,1,Uzasan je bio prethodni opis zato sam morao da ga izmenim.,OperationRoom
 12,bb,2,asdsad,OperationRoom
 13,AS,2,Izmena,OperationRoom
-14,da,1,Uzasan je bio prethodni opis zato sam morao da ga izmenim.,OperationRoom1,4A,dsa,asdad,OperationRoom
+14,da,1,This Room Was Merged With Room Which Had Id:15,OperationRoom1,4A,dsa,asdad,OperationRoom
 
 5,AS,2,Mergovana soba 5 sa sobom 6,OperationRoom
 
-15,aa,1,,CancerRoom
+
+

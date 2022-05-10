@@ -90,7 +90,7 @@ namespace Bolnica.Repository
             return ingredient;
         }
 
-        public int GenerateNewCureId()
+        public int GenerateNewIngredientId()
         {
             List<Ingredient> ingredients = GetAllIngredients();
             int temp = 0;
