@@ -1,0 +1,31 @@
+﻿<Window x:Class="Bolnica.View.OrderDynamicEquipment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.View"
+        mc:Ignorable="d"
+        Title="Order Dynamic Equipment" Height="320" Width="320">
+    <Grid>
+        <TextBox Focusable="False" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" Height="31" TextWrapping="Wrap" Text="ORDER EQUIPMENT FORM" VerticalAlignment="Top" Width="244" Margin="0,11,0,0" BorderBrush="White"/>
+        <Separator Margin="10,42,10,241"></Separator>
+        <Rectangle HorizontalAlignment="Center" Height="125" Margin="0,82,0,0" Stroke="Black" VerticalAlignment="Top" Width="244"/>
+        <Label Content="Equipment" HorizontalAlignment="Center" Height="27" Margin="0,63,0,0" VerticalAlignment="Top" Width="76" Background="White" FontWeight="Normal" FontSize="14"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Height="26" Margin="55,100,0,0" VerticalAlignment="Top" Width="62"/>
+        <ComboBox x:Name="equipmentToOrder" HorizontalAlignment="Left" Height="20" Margin="122,103,0,0" VerticalAlignment="Top" Width="133">
+            <!--<ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <MultiBinding StringFormat="{}{0}">
+                            <Binding Path="Name"/>
+                        </MultiBinding>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>-->
+        </ComboBox>
+        <Label Content="Quantity:" HorizontalAlignment="Left" Height="26" Margin="55,152,0,0" VerticalAlignment="Top" Width="62"/>
+        <TextBox LostFocus="TextBox_OnLostFocus" GotFocus="TextBox_Focus" x:Name="AmountToOrder" TextAlignment="Left" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Height="22" Margin="122,154,0,0" TextWrapping="Wrap" Text="Enter number..." VerticalAlignment="Top" Width="133" Opacity="0.45" Visibility="Visible" BorderBrush="Black" SelectionBrush="#FF5A94C3"/>
+        <Button Content="Confirm" HorizontalAlignment="Left" Height="28" Margin="55,242,0,0" VerticalAlignment="Top" Width="86" Click="ConfirmOrder_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Height="28" Margin="182,242,0,0" VerticalAlignment="Top" Width="86" Click="CancelOrder_Click"/>
+    </Grid>
+</Window>

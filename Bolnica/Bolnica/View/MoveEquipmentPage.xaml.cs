@@ -87,6 +87,11 @@ namespace Bolnica.View
             MoveEquipmentPageName.Visibility = Visibility.Hidden;
             PagesFrame.Content = new FourCardsView("StaticEquipmentSelected");
         }
+
+        private void PagesFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }
 
