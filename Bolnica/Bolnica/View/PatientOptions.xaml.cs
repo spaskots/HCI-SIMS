@@ -1,21 +1,9 @@
-﻿using Bolnica.Controller;
-using Bolnica.Table;
-using Bolnica.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Bolnica.Controller;
+using Bolnica.Table;
 
-namespace Bolnica
+namespace Bolnica.View
 {
     /// <summary>
     /// Interaction logic for PatientOptions.xaml
@@ -23,9 +11,12 @@ namespace Bolnica
     public partial class PatientOptions : Window
     {
         PatientController patientController = new PatientController();
+        OrderController _orderController = new OrderController();
+
         public PatientOptions()
         {
             InitializeComponent();
+            _orderController.CheckOrders();
         }
 
         private void AddPatientWin(object sender, RoutedEventArgs e)
@@ -77,6 +68,12 @@ namespace Bolnica
         {
             PriorityAppointment priority = new PriorityAppointment();
             priority.Show();
+        }
+
+        private void OrderEquipment(object sender, RoutedEventArgs e)
+        {
+            OrderDynamicEquipment orderEquipment = new OrderDynamicEquipment();
+            orderEquipment.Show();
         }
     }
 

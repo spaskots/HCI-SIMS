@@ -91,6 +91,11 @@ namespace Bolnica
             lp.Show();
             this.Close();
         }
+
+        private void PatientId_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
     }
 

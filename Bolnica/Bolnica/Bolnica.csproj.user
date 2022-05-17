@@ -34,7 +34,10 @@
     <Compile Update="LekarPrijava.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PatientOptions.xaml.cs">
+    <Compile Update="View\OrderDynamicEquipment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PatientOptions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ReadPatient.xaml.cs">
@@ -113,7 +116,10 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="PatientOptions.xaml">
+    <Page Update="View\OrderDynamicEquipment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PatientOptions.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ReadPatient.xaml">

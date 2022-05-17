@@ -57,5 +57,44 @@ namespace Bolnica.Repository
             }
             return results;
         }
+
+        public DynamicEquipment GetById(int equipmentId)
+        {
+            string[] allDynamicEquipment = File.ReadAllLines(lokacijaDynamicEquipment);
+
+            foreach (string dynamicEquipment in allDynamicEquipment)
+            {
+                string[] fieldsOfData = dynamicEquipment.Split(",");
+                if (dynamicEquipment == "") { continue; }
+                if (Convert.ToInt32(fieldsOfData[0]) == equipmentId)
+                {
+                    return new DynamicEquipment(Convert.ToInt32(fieldsOfData[0]), fieldsOfData[1], Convert.ToInt32(fieldsOfData[2]));
+                }
+            }
+           return null;
+        }
+
+        public void Update(DynamicEquipment updatedEquipment)
+        {
+            DynamicEquipment oldDynamicEquipment = GetById(updatedEquipment.Id);
+
+            String oldEquipmentLine = string.Format("{0},{1},{2}", oldDynamicEquipment.Id, oldDynamicEquipment.Name, oldDynamicEquipment.Quantity);
+            String updatedEquipmentLine = string.Format("{0},{1},{2}", updatedEquipment.Id, updatedEquipment.Name, updatedEquipment.Quantity);
+            String allEquipmentLines = File.ReadAllText(lokacijaDynamicEquipment);
+
+            if (allEquipmentLines.Contains(oldEquipmentLine))
+            {
+                allEquipmentLines = allEquipmentLines.Replace(oldEquipmentLine, updatedEquipmentLine);
+                File.WriteAllText(lokacijaDynamicEquipment, allEquipmentLines);
+            }
+        }
+
+        public void IncreaseEquipmentAmount(int equipmentId, int amount)
+        {
+            DynamicEquipment updatedEquipment = GetById(equipmentId);
+            updatedEquipment.Quantity += amount;
+
+            Update(updatedEquipment);
+        }
     }
 }

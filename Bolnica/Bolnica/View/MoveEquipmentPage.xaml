@@ -35,6 +35,6 @@
         <Image Width="25" Height="25" HorizontalAlignment="Right" Grid.Row="0" Source="..\View\icons8-paper-64.png" VerticalAlignment="Bottom" Margin="0,0,10,10" PreviewMouseDown ="submitMoveEquipment" />
 
     </Grid>
-        <Frame x:Name="PagesFrame" Grid.Row="0" NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="PagesFrame" Grid.Row="0" NavigationUIVisibility="Hidden" Navigated="PagesFrame_Navigated"></Frame>
     </Grid>
 </Page>
