@@ -70,6 +70,12 @@ namespace Bolnica.View
             priority.Show();
         }
 
+        private void EmergencyAppointmentWin(object sender, RoutedEventArgs e)
+        {
+            EmergencyAppointment emergencyAppointment= new EmergencyAppointment();
+            emergencyAppointment.Show();
+        }
+
         private void OrderEquipment(object sender, RoutedEventArgs e)
         {
             OrderDynamicEquipment orderEquipment = new OrderDynamicEquipment();

@@ -100,5 +100,21 @@ namespace Bolnica.Repository
             }
             return null;
         }
+
+        public List<Doctor> FindBySpecialization(string specialization)
+        {
+            List<Doctor> allDoctors = getAllDoctors();
+            List<Doctor> specializedDoctors = new List<Doctor>();
+
+            foreach (Doctor doctor in allDoctors)
+            {
+                if (doctor.Specialization.ToLower() == specialization.ToLower())
+                {
+                    specializedDoctors.Add(doctor);
+                }
+            }
+
+            return specializedDoctors;
+        }
     }
 }

@@ -16,9 +16,11 @@
                 <MenuItem Header="_Read" Click="ViewPatientWin"/>
             </MenuItem>
             <MenuItem Header="_Appointment">
-                <MenuItem Header="_Create" Click="PriorityAppointmentWin">
+                <MenuItem Header="_Create">
+                    <MenuItem Header="_Regular" Click="PriorityAppointmentWin"/>
+                    <MenuItem Header="_Emergency" Click="EmergencyAppointmentWin"/>
                 </MenuItem>
-                <MenuItem Header="_Read" Click="ViewAppointmentWin"/>
+                        <MenuItem Header="_Read" Click="ViewAppointmentWin"/>
             </MenuItem>
             <MenuItem Header="_Equipment">
                 <MenuItem Header="_Order" Click="OrderEquipment"/>

@@ -183,5 +183,13 @@ namespace Bolnica.Service
         }
 
 
+        // ------------------------------------------
+
+        public List<MedicalAppointment> ScheduleEmergencyAppointment(int patientId, List<Doctor> specializedDoctors, string appointmentType)
+        {
+            return null;
+        }
+
+
     }
 }

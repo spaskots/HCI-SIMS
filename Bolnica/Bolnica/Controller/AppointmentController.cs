@@ -40,5 +40,11 @@ namespace Bolnica.Controller
             List<MedicalAppointment> appointments = appointmentService.FindByPriority(priority, doctorId, startTime, endTime, duration, appointmentType);
             return appointments;
         }
+
+        public List<MedicalAppointment> ScheduleEmergencyAppointment(int patientId, List<Doctor> specializedDoctors, string appointmentType)
+        {
+            
+            return null;
+        }
     }
 }
