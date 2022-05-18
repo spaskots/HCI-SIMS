@@ -41,10 +41,14 @@ namespace Bolnica.Controller
             return appointments;
         }
 
-        public List<MedicalAppointment> ScheduleEmergencyAppointment(int patientId, List<Doctor> specializedDoctors, string appointmentType)
+        public List<MedicalAppointment> ScheduleEmergencyAppointment(string patientId, List<Doctor> specializedDoctors, string appointmentType)
         {
-            
-            return null;
+            return appointmentService.ScheduleEmergencyAppointment(patientId, specializedDoctors, appointmentType);
+        }
+
+        public Boolean CheckDate(string startTime, double duration, string doctorId)
+        {
+            return appointmentService.CheckDate(startTime, duration, doctorId);
         }
     }
 }

@@ -18,11 +18,16 @@ namespace Bolnica.Repository
             
             write.Close();
         }
+        public void saveA(MedicalAppointment ma)
+        {
+            String noviRed = ma.id + "," + ma.StartTime + "," + ma.Duration + "," + ma.Type + "," + ma.Patient.Id + "," + "," + ma.doctor.Id;
+            StreamWriter write = new StreamWriter(lokacijaAppointment, true);
+            write.WriteLine(noviRed);
+
+            write.Close();
+        }
         public List<MedicalAppointment> GetAllAppointmentsByDoctorId(String ids)
         {
-
-
-
             List<MedicalAppointment> ma=new List<MedicalAppointment> ();
             string[] lines = System.IO.File.ReadAllLines(lokacijaAppointment);
             foreach (string line in lines)
@@ -143,6 +148,51 @@ namespace Bolnica.Repository
             return appointments;
 
         }
+        
+        public List<MedicalAppointment> FindForDoctorAtDate (Doctor doctor, List<MedicalAppointment> allAppointmentsForDesiredDate)
+        {
+            List<MedicalAppointment> appointmentsForDesiredDoctor = new List<MedicalAppointment>();
+
+            foreach (MedicalAppointment appointment in allAppointmentsForDesiredDate)
+            {
+                if (appointment.doctor.Id == doctor.Id)
+                {
+                    appointmentsForDesiredDoctor.Add(appointment);
+                }
+            }
+
+            return appointmentsForDesiredDoctor;
+        }
+
+        public List<MedicalAppointment> GetAllAppointmentsAtDate(DateTime dateOfAppointment)
+        {
+            List<MedicalAppointment> allAppointments = GetAllAppointments();
+            List<MedicalAppointment> appointmentsForDesiredDate = new List<MedicalAppointment>();
+            foreach (MedicalAppointment appointment in allAppointments)
+            {
+                if (DateTime.Compare(Convert.ToDateTime(appointment.StartTime).Date, dateOfAppointment.Date) == 0)
+                {
+                    appointmentsForDesiredDate.Add(appointment);
+                }
+
+            }
+            return appointmentsForDesiredDate;
+        }
+
+        public List<MedicalAppointment> DoctorsAppointmentsAtDate(string doctorId, DateTime startDate)
+        {
+            List<MedicalAppointment> appointmentsAtDate = new List<MedicalAppointment>();
+            List<MedicalAppointment> allDoctorsAppointments = GetAllAppointmentsByDoctorId(doctorId);
+
+            foreach(MedicalAppointment appointment in allDoctorsAppointments)
+            {
+                if (Convert.ToDateTime(appointment.StartTime).Date == startDate.Date)
+                {
+                    appointmentsAtDate.Add(appointment);
+                }
+            }
+            return appointmentsAtDate;
+        }
     }
-    }
+}
 

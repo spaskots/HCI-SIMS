@@ -11,6 +11,7 @@ namespace Bolnica.Service
     {
         AppointmentRepository appointmentRepository= new AppointmentRepository();
         LekarRepository doctorRepository = new LekarRepository();
+        RoomRepository roomRepository = new RoomRepository();
         public void save(MedicalAppointment ma)
         {
             appointmentRepository.save(ma);
@@ -141,26 +142,19 @@ namespace Bolnica.Service
                 foreach(MedicalAppointment appointment in appointments)
                 {
                     DateTime appointedDate = DateTime.ParseExact(appointment.StartTime, "dd/MM/yyyy HH:mm:ss", null);
-                    // ukoliko su jednaka pocetna vremena nema potrebe gledati dalje
                     if (DateTime.Compare(Convert.ToDateTime(slot.StartTime), appointedDate) == 0) {
-                        System.Diagnostics.Debug.WriteLine(slot.StartTime + " == " + appointedDate);
                         filter = true;
                     }
-                    // da li je slot time vreme pre appointed pocetnog vremena, ako jeste proveravamo slot end time (slot.StartTime + duration)
                     else if (DateTime.Compare(Convert.ToDateTime(slot.StartTime), appointedDate) < 0) {
-                        System.Diagnostics.Debug.WriteLine(slot.StartTime + " < " + appointedDate);
                         if (DateTime.Compare(Convert.ToDateTime(slot.StartTime).AddHours(duration), appointedDate) > 0)
                         {
-                            System.Diagnostics.Debug.WriteLine(slot.StartTime + " +1h " + " > " + appointedDate);
                             filter = true;
                         }
                     } else if (DateTime.Compare(Convert.ToDateTime(slot.StartTime), appointedDate) > 0)
                     {
-                        System.Diagnostics.Debug.WriteLine(slot.StartTime + " > " + appointedDate);
 
                         if (DateTime.Compare(Convert.ToDateTime(slot.StartTime), appointedDate.AddHours(Convert.ToInt32(appointment.Duration))) < 0)
                         {
-                            System.Diagnostics.Debug.WriteLine(slot.StartTime + " < " + appointedDate + " +" + Convert.ToInt32(appointment.Duration) + "h");
                             filter = true;
                         }
                     }
@@ -182,14 +176,204 @@ namespace Bolnica.Service
             }
         }
 
-
-        // ------------------------------------------
-
-        public List<MedicalAppointment> ScheduleEmergencyAppointment(int patientId, List<Doctor> specializedDoctors, string appointmentType)
+        public Boolean CheckDate(string startTime, double duration, string doctorId)
         {
-            return null;
+            DateTime startDate = Convert.ToDateTime(startTime);
+            List<MedicalAppointment> appointmentForDate = appointmentRepository.DoctorsAppointmentsAtDate(doctorId, startDate);
+
+            foreach (MedicalAppointment appointment in appointmentForDate)
+            {
+                DateTime start = Convert.ToDateTime(appointment.StartTime);
+                DateTime end = start.AddHours(duration);
+                if (IsEqualDate(start, startDate)) return false;
+                if (IsBeforeDate(startDate, start) && IsAfterDate(startDate.AddHours(duration), start)) return false;
+                if (IsAfterDate(startDate, start) && IsBeforeDate(startDate, end)) return false;
+            }
+            return true;
         }
 
 
+        // ------------------------------------------
+
+        public List<MedicalAppointment> ScheduleEmergencyAppointment(string patientId, List<Doctor> specializedDoctors, string appointmentType)
+        {
+            DateTime currentTime = DateTime.Now;
+            int durationOfAppointment = (appointmentType == "examination" ? 1 : 2);
+            List<MedicalAppointment> todaysAppointmentsForDoctors = DoctorsAppointmentsForDate(specializedDoctors, currentTime);
+
+            if (todaysAppointmentsForDoctors.Count == 0)
+            {
+                Doctor doctor = specializedDoctors[0];
+                AppointmentType type;
+                Enum.TryParse(appointmentType.ToString(), out type);
+                MedicalAppointment newAppointment = new MedicalAppointment(GenerateNewAppointmentId(),patientId, doctor.Id, currentTime.ToString(), durationOfAppointment, type);
+                appointmentRepository.saveA(newAppointment);
+            }
+            
+            var appointmentsGroupedByDoctors = todaysAppointmentsForDoctors.GroupBy(u => u.doctor.Id).Select(grp => grp.ToList()).ToList();
+            List<MedicalAppointment> updatedAppointments = new List<MedicalAppointment>();
+
+            MedicalAppointment firstAvailableAppointment = null;
+            foreach (var appointmentForDoctor in appointmentsGroupedByDoctors)
+            {
+                firstAvailableAppointment = FindFirstAvailable(currentTime, durationOfAppointment, appointmentForDoctor);
+                if (firstAvailableAppointment != null) break;
+            }
+
+
+            //MedicalAppointment firstAvailableAppointment = FindFirstAvailable(currentTime, durationOfAppointment, todaysAppointmentsForDoctors);
+            //System.Diagnostics.Debug.WriteLine("Appointment: " + Convert.ToString(firstAvailableAppointment.StartTime));
+            if (firstAvailableAppointment != null)
+            {
+                AppointmentType typeOfAppointment;
+                Enum.TryParse(appointmentType.ToString(), out typeOfAppointment);
+                firstAvailableAppointment.Type = typeOfAppointment;
+                firstAvailableAppointment.Patient = firstAvailableAppointment.findPatient(patientId);
+                firstAvailableAppointment.id = GenerateNewAppointmentId();
+                appointmentRepository.saveA(firstAvailableAppointment);
+                return null;
+            } else
+            {
+                foreach (var appointmentsForDoctor in appointmentsGroupedByDoctors)
+                {
+                    updatedAppointments.AddRange(RescheduleAppointmentsForToday(appointmentsForDoctor, currentTime));
+                }
+
+                foreach (MedicalAppointment update in updatedAppointments)
+                {
+                    System.Diagnostics.Debug.WriteLine(update.StartTime + ": Dr." + update.doctor.Name + " " + update.doctor.Surname);
+                }
+
+            }
+            return updatedAppointments.OrderBy(x => x.StartTime).ToList();
+        }
+
+        public List<MedicalAppointment> RescheduleAppointmentsForToday(List<MedicalAppointment> appointmentsForDoctor, DateTime currentTime)
+        {
+           
+            appointmentsForDoctor = FilterOutdatedAppointments(appointmentsForDoctor, currentTime);
+
+            MedicalAppointment updatedAppointment = null;
+            List<MedicalAppointment> updatedSchedule = new List<MedicalAppointment>();
+            foreach (var todaysAppointment in appointmentsForDoctor)
+            {
+                System.Diagnostics.Debug.WriteLine("Dr." + todaysAppointment.doctor.Name + " " + todaysAppointment.doctor.Surname);
+                int daysMultiplier = 1;
+                do
+                {
+                    System.Diagnostics.Debug.WriteLine("BEFORE");
+                    System.Diagnostics.Debug.WriteLine(todaysAppointment.StartTime.ToString());
+                    updatedAppointment = FindFirstAvailable(currentTime.AddDays(1* daysMultiplier), Convert.ToInt32(todaysAppointment.Duration), appointmentsForDoctor);
+                    System.Diagnostics.Debug.WriteLine("AFTER");
+                    if (updatedAppointment!=null)
+                        System.Diagnostics.Debug.WriteLine(updatedAppointment.StartTime.ToString());
+                    daysMultiplier++;
+                } while (updatedAppointment == null);
+                updatedSchedule.Add(updatedAppointment);
+            }
+            return updatedSchedule;
+        }
+
+        public List<MedicalAppointment> FilterOutdatedAppointments(List<MedicalAppointment> appointmentsForDoctor, DateTime currentTime)
+        {
+            List<MedicalAppointment> filteredAppointments = new List<MedicalAppointment> ();
+            foreach (MedicalAppointment appointment in appointmentsForDoctor)
+            {
+                if (!IsBeforeDate(Convert.ToDateTime(appointment.StartTime), currentTime))
+                {
+                    filteredAppointments.Add(appointment);
+                }
+            }
+            return filteredAppointments;
+        }
+
+        public List<MedicalAppointment> DoctorsAppointmentsForDate(List<Doctor> specializedDoctors, DateTime dateOfAppointment)
+        {
+            List<MedicalAppointment> appointmentsForToday = new List<MedicalAppointment>();
+            List<MedicalAppointment> allAppointmentsToday = appointmentRepository.GetAllAppointmentsAtDate(dateOfAppointment);
+
+            foreach (Doctor specializedDoctor in specializedDoctors)
+            {   
+                appointmentsForToday.AddRange(appointmentRepository.FindForDoctorAtDate(specializedDoctor, allAppointmentsToday));
+            }
+            return appointmentsForToday;
+        }
+
+       // public List<MedicalAppointment> GenerateTimeslots(DateTime startTime, DateTime endTime)
+
+
+        public MedicalAppointment FindFirstAvailable (DateTime currentTime, int durationOfAppointment, List<MedicalAppointment> todaysAppointmentsForDoctors)
+        {
+            List<MedicalAppointment> timeslots = GeneratePossibleSlots(currentTime.Date, currentTime.AddDays(1).Date);
+            currentTime = currentTime.AddHours(5); // testing purposes
+            todaysAppointmentsForDoctors = todaysAppointmentsForDoctors.OrderBy(x => x.StartTime).ToList();
+
+            bool filter;
+            String doctorId = "";
+
+            foreach (MedicalAppointment timeslot in timeslots)
+            {
+                if (DateTime.Compare(Convert.ToDateTime(timeslot.StartTime), currentTime.AddSeconds(-1)) < 0) continue;
+                if (IsAfterDate(Convert.ToDateTime(timeslot.StartTime), currentTime.AddHours(1))) continue;
+                filter = false;
+
+                foreach (MedicalAppointment todaysAppointment in todaysAppointmentsForDoctors)
+                {
+                    DateTime startTime = Convert.ToDateTime(todaysAppointment.StartTime);
+                    DateTime endTime = startTime.AddHours(todaysAppointment.Duration);
+                    doctorId = todaysAppointment.doctor.Id;
+
+                    if (filter || IsBeforeDate(endTime, Convert.ToDateTime(timeslot.StartTime))) continue;
+
+                    if (IsEqualDate(Convert.ToDateTime(timeslot.StartTime), startTime))
+                    {
+                        filter = true;
+                        continue;
+                    }
+
+                    if (IsBeforeDate(Convert.ToDateTime(timeslot.StartTime), startTime) &&
+                        IsAfterDate(Convert.ToDateTime(timeslot.StartTime).AddHours(durationOfAppointment), startTime))
+                    {
+                        filter = true;
+                        continue;
+                    }
+                    
+                    if (IsAfterDate(Convert.ToDateTime(timeslot.StartTime), startTime) &&
+                        IsBeforeDate(Convert.ToDateTime(timeslot.StartTime), endTime))
+                    {
+                        filter = true;
+                        continue;
+                    }
+
+                }
+                if (!filter)
+                {
+                    return new MedicalAppointment(Convert.ToString(timeslot.StartTime), doctorId, Convert.ToDouble(durationOfAppointment));
+                }
+            }
+                
+            return null;            
+            }
+
+        public Boolean IsBeforeDate(DateTime currentTime, DateTime date)
+        {
+            return DateTime.Compare(currentTime, date) < 0;
+        }
+
+        public Boolean IsAfterDate(DateTime currentTime, DateTime date)
+        {
+            return DateTime.Compare(currentTime, date) > 0;
+        }
+
+        public Boolean IsEqualDate(DateTime currentTime, DateTime date)
+        {
+            return DateTime.Compare(currentTime, date) == 0;
+        }
+
+        public int GenerateNewAppointmentId()
+        {
+            List<int> allIds = appointmentRepository.getAllId();
+            return allIds.Count == 0 ? 0 : allIds.Last() + 1;
+        }
     }
 }
