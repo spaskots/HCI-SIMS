@@ -49,7 +49,8 @@ namespace Bolnica.Repository
                 string password=fields[8];
                 City city = new City(fields[9], fields[10]);
 		        String idSobe = fields[14];
-                Doctor doctor=new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, username, password, city,idSobe); 
+                String specialization = fields[11];
+                Doctor doctor=new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, username, password, city, specialization, idSobe); 
                 doktori.Add(doctor);
             }
             return doktori;
@@ -93,12 +94,28 @@ namespace Bolnica.Repository
                     string Username = fields[7];
                     string password = fields[8];
                     City city = new City(fields[9], fields[10]);
-		    String idSobe = fields[14];
+		            String idSobe = fields[14];
                     Doctor doctor = new Doctor(name, surname, dateOFBirth, phoneNumber, email, Id, isAvailable, Username, password, city,idSobe); 
                     return doctor;
                 }
             }
             return null;
+        }
+
+        public List<Doctor> FindBySpecialization(string specialization)
+        {
+            List<Doctor> allDoctors = getAllDoctors();
+            List<Doctor> specializedDoctors = new List<Doctor>();
+
+            foreach (Doctor doctor in allDoctors)
+            {
+                if (doctor.Specialization.ToString().ToLower() == specialization)
+                {
+                    specializedDoctors.Add(doctor);
+                }
+            }
+
+            return specializedDoctors;
         }
     }
 }

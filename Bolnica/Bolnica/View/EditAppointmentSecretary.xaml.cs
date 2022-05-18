@@ -55,9 +55,18 @@ namespace Bolnica
         {
            
             String startTime = STARTTIME.Text.ToString();
+
             double duration = Convert.ToDouble(DURATION.Text);
-            String patientId = PatientId.Text;
             String doctorId = DoctorId.Text;
+            if (!appointmentController.CheckDate(startTime, duration, doctorId))
+            {
+                MessageBox.Show("Error: Desired date is already scheduled by other appointment.");
+                return;
+            }
+
+
+            String patientId = PatientId.Text;
+            
             AppointmentType type;
             Enum.TryParse(TypeId.Text.ToString(), out type);
             int id = ViewAllAppointments.appoint.id;
