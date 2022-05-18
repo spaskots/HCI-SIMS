@@ -10,6 +10,7 @@ namespace Bolnica.Service
     public class RoomService
     {
         RoomRepository _repository = new RoomRepository();
+        StaticEquipmentRepository staticEquipment_repository = new StaticEquipmentRepository();
 
         public RoomService()
         {
@@ -29,7 +30,12 @@ namespace Bolnica.Service
 
         public Boolean Delete(Room room)
         {
-            // TODO: implement
+            List<StaticEquipment> ses =  staticEquipment_repository.getEquipmentInChosenRoom(room.Id);
+            foreach(StaticEquipment se in ses)
+            {
+                se.roomId = "1";
+                staticEquipment_repository.Update(se);
+            }
             return _repository.Delete(room);
         }
 
@@ -45,5 +51,6 @@ namespace Bolnica.Service
         {
             return _repository.renovation(re);
         }
-    }
+        
+        }
 }

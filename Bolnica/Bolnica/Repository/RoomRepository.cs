@@ -29,13 +29,7 @@ namespace Bolnica.Repository
                     sw.Write("");
                 }
             }
-            if (!File.Exists(lokacijaRoomShedule))
-            {
-                using (StreamWriter sw = File.CreateText(lokacijaSoba))
-                {
-                    sw.Write("");
-                }
-            }
+
         }
       
         public List<Room> GetAllRooms()
@@ -74,16 +68,17 @@ namespace Bolnica.Repository
             write.Close();
             return room;
         }
-
+        
         public Boolean Delete(Room room)
         {
+            if(room.Id == "1") { return false; }
             String obrisiRed = room.Id + "," + room.Name + "," + room.Floor + "," + room.Description + "," + room.RoomType;
 
             String text = File.ReadAllText(lokacijaDirector);
             if (text.Contains(obrisiRed))
             {
                 text = text.Replace(obrisiRed, "");
-                File.WriteAllText(lokacijaDirector, text);
+                File.WriteAllText(lokacijaDirector, text); //Treba se doraditi zbog opreme koja se nalazi u ovoj sobi radi kasnijeg ispisa.
                 return true;
             }
             return false;
@@ -93,8 +88,15 @@ namespace Bolnica.Repository
         public Room Update(Room room)
         {
             Room oldRoom = FindById(room.Id);
-            Delete(oldRoom);
-            Create(room);
+            String oldRow = oldRoom.Id + "," + oldRoom.Name + "," + oldRoom.Floor + "," + oldRoom.Description + "," + oldRoom.RoomType;
+            String newRow = room.Id + "," + room.Name + "," + room.Floor + "," + room.Description + "," + room.RoomType;
+
+            String text = File.ReadAllText(lokacijaDirector);
+            if (text.Contains(oldRow))
+            {
+                text = text.Replace(oldRow, newRow);
+                File.WriteAllText(lokacijaDirector, text); 
+            }
             return room;
         }
         public Room FindById(String id)
@@ -131,6 +133,19 @@ namespace Bolnica.Repository
                 write.Close();
                 return re;
             }
+        public AdvancedRenovationExecution advancedRenovationSave(AdvancedRenovationExecution re)
+        {
+            String noviRed1 = re.roomId + "," + re.StartDate + "," + re.EndDate  + "," + re.Description + "," + re.advanced;
+            StreamWriter write = new StreamWriter(lokacijaRoomShedule, true);
+            write.WriteLine(noviRed1);
+            if (re.advanced == 'M')
+            {
+                String noviRed2 = re.withRoomId + "," + re.StartDate + "," + re.EndDate + "," + re.Description + "," + re.advanced;
+                write.WriteLine(noviRed2); // Kada se radi merge treba 2x upisa, kada se ne radi merge treba samo jedan upis sa oznakom S.
+            }
+            write.Close();
+            return re;
+        }
         public List<DateTime> takenRoomDates(String roomId)
         {
 
@@ -153,6 +168,112 @@ namespace Bolnica.Repository
                 }
             }
             return dates;
+        }
+        StaticEquipmentRepository staticEquipment_repository = new StaticEquipmentRepository();
+        public String GenerateNewRoomId()
+        {
+            List<Room> rooms = GetAllRooms();
+            int temp = 0;
+            int maxId = 1;
+            foreach (Room room in rooms)
+            {
+                if (room == null) { return "2"; } //Zbog magacina koji uvek postoji ne bi trebalo da se ovo ikada desi ali ae
+                temp = Int32.Parse(room.Id);
+                if (temp > maxId) { maxId = temp; }
+            }
+            maxId += 1;
+            return maxId.ToString();
+        }
+        
+        public void advancedRenovationMergeSplit()
+        {
+            //Promenjive koje koristim iz prvog ali i u drugom delu.
+            bool foundFirst = false;
+            DateTime startDate1 = DateTime.Now;
+            DateTime endDate1;
+            String roomId1 = "-"; // ?
+
+            string[] lines = System.IO.File.ReadAllLines(lokacijaRoomShedule);
+            foreach (string line in lines)
+            {
+                if (line == "")
+                    continue;
+                else
+                {
+                    if (foundFirst == false)
+                    {
+                        string[] fields = line.Split(',');
+                        roomId1 = fields[0];
+                        startDate1 = DateTime.Parse(fields[1]);
+                        endDate1 = DateTime.Parse(fields[2]);
+                        String description1 = fields[3];
+                        String advanced1 = "";
+                        try
+                        {
+                        advanced1 = fields[4];
+                        }
+                        catch (Exception easd) { }
+
+                        if (DateTime.Compare(DateTime.Now, endDate1) >= 0 && advanced1 == "S") // zelim da generisem novu sobu
+                        {
+                            Room splitRoom = FindById(roomId1);
+                            Room newRoom = new Room(GenerateNewRoomId(), splitRoom.Name, splitRoom.Floor, "New Room From Split!", splitRoom.RoomType);
+                            Create(newRoom);
+                            String text = File.ReadAllText(lokacijaRoomShedule); //Brisanje linije i nastavljanje dalje.
+                            text = text.Replace(line, "");
+                            File.WriteAllText(lokacijaRoomShedule, text);
+                        }
+
+                            if (DateTime.Compare(DateTime.Now, endDate1) >= 0 && advanced1 == "M") // Mora datum da prodje i da ima specijalni karatker za Advanced Logiku.
+                        {
+                            //Za pocetak mu treba naci parnjaka 
+                            foundFirst = true;
+                            //Kako smo sigurni da parnjak u ovim uslovima mora da postoji, ovu liniju mozemo komotno da obrisemo
+                            String text = File.ReadAllText(lokacijaRoomShedule); //Brisanje te linije.
+                            text = text.Replace(line, "");
+                            File.WriteAllText(lokacijaRoomShedule, text);
+                        }
+                    }
+                    else
+                    {
+                        string[] fields = line.Split(',');
+                        String roomId2 = fields[0];
+                        DateTime startDate2 = DateTime.Parse(fields[1]);
+                        DateTime endDate2 = DateTime.Parse(fields[2]);
+                        String description2 = fields[3];
+                        String advanced2 = "";
+                        try
+                        {
+                        advanced2 = fields[4];
+                        }
+                        catch (Exception easd) {  }
+
+                        if (DateTime.Compare(startDate1, startDate2) == 0 && advanced2 == "M") // Nalazimo mu parnjaka
+                        {
+                            //Spajanje druge navedene u prvu -> prebacivanje sve opreme iz druge u prvu sobu
+                            List<StaticEquipment> staticEquipmentsRoom2 = staticEquipment_repository.getEquipmentInChosenRoom(roomId2);
+                            foreach(StaticEquipment staticRoom2 in staticEquipmentsRoom2)
+                            {
+                                staticRoom2.roomId = roomId1;
+                                staticEquipment_repository.Update(staticRoom2);
+                            }
+                            //Sada mozemo obrisati sobu 2 Komotno i usput promeniti opis prvoj sobi cisto da znamo da se desila izmena
+                            Delete(FindById(roomId2)); //Brisi ovu sobu
+                            Room firstRoomUpdate = FindById(roomId1);
+                            firstRoomUpdate.Description = "This Room Was Merged With Room Which Had Id:" + roomId2;
+                            Update(firstRoomUpdate); //Sva oprema iz ove se prebacuje u magacin po defaultu
+                            //Sada mogu da obrisem ovu liniju
+
+                            String text = File.ReadAllText(lokacijaRoomShedule); //Brisanje te linije.
+                            text = text.Replace(line, "");
+                            File.WriteAllText(lokacijaRoomShedule, text);
+
+                            advancedRenovationMergeSplit(); // Kada sam obrisao i uradio nesto opet pozivam funckiju u slucaju da ima vise toga da se odradi.
+                        }
+
+                    }
+                };
+            }
         }
     }
 }

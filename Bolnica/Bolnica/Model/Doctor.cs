@@ -101,7 +101,14 @@ namespace Bolnica.Model
             Room = findRoomById(idSobe);
             this.Room = Room;
         }
-        
+
+        public Doctor(string name, string surname, String dateOfBirth, string phoneNumber, string email, string id, bool active, string username, string password, City city, string specialization, string idSobe) : base(name, surname, dateOfBirth, phoneNumber, email, id, active, username, password, city)
+        {
+            Room = findRoomById(idSobe);
+            this.Room = Room;
+            this.Specialization = specialization;
+        }
+
         public Room findRoomById(String id)
         {
             Room roomFound = new Room();

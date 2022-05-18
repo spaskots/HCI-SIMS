@@ -35,5 +35,11 @@ namespace Bolnica.View
         private void moveExe(object sender, MouseButtonEventArgs e)
         { 
         }
+        private void curePage(object sender, MouseButtonEventArgs e)
+        {
+            PagesFrame.Content = new FourCardsView("CuresSelected");
+
+        }
+        
     }
 }

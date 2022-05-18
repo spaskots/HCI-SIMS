@@ -84,15 +84,11 @@ namespace Bolnica
             Room room = new Room(id, name, floor, description, roomType);
             _controller.Create(room);
             MessageBox.Show("Successfully added room!");
-            RoomPage director = new RoomPage();
-            director.Show();
-            this.Close();
+            //Nije zavrseno - treba prebacivanje na novu stranu
         }
         private void goBack(object sender, RoutedEventArgs e)
         {
-            RoomPage director = new RoomPage();
-            director.Show();
-            this.Close();
+           
         }
     }
 }

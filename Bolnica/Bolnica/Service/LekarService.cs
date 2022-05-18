@@ -32,5 +32,10 @@ namespace Bolnica.Service
         {
             return lekarRepository.GetOneByUsername(username);
         }
+
+        public List<Doctor> FindBySpecialization(string specialization)
+        {
+            return lekarRepository.FindBySpecialization(specialization);
+        }
     }
 }

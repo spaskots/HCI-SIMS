@@ -34,7 +34,16 @@
     <Compile Update="LekarPrijava.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PatientOptions.xaml.cs">
+    <Compile Update="View\EmergencyAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EmergencyAppointmentTable.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\OrderDynamicEquipment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PatientOptions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ReadPatient.xaml.cs">
@@ -44,12 +53,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Table\ViewPatients.xaml.cs">
-    </Compile>
-    <Compile Update="RoomPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="SingleRoom.xaml.cs">
-      <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AddNewRoom.xaml.cs">
       <SubType>Code</SubType>
@@ -70,6 +73,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\RenovationPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SingleCurePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\SingleRoomPage.xaml.cs">
@@ -116,16 +122,19 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="PatientOptions.xaml">
+    <Page Update="View\EmergencyAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EmergencyAppointmentTable.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\OrderDynamicEquipment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PatientOptions.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ReadPatient.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="RoomPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="SingleRoom.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Table\MedicalCardAllergen.xaml">
@@ -156,6 +165,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\RenovationPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SingleCurePage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SingleRoomPage.xaml">

@@ -1,11 +1,11 @@
-﻿<Window x:Class="Bolnica.PatientOptions"
+﻿<Window x:Class="Bolnica.View.PatientOptions"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="Secretary - CRUD:Patient" Height="450" Width="800">
+        Title="Secretary - Main Window" Height="450" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Patient">
@@ -16,9 +16,14 @@
                 <MenuItem Header="_Read" Click="ViewPatientWin"/>
             </MenuItem>
             <MenuItem Header="_Appointment">
-                <MenuItem Header="_Create" Click="PriorityAppointmentWin">
+                <MenuItem Header="_Create">
+                    <MenuItem Header="_Regular" Click="PriorityAppointmentWin"/>
+                    <MenuItem Header="_Emergency" Click="EmergencyAppointmentWin"/>
                 </MenuItem>
-                <MenuItem Header="_Read" Click="ViewAppointmentWin"/>
+                        <MenuItem Header="_Read" Click="ViewAppointmentWin"/>
+            </MenuItem>
+            <MenuItem Header="_Equipment">
+                <MenuItem Header="_Order" Click="OrderEquipment"/>
             </MenuItem>
         </Menu>
 

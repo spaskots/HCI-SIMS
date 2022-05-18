@@ -30,5 +30,10 @@ namespace Bolnica.Controller
         {
             return lekarService.getAllDoctors();
         }
+
+        public List<Doctor> FindBySpecialization(string specialization)
+        {
+            return lekarService.FindBySpecialization(specialization);
+        }
     }
 }

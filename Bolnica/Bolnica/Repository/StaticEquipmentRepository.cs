@@ -23,20 +23,6 @@ namespace Bolnica.Repository
                     sw.Write("");
                 }
             }
-            if (!File.Exists(lokacijaStaticEquipment))
-            {
-                using (StreamWriter sw = File.CreateText(lokacijaStaticEquipment))
-                {
-                    sw.Write("");
-                }
-            }
-            if (!File.Exists(lokacijaMoveExecution))
-            {
-                using (StreamWriter sw = File.CreateText(lokacijaMoveExecution))
-                {
-                    sw.Write("");
-                }
-            }
             if (!File.Exists(lokacijaMoveExecution))
             {
                 using (StreamWriter sw = File.CreateText(lokacijaMoveExecution))
@@ -123,10 +109,20 @@ namespace Bolnica.Repository
         public StaticEquipment Update(StaticEquipment staticEquipment)
         {
             StaticEquipment oldStaticEquipment = FindById(staticEquipment.Id);
-            Delete(oldStaticEquipment);
-            AddStaticEquipment(staticEquipment);
+            String oldRow = oldStaticEquipment.Id + "," + oldStaticEquipment.Name + "," + oldStaticEquipment.Quantity + "," + oldStaticEquipment.roomId;
+            String newRow = staticEquipment.Id + "," + staticEquipment.Name + "," + staticEquipment.Quantity + "," + staticEquipment.roomId;
+
+
+            String text = File.ReadAllText(lokacijaStaticEquipment);
+            if (text.Contains(oldRow))
+            {
+                text = text.Replace(oldRow, newRow);
+                File.WriteAllText(lokacijaStaticEquipment, text);
+
+            }
             return staticEquipment;
         }
+
         public int GenerateNewEqId() {
             List<StaticEquipment> ses = GetAllStaticEquipment();
             int temp = 0;
@@ -140,6 +136,7 @@ namespace Bolnica.Repository
             maxId += 1;
             return maxId;
         }
+        
         public Boolean MoveExecutionDo()
         {
             DateTime now = DateTime.Now;
@@ -152,11 +149,11 @@ namespace Bolnica.Repository
                 {
                     string[] fields = line.Split(',');
                     int StaticEquipmentId = Convert.ToInt32(fields[0]);
-                    String dateOfMove = fields[1];
+                    DateTime dateOfMove = DateTime.Parse(fields[1]);
                     String toRoom = fields[2];
                     int quantity = Convert.ToInt32(fields[3]);
                     String Description = fields[4];
-                    if (dateOfMove == now.Date.ToShortDateString()) { //Ovo znaci da move treba da se obavi 
+                    if (DateTime.Compare(DateTime.Now, dateOfMove) > 0) { //Ovo znaci da move treba da se obavi ili se vec trebalo obaviti
                         StaticEquipment zaUpdateEquipmenet = FindById(StaticEquipmentId);
 
                         // Update kolicine u trenutnoj sobi
@@ -176,16 +173,48 @@ namespace Bolnica.Repository
                             }
                             else { destinacijaEquip.Quantity += quantity; Update(destinacijaEquip); }
 
-                            String text = File.ReadAllText(lokacijaMoveExecution); //Brisanje te linije.
-                            text = text.Replace(line, "");
-                            File.WriteAllText(lokacijaMoveExecution, text);
+                            
                         }
+                        String text = File.ReadAllText(lokacijaMoveExecution); //Brisanje te linije.
+                        text = text.Replace(line, "");
+                        File.WriteAllText(lokacijaMoveExecution, text);
 
                     }
                 };
             }
 
             return true; //Nije zavrsena metoda.
+        }
+
+        public List<StaticEquipment> getEquipmentInChosenRoom(String roomId)
+        {
+            List<StaticEquipment> staticEquipments = GetAllStaticEquipment();
+            List<StaticEquipment> allEqInChosenRoom = new List<StaticEquipment>();
+            foreach(StaticEquipment eq in staticEquipments)
+            {
+                if (Int32.Parse(eq.roomId) == Int32.Parse(roomId))
+                {
+                    allEqInChosenRoom.Add(eq);
+                }
+            }
+            return allEqInChosenRoom;
+        }
+        public List<StaticEquipment> search(String Name, String idRoom)
+        {
+            List<StaticEquipment> staticEquipments = new List<StaticEquipment>();
+            if(idRoom == "-") { staticEquipments.AddRange(GetAllStaticEquipment()); }
+            else { staticEquipments.AddRange(getEquipmentInChosenRoom(idRoom)); }
+
+            List<StaticEquipment> results = new List<StaticEquipment>();
+            foreach (StaticEquipment staticEquipment in staticEquipments)
+            {
+
+                if (staticEquipment.Name.Contains(Name, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    results.Add(staticEquipment);
+                }
+            }
+            return results;
         }
     }
 }

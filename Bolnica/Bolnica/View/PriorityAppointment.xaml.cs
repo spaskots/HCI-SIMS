@@ -100,12 +100,13 @@ namespace Bolnica.View
             int boolType;
             if (appointmentType == "operation")
             {
-                boolType = 0;
-            } else { boolType = 1; }
+                System.Diagnostics.Debug.WriteLine("Operacija");
+                boolType = 1;
+            } else { boolType = 0; }
 
             AppointmentType type;
 
-            Enum.TryParse(boolType.ToString(), out type);
+            Enum.TryParse(appointmentType.ToString(), out type);
             MedicalAppointment ma = new MedicalAppointment(id, patient.Id, appointment.doctor.Id, appointment.StartTime, appointment.Duration, type);
             
             Room r = ma.findRoom(appointment.doctor.Room.Id);

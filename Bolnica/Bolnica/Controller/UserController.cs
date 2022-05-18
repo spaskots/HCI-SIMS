@@ -19,5 +19,6 @@ namespace Bolnica.Controller
         {
             return userService.validate(ru);
         }
+
     }
 }

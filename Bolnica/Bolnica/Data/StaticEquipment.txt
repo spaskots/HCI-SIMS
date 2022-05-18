@@ -1,13 +1,14 @@
-4,Kapija,35,14
-
 1,Kauc,3,14
-5,Krevet,2,3
-7,Daske,3,1
 2,Trosed,6,1
-8,Stolica,4,3
-
-10,Respirator,1,3
-
-9,Respirator,1,4
 3,Respirator,1,1
-11,Respirator,1,4
+4,Kapija,15,14
+5,Krevet,2,1
+6,Vlazne Maramice,3,1
+8,Stolica,4,1
+10,Respirator,1,1
+9,Maramice,1,4
+11,Fen,1,4
+7,Daske,1,1
+12,Daske,2,5
+13,Kapija,10,8
+14,Kapija,10,8

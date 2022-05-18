@@ -38,12 +38,38 @@ namespace Bolnica.View
 
         private void backClick(object sender, RoutedEventArgs e)
         {
-            SingleRoomPageName.Visibility = Visibility.Hidden;
-            PagesFrame.Content = new FourCardsView("PrikazSoba");
+            if (HeaderTittleName.Content.ToString() == "Single Room" || HeaderTittleName.Content.ToString() == "Edit Room")
+            {
+                SingleRoomPageName.Visibility = Visibility.Hidden;
+                PagesFrame.Content = new FourCardsView("PrikazSoba");
+            }
+            else if(HeaderTittleName.Content.ToString() == "Edit Room") {
+                iconRenovationName.Visibility = Visibility.Visible;
+                iconEditName.Visibility = Visibility.Visible;
+                iconDeleteName.Visibility = Visibility.Visible;
+                iconSubmitEditName.Visibility = Visibility.Hidden;
+                DescriptionEdit.IsEnabled = false;
+                NameEdit.IsEnabled = false;
+                FloorEdit.IsEnabled = false;
+                typeRoomEdit.IsEnabled = false;
+                HeaderTittleName.Content = "Single Room";
+            }
         }
         RoomRepository _repository = new RoomRepository();
         RoomController _controller = new RoomController();
 
+        private void editRoom(object sender, RoutedEventArgs e)
+        {
+            iconRenovationName.Visibility = Visibility.Hidden;
+            iconEditName.Visibility = Visibility.Hidden;
+            iconDeleteName.Visibility = Visibility.Hidden;
+            iconSubmitEditName.Visibility = Visibility.Visible;
+            DescriptionEdit.IsEnabled = true;
+            NameEdit.IsEnabled = true;
+            FloorEdit.IsEnabled = true;
+            typeRoomEdit.IsEnabled = true;
+            HeaderTittleName.Content = "Edit Room";
+        }
         private void submitEditRoom(object sender, RoutedEventArgs e)
         {
             String id = IdEdit.Text;

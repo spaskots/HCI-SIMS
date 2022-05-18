@@ -1,4 +1,5 @@
-﻿<Page x:Class="Bolnica.View.AddNewRoom"
+﻿<Page x:Class="Bolnica.View.AddNewRoom" 
+
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,30 +8,59 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="430"
       Title="AddNewRoom">
-
-    <Grid x:Name="AddNewRoomContent">
-        <Label Content="Add New Room" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Foreground="#FFF2CA19" RenderTransformOrigin="0.204,3.57" FontSize="36" FontWeight="Bold"/>
+    <Grid>
+        <Grid x:Name="AddNewPageContent">
+        <Label x:Name="HeaderTittleName" Content="Add New Room" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Foreground="#FFF2CA19" RenderTransformOrigin="0.204,3.57" FontSize="36" FontWeight="Bold"/>
         <Label Content="You Can Always Change It Later" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Foreground="#FFF2CA19" RenderTransformOrigin="0.204,3.57"/>
         <Label Content="Id:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.204,3.57" FontWeight="Bold" VerticalContentAlignment="Stretch" Margin="0,140,0,0"/>
-        <TextBox x:Name="idRoom" Text="{Binding Path=ID}" HorizontalAlignment="Center" Margin="0,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" Height="25" FontSize="16" BorderThickness="0,0,0,0" IsEnabled="False"/>
+        <TextBox x:Name="idTextBoxName"  HorizontalAlignment="Center" Margin="0,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" Height="25" FontSize="16" BorderThickness="0,0,0,0" IsEnabled="False"/>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" IsEnabled="False" FontWeight="Bold"/>
-        <Label Content="Type:" HorizontalAlignment="Left" Margin="0,320,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
-        <TextBox x:Name="nameRoom" HorizontalAlignment="Center" Margin="0,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="25" BorderThickness="1,1,1,1" FontSize="16"/>
-        <ComboBox x:Name="typeRoom" HorizontalAlignment="Center" VerticalAlignment="Top" Width="410" Height="25" SelectedIndex="1" Margin="0,346,0,0">
-            <ComboBoxItem Content="Operation Room"/>
-            <ComboBoxItem Content="Cancer Room"/>
-            <ComboBoxItem Content="Rest Room"/>
-            <ComboBoxItem Content="Covid Room"/>
-        </ComboBox>
-        <TextBox x:Name="Floor" HorizontalAlignment="Center" Margin="0,286,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="410" Height="25" BorderThickness="1,1,1,1" FontSize="16"/>
+        <TextBox x:Name="nameTextBoxName" HorizontalAlignment="Center" Margin="0,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="25" BorderThickness="1,1,1,1" FontSize="16"/>
+            <TextBox x:Name="FloorOrQuantity" HorizontalAlignment="Center" Margin="0,286,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="410" Height="25" BorderThickness="1,1,1,1" FontSize="16" >
+                <!--<TextBox.Text>
+                <Binding.ValidationRules>
+                    <local:StringToIntegerValidationRule ValidationStep ="RawProposedValue"/>
+                </Binding.ValidationRules>
+            </TextBox.Text>-->
+            </TextBox>
+            <Label x:Name="QuantityOrFloorLabelName" Content="Floor:" HorizontalAlignment="Left" Margin="0,260,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
 
-        <Label Content="Floor:" HorizontalAlignment="Left" Margin="0,260,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
-        <Label Content="Description:" HorizontalAlignment="Left" Margin="0,381,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
-        <TextBox x:Name="Description" HorizontalAlignment="Center" Margin="0,407,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="80" FontSize="16"/>
+            <Grid x:Name="RoomAddNewAttributesName">
+                <Label Content="Type:" HorizontalAlignment="Left" Margin="0,320,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
+                <ComboBox x:Name="typeRoom" HorizontalAlignment="Center" VerticalAlignment="Top" Width="410" Height="25" SelectedIndex="1" Margin="0,346,0,0">
+                    <ComboBoxItem Content="Operation Room"/>
+                    <ComboBoxItem Content="Cancer Room"/>
+                    <ComboBoxItem Content="Rest Room"/>
+                    <ComboBoxItem Content="Covid Room"/>
+                </ComboBox>
+                <Label Content="Description:" HorizontalAlignment="Left" Margin="0,381,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
+                <TextBox x:Name="Description" HorizontalAlignment="Center" Margin="0,407,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="80" FontSize="16"/>
+            </Grid>
+            
+            <Grid Grid.Row="0" x:Name="ListIngredientsName" Visibility="Hidden" >
+                <Label Content="Choose Ingredients:" HorizontalAlignment="Left" Margin="0,320,0,0" VerticalAlignment="Top" Foreground="Black" RenderTransformOrigin="0.584,-2.798" FontWeight="Bold"/>
 
+                <DataGrid HeadersVisibility="None" GridLinesVisibility="None" Background="{x:Null}" x:Name="IngredientsView"  BorderBrush="black" BorderThickness="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="150" Margin="0,10,0,100"  >
+               
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox Checked="CheckBox_Checked"  Unchecked="CheckBox_Unchecked" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn IsReadOnly="True" Binding="{Binding Id}" Width="40"  />
+                        <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Width="90"/>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </Grid>
         <Button Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="25" Width="100" Click="addRoomSubmit" FontWeight="Normal" Foreground="Black" Background="#FFF2CA19" BorderThickness="1,1,1,1" BorderBrush="Black" Margin="0,0,0,50"/>
         <Label MouseDoubleClick="goBack" Content="Go Back" Width="100" Height="25" Foreground="#FF0057E9" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
 
 
+    </Grid>
+        <Frame x:Name="PagesFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Page>

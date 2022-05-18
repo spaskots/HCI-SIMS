@@ -9,34 +9,36 @@
       Title="SingleRoomPage">
     <Grid>
         <Grid x:Name="SingleRoomPageName">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="540" />
-        </Grid.RowDefinitions>
-        <Border  Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,3" />
-        <Image Width="30" Height="30" HorizontalAlignment="Left" Margin="20,20,0,0" Grid.Row="0" Source="/icons8-back-96.png" MouseLeftButtonDown="backClick" />
-        <Label Grid.Row="0" Content="Single Room" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,0"/>
-        <Label Grid.Row="1" Content="Id:" FontWeight="Bold" FontStyle="Normal" Width="100" Height="25" Margin="0,45,0,455" Foreground="Black" HorizontalAlignment="Left"/>
-        <TextBox Grid.Row="1" x:Name="IdEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Width="410" Height="30" Margin="0,78,0,0" FontWeight="Normal" VerticalAlignment="Top" TextAlignment="Left" FontSize="16" IsEnabled="False" BorderThickness="0,0,0,0" />
-        <Label Grid.Row="1" Content="Name:" FontWeight="Bold" FontStyle="Normal" Width="100" Height="25" Margin="0,123,0,392" HorizontalAlignment="Left" Foreground="Black" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
-        <TextBox Grid.Row="1" x:Name="NameEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="30" Margin="0,148,0,0" FontSize="16" BorderThickness="1,1,1,1" />
-        <Label Grid.Row="1" Content="Floor:" FontWeight="Bold" FontStyle="Normal" Width="100" Height="25" Margin="0,198,0,317" HorizontalAlignment="Left" Foreground="Black"/>
-        <TextBox Grid.Row="1" x:Name="FloorEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="30" Margin="0,223,0,0" FontSize="16" BorderThickness="1,1,1,1" />
-        <Label Grid.Row="1" Content="Type:" FontWeight="Bold" FontStyle="Normal" Height="30" Margin="0,285,0,225" Width="100" Foreground="Black" HorizontalAlignment="Left"/>
-        <ComboBox Grid.Row="1" x:Name="typeRoomEdit" HorizontalAlignment="Center" Margin="0,315,0,0" VerticalAlignment="Top" Width="410" Height="35" SelectedIndex="1" FontWeight="Normal" FontStyle="Normal" FontSize="14">
-            <ComboBoxItem Content="OperationRoom"/>
-            <ComboBoxItem Content="Select Value"/>
-            <ComboBoxItem Content="CancerRoom"/>
-            <ComboBoxItem Content="RestRoom"/>
-            <ComboBoxItem Content="CovidRoom"/>
-        </ComboBox>
-        <TextBox Grid.Row="1" x:Name="DescriptionEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="80" Margin="0,420,0,0" FontSize="16" />
-        <Label Grid.Row="1" Content="Description:" FontWeight="Bold" FontStyle="Normal" Height="30" Margin="0,390,0,120" Width="200" HorizontalContentAlignment="Left" Foreground="Black" IsEnabled="False" HorizontalAlignment="Left"/>
-        <Image Width="25" Height="25" HorizontalAlignment="Right" Grid.Row="0" Source="/icons8-edit-60.png" MouseLeftButtonDown="submitEditRoom" VerticalAlignment="Bottom" Margin="0,0,10,10" />
-        <Image Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,50,10" Grid.Row="0" Source="/icons8-garbage-66.png" MouseLeftButtonDown="submitDeleteRoom" VerticalAlignment="Bottom" />
-        <Image Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,90,10" Grid.Row="0" Source="/icons8-home-48.png" MouseLeftButtonDown="renovation" VerticalAlignment="Bottom" />
-        
-    </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="540" />
+            </Grid.RowDefinitions>
+            <Border  Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,3" />
+            <Image Width="30" Height="30" HorizontalAlignment="Left" Margin="20,20,0,0" Grid.Row="0" Source="/icons8-back-96.png" MouseLeftButtonDown="backClick" />
+            <Label Grid.Row="0" x:Name="HeaderTittleName" Content="Single Room" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,0"/>
+            <Label Grid.Row="1" Content="Id:" FontWeight="Bold" FontStyle="Normal" Width="100" Height="25" Margin="0,45,0,455" Foreground="Black" HorizontalAlignment="Left"/>
+            <TextBox Grid.Row="1" x:Name="IdEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Width="410" Height="30" Margin="0,78,0,0" FontWeight="Normal" VerticalAlignment="Top" TextAlignment="Left" FontSize="16" IsEnabled="False" BorderThickness="0,0,0,0" />
+            <Label Grid.Row="1" Content="Name:" FontWeight="Bold" FontStyle="Normal" Width="100" Height="25" Margin="0,123,0,392" HorizontalAlignment="Left" Foreground="Black" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
+            <TextBox Grid.Row="1" x:Name="NameEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="30" Margin="0,148,0,0" FontSize="16" BorderThickness="1,1,1,1" IsEnabled="False" />
+            <Label Grid.Row="1" Content="Floor:" FontWeight="Bold" FontStyle="Normal" Width="100" Height="25" Margin="0,198,0,317" HorizontalAlignment="Left" Foreground="Black"/>
+
+            <TextBox Grid.Row="1" x:Name="FloorEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="30" Margin="0,223,0,0" FontSize="16" BorderThickness="1,1,1,1" IsEnabled="False" />
+            <Label Grid.Row="1" Content="Type:" FontWeight="Bold" FontStyle="Normal" Height="30" Margin="0,285,0,225" Width="100" Foreground="Black" HorizontalAlignment="Left"/>
+                <ComboBox Grid.Row="1" x:Name="typeRoomEdit" HorizontalAlignment="Center" Margin="0,315,0,0" VerticalAlignment="Top" Width="410" Height="35" SelectedIndex="1" FontWeight="Normal" FontStyle="Normal" FontSize="14" IsEnabled="False">
+                <ComboBoxItem Content="OperationRoom"/>
+                <ComboBoxItem Content="Select Value"/>
+                <ComboBoxItem Content="CancerRoom"/>
+                <ComboBoxItem Content="RestRoom"/>
+                <ComboBoxItem Content="CovidRoom"/>
+            </ComboBox>
+            <TextBox Grid.Row="1" x:Name="DescriptionEdit" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410" Height="80" Margin="0,420,0,0" FontSize="16" IsEnabled="False" />
+            <Label Grid.Row="1" Content="Description:" FontWeight="Bold" FontStyle="Normal" Height="30" Margin="0,390,0,120" Width="200" HorizontalContentAlignment="Left" Foreground="Black" IsEnabled="False" HorizontalAlignment="Left"/>
+                <Image x:Name="iconRenovationName" Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,90,10" Grid.Row="0" Source="..\View\icons8-paint-brush-60.png" MouseLeftButtonDown="renovation" VerticalAlignment="Bottom" />
+                <Image x:Name="iconSubmitEditName" Width="25" Height="25" HorizontalAlignment="Right" Grid.Row="0" Source="..\View\icons8-save-64.png" MouseLeftButtonDown="submitEditRoom" VerticalAlignment="Bottom" Margin="0,0,10,10" Visibility="Hidden" />
+            <Image x:Name="iconEditName" Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,50,10" Grid.Row="0" Source="/icons8-garbage-66.png" MouseLeftButtonDown="submitDeleteRoom" VerticalAlignment="Bottom" />
+            <Image x:Name="iconDeleteName" Width="25" Height="25" HorizontalAlignment="Right" Grid.Row="0" Source="/icons8-edit-60.png" MouseLeftButtonDown="editRoom" VerticalAlignment="Bottom" Margin="0,0,10,10" />
+
+        </Grid>
         <Frame x:Name="PagesFrame" Grid.Row="0" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Page>

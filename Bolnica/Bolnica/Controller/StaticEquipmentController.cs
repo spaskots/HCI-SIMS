@@ -39,5 +39,13 @@ namespace Bolnica.Controller
             // TODO: implement
             return _service.getAllStaticEquipment();
         }
+        public List<StaticEquipment> search(String name, String idRoom = "-")
+        {
+            return _service.search(name, idRoom);
+        }
+        public Boolean MoveExecutionDo()
+        {
+            return _service.MoveExecutionDo();
+        }
     }
 }
