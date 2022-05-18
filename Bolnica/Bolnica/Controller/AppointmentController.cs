@@ -50,5 +50,10 @@ namespace Bolnica.Controller
         {
             return appointmentService.CheckDate(startTime, duration, doctorId);
         }
+
+        public MedicalAppointment FindByAppointmentId(int id)
+        {
+            return appointmentService.FindByAppointmentId(id);
+        }
     }
 }

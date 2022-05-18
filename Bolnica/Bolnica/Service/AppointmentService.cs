@@ -192,6 +192,11 @@ namespace Bolnica.Service
             return true;
         }
 
+        public MedicalAppointment FindByAppointmentId(int id)
+        {
+            return appointmentRepository.FindByAppointmentId(id);
+        }
+
 
         // ------------------------------------------
 
@@ -238,12 +243,6 @@ namespace Bolnica.Service
                 {
                     updatedAppointments.AddRange(RescheduleAppointmentsForToday(appointmentsForDoctor, currentTime));
                 }
-
-                foreach (MedicalAppointment update in updatedAppointments)
-                {
-                    System.Diagnostics.Debug.WriteLine(update.StartTime + ": Dr." + update.doctor.Name + " " + update.doctor.Surname);
-                }
-
             }
             return updatedAppointments.OrderBy(x => x.StartTime).ToList();
         }
@@ -257,16 +256,10 @@ namespace Bolnica.Service
             List<MedicalAppointment> updatedSchedule = new List<MedicalAppointment>();
             foreach (var todaysAppointment in appointmentsForDoctor)
             {
-                System.Diagnostics.Debug.WriteLine("Dr." + todaysAppointment.doctor.Name + " " + todaysAppointment.doctor.Surname);
                 int daysMultiplier = 1;
                 do
                 {
-                    System.Diagnostics.Debug.WriteLine("BEFORE");
-                    System.Diagnostics.Debug.WriteLine(todaysAppointment.StartTime.ToString());
-                    updatedAppointment = FindFirstAvailable(currentTime.AddDays(1* daysMultiplier), Convert.ToInt32(todaysAppointment.Duration), appointmentsForDoctor);
-                    System.Diagnostics.Debug.WriteLine("AFTER");
-                    if (updatedAppointment!=null)
-                        System.Diagnostics.Debug.WriteLine(updatedAppointment.StartTime.ToString());
+                    updatedAppointment = FindFirstAvailable(currentTime.AddDays(1 * daysMultiplier), Convert.ToInt32(todaysAppointment.Duration), appointmentsForDoctor);
                     daysMultiplier++;
                 } while (updatedAppointment == null);
                 updatedSchedule.Add(updatedAppointment);
@@ -305,7 +298,7 @@ namespace Bolnica.Service
         public MedicalAppointment FindFirstAvailable (DateTime currentTime, int durationOfAppointment, List<MedicalAppointment> todaysAppointmentsForDoctors)
         {
             List<MedicalAppointment> timeslots = GeneratePossibleSlots(currentTime.Date, currentTime.AddDays(1).Date);
-            currentTime = currentTime.AddHours(5); // testing purposes
+            currentTime = currentTime.AddHours(2); // testing purposes
             todaysAppointmentsForDoctors = todaysAppointmentsForDoctors.OrderBy(x => x.StartTime).ToList();
 
             bool filter;

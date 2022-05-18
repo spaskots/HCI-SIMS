@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.Model;
 using Bolnica.Controller;
+using Bolnica.Service;
 
 namespace Bolnica.View
 {
@@ -25,6 +26,7 @@ namespace Bolnica.View
         private AppointmentController _appointmentController = new AppointmentController();
         private PatientController _patientController = new PatientController();
         private LekarController _lekarController = new LekarController();
+        private AppointmentService _appointmentService = new AppointmentService();
 
         List<Patient> patients = new List<Patient>();
         public EmergencyAppointment()
@@ -52,18 +54,20 @@ namespace Bolnica.View
 
             Patient patient = patients.ElementAt(selectedPatient);
 
-            System.Diagnostics.Debug.WriteLine(selectedSpecialization + "\n" + selectedType);
-            System.Diagnostics.Debug.WriteLine(patient.Id + ": " + patient.Name + " " + patient.Surname);
-
             List<Doctor> specializedDoctors = _lekarController.FindBySpecialization(selectedSpecialization.ToString().ToLower());
 
-            foreach (Doctor doctor in specializedDoctors)
+            List<MedicalAppointment> updatedAppointments = _appointmentController.ScheduleEmergencyAppointment(patient.Id, specializedDoctors, selectedType.ToString().ToLower());
+
+            if (updatedAppointments == null)
             {
-                System.Diagnostics.Debug.WriteLine("Dr." + doctor.Name + " " + doctor.Surname);
+                MessageBox.Show("Success: Emergency Appointment successfully scheduled!");
+                this.Close();
             }
-
-
-            _appointmentController.ScheduleEmergencyAppointment(patient.Id, specializedDoctors, selectedType.ToString().ToLower());
+            else
+            {
+                EmergencyAppointmentTable eat = new EmergencyAppointmentTable(updatedAppointments, patient.Id, selectedType.ToString());
+                eat.Show();
+            }
         }
     }
 }

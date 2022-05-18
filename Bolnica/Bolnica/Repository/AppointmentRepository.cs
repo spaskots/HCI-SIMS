@@ -128,6 +128,48 @@ namespace Bolnica.Repository
             File.WriteAllLines(lokacijaAppointment, lines.ToArray());
         }
 
+        public void updateE(MedicalAppointment ma)
+        {
+            MedicalAppointment stari = FindById(ma.id);
+            String stariRed = stari.id + "," + stari.StartTime + "," + stari.Duration + "," + stari.Type + "," + stari.Patient.Id + "," + "," + stari.doctor.Id;
+            String noviRed = ma.id + "," + ma.StartTime + "," + stari.Duration + "," + stari.Type + "," + stari.Patient.Id + "," + "," + stari.doctor.Id;
+            string[] lines = System.IO.File.ReadAllLines(lokacijaAppointment);
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (lines[i] == stariRed)
+                {
+                    lines[i] = noviRed;
+                    break;
+                }
+            }
+            File.WriteAllLines(lokacijaAppointment, lines.ToArray());
+        }
+
+        public MedicalAppointment FindById(int id)
+        {
+            string[] lines = File.ReadAllLines(lokacijaAppointment);
+
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(",");
+                if (line == "") { continue; }
+                if (fields[0] == id.ToString())
+                {
+                    AppointmentType type;
+                    Enum.TryParse(fields[3], out type);
+                    MedicalAppointment appointment = new MedicalAppointment(Convert.ToInt32(fields[0]), fields[4], fields[6], fields[1], Convert.ToDouble(fields[2]), type);
+                    return appointment;
+                }
+            }
+            return null;
+        }
+
+        public MedicalAppointment FindByAppointmentId(int id)
+        {
+            return this.GetOne(id);
+        }
+
         public List<MedicalAppointment> GetAllAppointments()
         {
             List<MedicalAppointment> appointments = new List<MedicalAppointment>();
