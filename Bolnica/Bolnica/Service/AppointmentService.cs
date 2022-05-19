@@ -179,7 +179,7 @@ namespace Bolnica.Service
         public Boolean CheckDate(string startTime, double duration, string doctorId)
         {
             DateTime startDate = Convert.ToDateTime(startTime);
-            List<MedicalAppointment> appointmentForDate = appointmentRepository.DoctorsAppointmentsAtDate(doctorId, startDate);
+            List<MedicalAppointment> appointmentForDate = appointmentRepository.GetAllDoctorsTermsAtDate(doctorId, startDate);
 
             foreach (MedicalAppointment appointment in appointmentForDate)
             {
@@ -204,7 +204,7 @@ namespace Bolnica.Service
         {
             DateTime currentTime = DateTime.Now;
             int durationOfAppointment = (appointmentType == "examination" ? 1 : 2);
-            List<MedicalAppointment> todaysAppointmentsForDoctors = DoctorsAppointmentsForDate(specializedDoctors, currentTime);
+            List<MedicalAppointment> todaysAppointmentsForDoctors = ExtractAppointmentsAtDate(specializedDoctors, currentTime);
 
             if (todaysAppointmentsForDoctors.Count == 0)
             {
@@ -241,13 +241,13 @@ namespace Bolnica.Service
             {
                 foreach (var appointmentsForDoctor in appointmentsGroupedByDoctors)
                 {
-                    updatedAppointments.AddRange(RescheduleAppointmentsForToday(appointmentsForDoctor, currentTime));
+                    updatedAppointments.AddRange(RescheduleAppointments(appointmentsForDoctor, currentTime));
                 }
             }
             return updatedAppointments.OrderBy(x => x.StartTime).ToList();
         }
 
-        public List<MedicalAppointment> RescheduleAppointmentsForToday(List<MedicalAppointment> appointmentsForDoctor, DateTime currentTime)
+        public List<MedicalAppointment> RescheduleAppointments(List<MedicalAppointment> appointmentsForDoctor, DateTime currentTime)
         {
            
             appointmentsForDoctor = FilterOutdatedAppointments(appointmentsForDoctor, currentTime);
@@ -280,14 +280,14 @@ namespace Bolnica.Service
             return filteredAppointments;
         }
 
-        public List<MedicalAppointment> DoctorsAppointmentsForDate(List<Doctor> specializedDoctors, DateTime dateOfAppointment)
+        public List<MedicalAppointment> ExtractAppointmentsAtDate (List<Doctor> specializedDoctors, DateTime dateOfAppointment)
         {
             List<MedicalAppointment> appointmentsForToday = new List<MedicalAppointment>();
             List<MedicalAppointment> allAppointmentsToday = appointmentRepository.GetAllAppointmentsAtDate(dateOfAppointment);
 
             foreach (Doctor specializedDoctor in specializedDoctors)
             {   
-                appointmentsForToday.AddRange(appointmentRepository.FindForDoctorAtDate(specializedDoctor, allAppointmentsToday));
+                appointmentsForToday.AddRange(appointmentRepository.ExtractTermsForDoctor(specializedDoctor, allAppointmentsToday));
             }
             return appointmentsForToday;
         }
@@ -306,7 +306,7 @@ namespace Bolnica.Service
 
             foreach (MedicalAppointment timeslot in timeslots)
             {
-                if (DateTime.Compare(Convert.ToDateTime(timeslot.StartTime), currentTime.AddSeconds(-1)) < 0) continue;
+                if (IsBeforeDate(Convert.ToDateTime(timeslot.StartTime), currentTime.AddSeconds(-1))) continue;
                 if (IsAfterDate(Convert.ToDateTime(timeslot.StartTime), currentTime.AddHours(1))) continue;
                 filter = false;
 
