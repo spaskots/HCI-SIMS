@@ -22,12 +22,12 @@ namespace Bolnica.Repository
                 }
             }
         }
-        public Boolean IssueOrder (DynamicEquipment equipmentToOrder, int orderAmount)
+        /*public Boolean IssueOrder (DynamicEquipment equipmentToOrder, int orderAmount)
         {
-            return WriteToFile(equipmentToOrder, orderAmount);
-        }
+            return Save(equipmentToOrder, orderAmount);
+        }*/
 
-        public Boolean WriteToFile(DynamicEquipment equipmentToOrder, int orderAmount)
+        public Boolean Save(DynamicEquipment equipmentToOrder, int orderAmount)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Bolnica.Repository
             }
         }
 
-        public void DeleteFromFile(string[] lineToDelete)
+        public void Delete(string[] lineToDelete)
         {
             String rowToDelete = string.Format("{0},{1},{2}", lineToDelete[0], lineToDelete[1], lineToDelete[2]);
             String allDataFromFile = File.ReadAllText(ISSUED_ORDERS_FILE);
@@ -62,7 +62,7 @@ namespace Bolnica.Repository
 
         }
 
-        public string[] ReadFromFile()
+        public string[] Read()
         {
             return System.IO.File.ReadAllLines(ISSUED_ORDERS_FILE);
         }

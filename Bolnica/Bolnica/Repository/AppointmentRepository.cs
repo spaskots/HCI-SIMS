@@ -191,7 +191,7 @@ namespace Bolnica.Repository
 
         }
         
-        public List<MedicalAppointment> FindForDoctorAtDate (Doctor doctor, List<MedicalAppointment> allAppointmentsForDesiredDate)
+        public List<MedicalAppointment> ExtractTermsForDoctor (Doctor doctor, List<MedicalAppointment> allAppointmentsForDesiredDate)
         {
             List<MedicalAppointment> appointmentsForDesiredDoctor = new List<MedicalAppointment>();
 
@@ -221,7 +221,7 @@ namespace Bolnica.Repository
             return appointmentsForDesiredDate;
         }
 
-        public List<MedicalAppointment> DoctorsAppointmentsAtDate(string doctorId, DateTime startDate)
+        public List<MedicalAppointment> GetAllDoctorsTermsAtDate(string doctorId, DateTime startDate)
         {
             List<MedicalAppointment> appointmentsAtDate = new List<MedicalAppointment>();
             List<MedicalAppointment> allDoctorsAppointments = GetAllAppointmentsByDoctorId(doctorId);
