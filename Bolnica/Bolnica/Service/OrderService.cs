@@ -14,12 +14,12 @@ namespace Bolnica.Service
         DynamicEquipmentRepository _dynamicEquipmentRepository = new DynamicEquipmentRepository();
         public Boolean IssueOrder (DynamicEquipment equipmentToOrder, int orderAmount)
         {
-            return _orderRepository.IssueOrder(equipmentToOrder, orderAmount);
+            return _orderRepository.Save(equipmentToOrder, orderAmount);
         }
 
         public void CheckOrders()
         {
-            string[] ollOrders = _orderRepository.ReadFromFile();
+            string[] ollOrders = _orderRepository.Read();
             DateTime currentTime = DateTime.Now;
 
             foreach (string order in ollOrders)
@@ -28,7 +28,7 @@ namespace Bolnica.Service
                 string[] fieldsOfData = order.Split(",");
                 if (!IsOrderDelivered(Convert.ToDateTime(fieldsOfData[1]), currentTime)) continue;
                 _dynamicEquipmentRepository.IncreaseEquipmentAmount(Convert.ToInt32(fieldsOfData[0]), Convert.ToInt32(fieldsOfData[2]));
-                _orderRepository.DeleteFromFile(fieldsOfData);
+                _orderRepository.Delete(fieldsOfData);
             }
         }
   
