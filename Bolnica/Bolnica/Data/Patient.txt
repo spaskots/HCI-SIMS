@@ -1,3 +1,2 @@
-1542012548452,Pera,Peric,12.12.2012,0652145889,pera@gmail.com,pera,pera,True,Beograd,Bosnia and Herzegovina,BIH,15000
-1111222012541,Zika,Zivac,12.08.1985,0651254852,zika@gmail.com,zika,zika,True,Beograd,Bosnia and Herzegovina,BIH,78000
+1111222012541,Zika,Zivac,12.08.1985,06512548524,zika@gmail.com,zika,zika,True,Beograd,Bosnia and Herzegovina,BIH,78000
 1010105214520,Ana,Antic,15.08.2000,0652145213,ana@gmail.com,ana,ana,True,Beograd,Bosnia and Herzegovina,BIH,45000

@@ -5,53 +5,122 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="AddPatient" Height="450" Width="800">
+        Title="AddPatient" Height="540" Width="430"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="Name" HorizontalAlignment="Left" Margin="140,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Surname" HorizontalAlignment="Left" Margin="140,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="ID" HorizontalAlignment="Left" Margin="140,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Birthday" HorizontalAlignment="Left" Margin="140,168,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="PhoneNumber" HorizontalAlignment="Left" Margin="140,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="140,268,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Username" HorizontalAlignment="Left" Margin="555,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="555,84,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="Country" HorizontalAlignment="Left" Margin="555,133,0,0" VerticalAlignment="Top" Width="100" Height="24" SelectedIndex="1">
-            <ComboBoxItem Content="Serbia"/>
-            <ComboBoxItem Content="Bosnia"/>
-            <ComboBoxItem Content="Austria"/>
-        </ComboBox>
-        <ComboBox x:Name="City" HorizontalAlignment="Left" Margin="555,193,0,0" VerticalAlignment="Top" Width="100" Height="24" SelectedIndex="1">
-            <ComboBoxItem Content="Novi Sad"/>
-            <ComboBoxItem Content="Beograd"/>
-            <ComboBoxItem Content="Sarajevo"/>
-            <ComboBoxItem Content="Banja Luka"/>
-            <ComboBoxItem Content="Salzburg"/>
-            <ComboBoxItem Content="Bec"/>
-        </ComboBox>
-        <TextBox x:Name="PostalCode" HorizontalAlignment="Left" Margin="555,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Name
-               " HorizontalAlignment="Left" Margin="67,28,0,0" VerticalAlignment="Top"/>
-        <Label Content="Surname
-               " HorizontalAlignment="Left" Margin="67,76,0,0" VerticalAlignment="Top"/>
-        <Label Content="JMBG
-               " HorizontalAlignment="Left" Margin="67,116,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.93,0.6"/>
-        <Label Content="Birthday
-               " HorizontalAlignment="Left" Margin="67,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.93,0.6"/>
-        <Label Content="PhoneNumber
-               " HorizontalAlignment="Left" Margin="43,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.93,0.6"/>
-        <Label Content="Email
-               " HorizontalAlignment="Left" Margin="75,264,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.93,0.6"/>
-        <Label Content="Username
-               " HorizontalAlignment="Left" Margin="459,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.93,0.6"/>
-        <Label Content="Password
-               " HorizontalAlignment="Left" Margin="461,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.93,0.6"/>
-        <Label Content="Country
-               " HorizontalAlignment="Left" Margin="461,131,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.93,0.6"/>
-        <Label Content="City
-               " HorizontalAlignment="Left" Margin="472,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.93,0.6"/>
-        <Label Content="PostalCode
-               " HorizontalAlignment="Left" Margin="472,244,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.93,0.6"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="350,324,0,0" VerticalAlignment="Top" Click="Button_Click" Width="77" Height="32"/>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="84*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Border Background="#FFECEAEA" BorderBrush="Black" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" >
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="45*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="3*"/>
+                        <!-- Fullname field -->
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                        <!-- JMBG field -->
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                        <!-- Birthday field -->
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="2*"/>
+
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Fullname:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="13" FontFamily="Verdana" />
+                    <TextBox x:Name="Fullname" Grid.Column="2" Grid.Row="1" Text="Enter fullname..." LostFocus="Fullname_Focus" GotFocus="Fullname_Focus" VerticalAlignment="Center" Height="23" HorizontalAlignment="Stretch"/>
+                    <Label Grid.Row="3" Grid.Column="1" Content="JMBG:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="13" FontFamily="Verdana"/>
+                    <TextBox x:Name="Jmbg" Grid.Column="2" Grid.Row="3" Text="Enter JMBG..." LostFocus="Jmbg_Focus" GotFocus="Jmbg_Focus" VerticalAlignment="Center" Height="23" HorizontalAlignment="Stretch"/>
+                    <Label Grid.Row="5" Grid.Column="1" Content="Birthday:" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="13" FontFamily="Verdana"/>
+                    <TextBox x:Name="Birthday" Grid.Column="2" Grid.Row="5" Text="Enter birthday..." LostFocus="Birthday_Focus" GotFocus="Birthday_Focus" VerticalAlignment="Center" Height="23" HorizontalAlignment="Stretch"/>
+                    <Label Grid.Row="7" Grid.Column="1" Content="Guest:" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="13" FontFamily="Verdana"/>
+                    <CheckBox x:Name="GuestBox" Click="GuestBox_Change" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+            <Border Grid.ColumnSpan="3" Grid.Row="0" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Label Content="CREATE NEW ACCOUNT" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" FontSize="24" Margin="0,0,0,26" Grid.RowSpan="2"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="Basic information" HorizontalAlignment="Center" Height="Auto" Margin="0,-20,0,0" VerticalAlignment="Top" Width="Auto" FontSize="16" FontFamily="Verdana">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFECEAEA" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.469"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Rectangle Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" Stroke="Black" VerticalAlignment="Stretch" Fill="#FFECEAEA"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="Other information" HorizontalAlignment="Center" Height="Auto" Margin="0,1,0,0" VerticalAlignment="Top" Width="Auto" FontSize="16" FontFamily="Verdana" Grid.RowSpan="2">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFECEAEA" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.469"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="5*"/>
+
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="1" Grid.Row="1"  Content="Email:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="13" FontFamily="Verdana"/>
+                <TextBox x:Name="Email" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="Enter email..." LostFocus="Email_Focus" GotFocus="Email_Focus" VerticalAlignment="Center" Height="23" VerticalContentAlignment="Center" HorizontalAlignment="Stretch"/>
+                <Label Grid.Column="1" Grid.Row="3"  Content="Username:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="13" FontFamily="Verdana"/>
+                <TextBox x:Name="Username" Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="Enter username..." LostFocus="Username_Focus" GotFocus="Username_Focus" VerticalAlignment="Center" Height="23" HorizontalAlignment="Stretch"/>
+                <Label Grid.Column="1" Grid.Row="5"  Content="Password:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="13" FontFamily="Verdana"/>
+                <PasswordBox x:Name="Password" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Height="23" HorizontalAlignment="Stretch"/>
+                <Label Grid.Column="1" Grid.Row="7"  Content="Phone:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="13" FontFamily="Verdana"/>
+                <TextBox x:Name="Phone" Grid.Column="2" Grid.Row="7" TextWrapping="Wrap" Text="Enter phone number..." LostFocus="Phone_Focus" GotFocus="Phone_Focus" VerticalAlignment="Center" Height="23" HorizontalAlignment="Stretch"/>
+            </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="15*"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="1" Content="Confirm" Click="Confirm_Click" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch"/>
+                <Button Grid.Column="3" Content="Cancel" Click="Cancel_Click" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch"/>
+            </Grid>
+        </Grid>
+        
 
     </Grid>
 </Window>

@@ -5,29 +5,95 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="Secretary - Main Window" Height="450" Width="800">
+        Title="Secretary - Main Window" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Patient">
-                <MenuItem Header="_Create">
-                    <MenuItem Header="_Regular" Click="AddPatientWin"/>
-                    <MenuItem Header="_Guest" Click="AddGuestWin"/>
-                </MenuItem>
-                <MenuItem Header="_Read" Click="ViewPatientWin"/>
-            </MenuItem>
-            <MenuItem Header="_Appointment">
+        <Menu DockPanel.Dock="Top" Height="34">
+            <MenuItem Header="_Appointment (F1)" Height="35" Width="105">
                 <MenuItem Header="_Create">
                     <MenuItem Header="_Regular" Click="PriorityAppointmentWin"/>
                     <MenuItem Header="_Emergency" Click="EmergencyAppointmentWin"/>
                 </MenuItem>
-                        <MenuItem Header="_Read" Click="ViewAppointmentWin"/>
+                <MenuItem Header="_Read" Click="ViewAppointmentWin"/>
             </MenuItem>
-            <MenuItem Header="_Equipment">
+            <MenuItem Header="_Patient (F2)" Height="35" Width="72" HorizontalContentAlignment="Center">
+                <MenuItem Header="_Create" Click="AddPatientWin"/>
+                <MenuItem Header="_Read" Click="ViewPatientWin"/>
+            </MenuItem>
+            <MenuItem Header="_Equipment (F3)" Height="35" Width="94">
                 <MenuItem Header="_Order" Click="OrderEquipment"/>
             </MenuItem>
-        </Menu>
+            <MenuItem Header="_Requests (F4)" Height="35" Width="85" IsEnabled="False">
+                <MenuItem Header="_Vacation"/>
+            </MenuItem>
+            <MenuItem Header="_Meetings (F5)" Height="35" Width="87" IsEnabled="False"/>
+            <MenuItem x:Name="menuItem" Header="_Settings (F12)" IsEnabled="False" Height="35" Width="85">
+                <MenuItem Header="_Shortcuts" IsCheckable="True" IsChecked="True"/>
+                <Separator />
+                <MenuItem Header="_Serbian"/>
+                <MenuItem Header="_English" />
+                <Separator/>
+                <MenuItem Header="_White theme" IsEnabled="True"/>
+                <MenuItem Header="_Black theme" IsEnabled="False"/>
 
-        <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            </MenuItem>
+        </Menu>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="233*"/>
+                <ColumnDefinition Width="127*"/>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="500*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="4.5*"/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="5" Grid.RowSpan="5"/>
+
+            <Rectangle Stroke="Black"  Grid.Column="1" Grid.Row="1" StrokeThickness="2" Grid.ColumnSpan="2"/>
+            <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="12*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Content="SHORTCUTS" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Elephant" FontSize="25" Grid.ColumnSpan="4"/>
+                <Label Grid.Column="1" Content="Schedule an urgent appointment" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Verdana" FontWeight="Normal"/>
+                <Label Grid.Column="1" Content="Schedule an appointment" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Verdana"/>
+                <Label Grid.Column="1" Grid.Row="4" Content="List of appointments" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Verdana"/>
+                <Label Grid.Column="1" Grid.Row="5" Content="Order equipment" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Verdana"/>
+                <Label Grid.Column="1" Grid.Row="6" Content="Create an account for patient" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="Verdana"/>
+                <Label Grid.Column="2" Content="F6" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Verdana"/>
+                <Label Grid.Row="3" Grid.Column="2" Content="F7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Verdana"/>
+                <Label Grid.Row="4" Grid.Column="2" Content="F8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Verdana"/>
+                <Label Grid.Row="5" Grid.Column="2" Content="F9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Verdana"/>
+                <Label Grid.Row="6" Grid.Column="2" Content="F10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Verdana"/>
+            </Grid>
+            <Separator Margin="1,29,0,26" Grid.Row="2" Grid.ColumnSpan="5" Background="Black" Grid.RowSpan="3" />
+
         </Grid>
     </DockPanel>
 </Window>

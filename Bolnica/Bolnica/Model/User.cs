@@ -66,6 +66,19 @@ namespace Bolnica.Model
             this.city = city;
         }
 
+        public User(string name, string surname, string dateOfBirth, string phoneNumber, string email, string id, bool v, string username, string password)
+        {
+            Name=name;
+            Surname=surname;
+            DateOfBirth=dateOfBirth;
+            PhoneNumber=phoneNumber;
+            Email=email;
+            Id=id;
+            Active = v;
+            Username = username;
+            Password=password;
+        }
+
 
 
         // guest account

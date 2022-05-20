@@ -48,7 +48,6 @@ namespace Bolnica.View
             if (initState)
             {
                 textBox.Text = string.Empty;
-                textBox.Opacity = 1.0;
                 initState = false;
             }
         }
@@ -84,7 +83,6 @@ namespace Bolnica.View
             if (textBox.Text == string.Empty)
             {
                 textBox.Text = "Enter number...";
-                textBox.Opacity = 0.4;
                 initState = true;
             }
         }

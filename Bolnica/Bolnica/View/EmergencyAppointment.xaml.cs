@@ -20,7 +20,7 @@ namespace Bolnica.View
     /// <summary>
     /// Interaction logic for EmergencyAppointment.xaml
     /// </summary>
-    
+
     public partial class EmergencyAppointment : Window
     {
         private AppointmentController _appointmentController = new AppointmentController();
@@ -68,6 +68,10 @@ namespace Bolnica.View
                 EmergencyAppointmentTable eat = new EmergencyAppointmentTable(updatedAppointments, patient.Id, selectedType.ToString());
                 eat.Show();
             }
+        }
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

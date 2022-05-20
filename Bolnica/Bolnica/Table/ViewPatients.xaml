@@ -5,11 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.Table"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="ViewPatients" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dataGridPatients" ItemsSource="{Binding Path=Patients}"
-                  SelectionMode="Extended" AutoGenerateColumns="False" HorizontalAlignment="Left"
-                  Height="300" Margin="10, 47, 0, 0" VerticalAlignment="Top" Width="781" CanUserAddRows="false">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" Content="LIST OF ALL PATIENTS" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontFamily="Elephant"/>
+        <Separator Grid.ColumnSpan="7" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="Black" BorderThickness="2" BorderBrush="Black" />
+
+
+        <DataGrid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="5" x:Name="dataGridPatients" ItemsSource="{Binding Path=Patients}"
+                  SelectionMode="Extended"  AutoGenerateColumns="False" CanUserAddRows="false"
+                  FontSize="14" FontFamily="Verdara" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
             <DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="Selected" Handler="DataGridCell_Selected"/>
@@ -34,34 +56,51 @@
                 </DataGridTemplateColumn>
                 <DataGridCheckBoxColumn x:Name="Checkerino" IsReadOnly="False" Header="Checked" ElementStyle="{StaticResource style}"  
                                         EditingElementStyle="{StaticResource style}" /> -->
-                <DataGridTextColumn IsReadOnly="True" Header="JMBG" Binding="{Binding Id}"/>
-                <DataGridTextColumn IsReadOnly="True" Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn IsReadOnly="True" Header="Surname" Binding="{Binding Surname}"/>
-                <DataGridTextColumn IsReadOnly="True" Header="Email" Binding="{Binding Email}"/>
-                <DataGridTextColumn IsReadOnly="True" Header="Phone" Binding="{Binding PhoneNumber}"/>
-                <DataGridTextColumn IsReadOnly="True" Header="Active" Binding="{Binding Active}"/>
+                <DataGridTextColumn IsReadOnly="True" Header="JMBG" Binding="{Binding Id}" Width="Auto"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Name" Binding="{Binding Name}" Width="Auto"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Surname" Binding="{Binding Surname}" Width="Auto"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Email" Binding="{Binding Email}" Width="Auto"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Phone" Binding="{Binding PhoneNumber}" Width="Auto"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Active" Binding="{Binding Active}" Width="Auto"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="delete" Content="Delete" Click="DeleteBtn_Click"></Button>
+                            <Button x:Name="delete" Content="Delete" Click="DeleteBtn_Click"  BorderBrush="Black" BorderThickness="2" Background="#FFEC7272"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="card" Click="MedicalCard_Click" Content="MedicalCard"></Button>
+                            <Button x:Name="card" Click="MedicalCard_Click" Background="#FFC6D474" BorderBrush="black" BorderThickness="2" Content="Medical Card"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="update" Content="Update" Click="UpdateBtn_Click"></Button>
+                            <Button x:Name="update" Content="Update" Background="#FF85BBE2" BorderBrush="black" BorderThickness="2" Click="UpdateBtn_Click"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" IsEnabled="True" Content="Previous" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE" />
+        <Button Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" IsEnabled="True" Content="Next >" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE"/>
+        <Label Content="Jump to:" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="24"  IsEnabled="True" FontFamily="Elephant" FontSize="15"/>
+        <TextBox Text="1" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  BorderBrush="Black" Height="25" Width="25" IsEnabled="True"/>
+        <Button Grid.Row="3" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" IsEnabled="True" Content="Search" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE"/>
+        <Grid Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="35*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Content="Add" Height="25" IsEnabled="True" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE" Click="Add_Button" />
+            <Button Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Content="Cancel" Height="25" IsEnabled="True" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE" Click="Cancel_Button"/>
+        </Grid>
     </Grid>
 </Window>
