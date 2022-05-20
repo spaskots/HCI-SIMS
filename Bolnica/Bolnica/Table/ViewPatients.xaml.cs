@@ -78,7 +78,14 @@ namespace Bolnica.Table
         {
 
             Patient patient = (Patient)dataGridPatients.SelectedItem;
-            patientController.DeleteById(patient.Id);
+            if (MessageBox.Show("Are you sure you want to delete this patient?", "Delete patient", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                patientController.DeleteById(patient.Id);
+                ViewPatients vp = new ViewPatients();
+                this.Close();
+                vp.Show();
+            }
+            
             /*var obj = dataGridPatients.SelectedItems;
 
             if (obj == null) return;
@@ -95,6 +102,7 @@ namespace Bolnica.Table
             Patient patient = (Patient)dataGridPatients.SelectedItem;
             ReadPatient readPat = new ReadPatient(patient.Id);
             readPat.Show();
+            this.Close();
         }
 
         private void MedicalCard_Click(object sender, RoutedEventArgs e)
@@ -103,8 +111,18 @@ namespace Bolnica.Table
             MedicalCardAllergen medCard = new MedicalCardAllergen(patient.Id);
             medCard.Show();
             //this.Close();
+        }
 
+        private void Add_Button(object sender, RoutedEventArgs e)
+        {
+            AddPatient addPatientWin = new AddPatient();
+            addPatientWin.Show();
+            //this.Close();
+        }
 
+        private void Cancel_Button(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
 

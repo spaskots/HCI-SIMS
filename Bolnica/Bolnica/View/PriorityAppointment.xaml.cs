@@ -114,6 +114,9 @@ namespace Bolnica.View
             appointmentController.save(ma);
 
             MessageBox.Show("Successfully scheduled medical appointment.");
+            ViewAllAppointments vap = new ViewAllAppointments();
+            this.Close();
+            vap.Show();
 
         }
 

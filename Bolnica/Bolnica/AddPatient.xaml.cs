@@ -30,7 +30,7 @@ namespace Bolnica
         {
             InitializeComponent();
 
-            Password.PasswordChar = '*';
+            //Password.PasswordChar = '*';
         }
         public bool IsValidEmail(string source)
         {
@@ -50,77 +50,60 @@ namespace Bolnica
             return Regex.IsMatch(source, pattern);
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void Confirm_Click(object sender, RoutedEventArgs e)
         {
 
-        }
+            string id = Jmbg.Text.ToString(); // JMBG
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            System.Collections.ArrayList lista_gradovaS = new System.Collections.ArrayList();
-            System.Collections.ArrayList lista_gradovaB = new System.Collections.ArrayList();
-            System.Collections.ArrayList lista_gradovaA = new System.Collections.ArrayList();
-            lista_gradovaS.Add("Novi Sad");
-            lista_gradovaS.Add("Beograd");
-            lista_gradovaB.Add("Banja Luka");
-            lista_gradovaB.Add("Sarajevo");
-            lista_gradovaA.Add("Salzburg");
-            lista_gradovaA.Add("Bec");
+            string fullname = Fullname.Text.ToString();
 
-            Country serbia = new Country("Serbia", "SRB", lista_gradovaS);
-            Country bosnia = new Country("Bosnia and Herzegovina", "BIH", lista_gradovaB);
-            Country austria= new Country("Austria", "AU", lista_gradovaA);
-
-
-            string id = ID.Text.ToString(); // JMBG
-            string name = Name.Text.ToString();
-            string surname = Surname.Text.ToString();
+            string[] names = fullname.Split();
+            if (names.Length < 2 ) { MessageBox.Show("Warning: Fullname field isn't filled correctly!"); return; }
+            string name = names[0];
+            string surname = names[1];
             string dateOfBirth = Birthday.Text.ToString();
-            string phoneNumber = PhoneNumber.Text.ToString();
-            string email = Email.Text.ToString();
 
-            if (!IsValidEmail(email))
-            {
-                MessageBox.Show("Error: Invalid mail. (mail@example.com)");
-                return;
-            }
-            if (!IsValidPhone(phoneNumber))
-            {
-                MessageBox.Show("Error: Invalid phone number.");
-                return;
-            }
-            if (!isValidDate(dateOfBirth))
-            {
-                MessageBox.Show("Error: Invalid date format (DD/MM/YYYY).");
-                return;
+            string phoneNumber = Phone.Text.ToString();
+            string email = Email.Text.ToString();
+            if (guestCheck.Equals(false)) { 
+                if (!IsValidEmail(email))
+                {
+                    MessageBox.Show("Error: Invalid mail. (mail@example.com)");
+                    return;
+                }
+                if (!IsValidPhone(phoneNumber))
+                {
+                    MessageBox.Show("Error: Invalid phone number.");
+                    return;
+                }
+                if (!isValidDate(dateOfBirth))
+                {
+                    MessageBox.Show("Error: Invalid date format (DD/MM/YYYY).");
+                    return;
+                }
             }
 
             string username = Username.Text.ToString();
             string password = Password.Password.ToString();
+            Patient patient = new Patient();
 
-            string country = Country.Text.ToString();
-            string city = City.Text.ToString();
-            string postalCode = PostalCode.Text.ToString();
-
-            City cityObj = new City(city, postalCode);
-            Country countryObj = null;
-            if (country == "Serbia") { countryObj = serbia; }
-            if (country == "Bosnia") { countryObj = bosnia; }
-            if (country == "Austria") { countryObj = austria; }
-            if (countryObj == null)
+            if (guestCheck.Equals(true))
             {
-                MessageBox.Show("Error: Country can't be empty!");
-                return;
-            }
-            cityObj.SetCountry(countryObj);
-            Patient newPatient = new Patient(name, surname, dateOfBirth, phoneNumber, email, id, true, username, password, cityObj);
-            
-            
-            if (!patientController.Add(newPatient))
+                patient = new Patient(name, surname, id);
+                if (!patientController.AddGuest(patient))
+                {
+                    MessageBox.Show("Patient with given JMBG: " + id + " already exists.");
+                    return;
+                }
+            } else
             {
-                MessageBox.Show("Patient with given JMBG: " + id + " already exists.");
-                return;
-            }
+                patient = new Patient(name, surname, dateOfBirth, phoneNumber, email, id, true, username, password);
+                if (!patientController.Add(patient))
+                {
+                    MessageBox.Show("Patient with given JMBG: " + id + " already exists.");
+                    return;
+                }
+            }            
 
             MessageBox.Show("Successfully created patient: " + name + " " + surname);
 
@@ -135,9 +118,163 @@ namespace Bolnica
                 idmc = medicalReportId.Last();
                 ++idmc;
             }
-            MedCard medicalCard = new MedCard(idmc, newPatient,null,null);
+            MedCard medicalCard = new MedCard(idmc, patient, null,null);
             medicalCardController.save(medicalCard);
             this.Close();
         }
+
+        private void Cancel_Click (object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private bool famState = true;
+        private bool jmbgState = true;
+        private bool bdayState = true;
+        private bool emailState = true;
+        private bool userState = true;
+        private bool phoneState = true;
+
+        private string famRet = string.Empty;
+        private string jmbgRet = string.Empty;
+        private string bdayRet = string.Empty;
+        private string emailRet = string.Empty;
+        private string userRet = string.Empty;
+        private string phoneRet = string.Empty;
+
+        private void Fullname_Focus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (famState)
+            {
+                famRet = textBox.Text;
+                textBox.Text = string.Empty;
+                famState = false;
+            }
+            else
+            {
+                if (textBox.Text == string.Empty)
+                {
+                    textBox.Text = famRet;
+                    famState = true;
+                }
+            }
+        }
+
+        private void Jmbg_Focus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (jmbgState)
+            {
+                jmbgRet = textBox.Text;
+                textBox.Text = string.Empty;
+                jmbgState = false;
+            }
+            else
+            {
+                if (textBox.Text == string.Empty)
+                {
+                    textBox.Text = jmbgRet;
+                    jmbgState = true;
+                }
+            }
+        }
+
+        private void Birthday_Focus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (bdayState)
+            {
+                bdayRet = textBox.Text;
+                textBox.Text = string.Empty;
+                bdayState = false;
+            }
+            else
+            {
+                if (textBox.Text == string.Empty)
+                {
+                    textBox.Text = bdayRet;
+                    bdayState = true;
+                }
+            }
+        }
+
+        private void Email_Focus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (emailState)
+            {
+                emailRet = textBox.Text;
+                textBox.Text = string.Empty;
+                emailState = false;
+            }
+            else
+            {
+                if (textBox.Text == string.Empty)
+                {
+                    textBox.Text = emailRet;
+                    emailState = true;
+                }
+            }
+        }
+
+        private void Username_Focus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (userState)
+            {
+                userRet = textBox.Text;
+                textBox.Text = string.Empty;
+                userState = false;
+            }
+            else
+            {
+                if (textBox.Text == string.Empty)
+                {
+                    textBox.Text = userRet;
+                    userState = true;
+                }
+            }
+        }
+
+        private void Phone_Focus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (phoneState)
+            {
+                phoneRet = textBox.Text;
+                textBox.Text = string.Empty;
+                phoneState = false;
+            }
+            else
+            {
+                if (textBox.Text == string.Empty)
+                {
+                    textBox.Text = phoneRet;
+                    phoneState = true;
+                }
+            }
+        }
+
+        private bool guestCheck = false;
+        private void GuestBox_Change (object sender, RoutedEventArgs e)
+        {
+            guestCheck = !guestCheck;
+            Email.IsEnabled = !guestCheck;
+            Username.IsEnabled = !guestCheck;
+            Password.IsEnabled = !guestCheck;
+            Phone.IsEnabled = !guestCheck;
+        }
+
+        /*private void TextBox_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == string.Empty)
+            {
+                textBox.Text = textRet;
+                initState = true;
+            }
+        }*/
+
     }
 }

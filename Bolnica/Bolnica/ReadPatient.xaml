@@ -5,21 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="ReadPatient" Height="367" Width="257">
+        Title="Edit Patient" Height="330" Width="330"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="Fullname" IsReadOnly="True" HorizontalAlignment="Center" Margin="0,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="DateOfBirth" IsReadOnly="True" HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="PhoneNumber" HorizontalAlignment="Center" Margin="0,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Email" HorizontalAlignment="Center" Margin="0,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Id" IsReadOnly="True" HorizontalAlignment="Center" Margin="0,205,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Fullname" HorizontalAlignment="Left" Margin="102,3,0,0" VerticalAlignment="Top"/>
-        <Label Content="Birthday" HorizontalAlignment="Center" Margin="0,47,0,0" VerticalAlignment="Top"/>
-        <Label Content="Phone Number" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top"/>
-        <Label Content="Email" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top"/>
-        <Label Content="JMBG" HorizontalAlignment="Center" Margin="0,179,0,0" VerticalAlignment="Top"/>
-        <Label Content="Country" HorizontalAlignment="Center" Margin="0,228,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Country" IsReadOnly="True" HorizontalAlignment="Center" Margin="0,259,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="10,304,0,0" VerticalAlignment="Top" Click="BackWin"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="110,304,0,0" VerticalAlignment="Top" Click="UpdatePatient"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Content="EDIT ACCOUNT" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Elephant" FontSize="24"/>
+        <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+        <Rectangle Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stroke="Black"/>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="46*"/>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Grid.Column="1" Content="JMBG:"/>
+            <TextBox x:Name="Id" Grid.Row="1" Grid.Column="2" IsReadOnly="True" BorderBrush="Black" />
+            <Label Grid.Row="3" Grid.Column="1" Content="Fullname:" />
+            <TextBox x:Name="Fullname" Grid.Row="3" Grid.Column="2" IsReadOnly="True" BorderBrush="Black" />
+            <Label Grid.Row="5" Grid.Column="1" Content="Phone:"/>
+            <TextBox x:Name="PhoneNumber" Grid.Row="5" Grid.Column="2" BorderBrush="Black" />
+            <Label Grid.Row="7" Grid.Column="1" Content="Email:"/>
+            <TextBox x:Name="Email" Grid.Row="7" Grid.Column="2" BorderBrush="Black" />
+            <Label Grid.Row="9" Grid.Column="1" Content="Active:"  />
+            <CheckBox x:Name="ActiveBox" Grid.Row="9" Grid.Column="2" Width="15" Height="15" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="15*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="70*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1" Grid.Column="1" Content="Confirm" Click="UpdatePatient" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" IsEnabled="True" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE"/>
+            <Button Grid.Row="1" Grid.Column="3" Content="Cancel" Click="BackWin" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" IsEnabled="True" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE"/>
+        </Grid>
+
     </Grid>
 </Window>

@@ -5,12 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.View"
         mc:Ignorable="d"
-        Title="Order Dynamic Equipment" Height="320" Width="320">
+        Title="Order Dynamic Equipment" Height="320" Width="320"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <TextBox Focusable="False" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" Height="31" TextWrapping="Wrap" Text="ORDER EQUIPMENT FORM" VerticalAlignment="Top" Width="244" Margin="0,11,0,0" BorderBrush="White"/>
         <Separator Margin="10,42,10,241"></Separator>
-        <Rectangle HorizontalAlignment="Center" Height="125" Margin="0,82,0,0" Stroke="Black" VerticalAlignment="Top" Width="244"/>
-        <Label Content="Equipment" HorizontalAlignment="Center" Height="27" Margin="0,63,0,0" VerticalAlignment="Top" Width="76" Background="White" FontWeight="Normal" FontSize="14"/>
+        <Rectangle HorizontalAlignment="Center" Height="125" Margin="0,82,0,0" Stroke="Black" VerticalAlignment="Top" Width="244" Fill="#FFECEAEA"/>
+        <Label Content="Equipment" HorizontalAlignment="Center" Height="30" Margin="0,63,0,0" VerticalAlignment="Top" Width="76" FontWeight="Normal" FontSize="14">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECEAEA" Offset="1"/>
+                    <GradientStop Color="White" Offset="0.344"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
         <Label Content="Name:" HorizontalAlignment="Left" Height="26" Margin="55,100,0,0" VerticalAlignment="Top" Width="62"/>
         <ComboBox x:Name="equipmentToOrder" HorizontalAlignment="Left" Height="20" Margin="122,103,0,0" VerticalAlignment="Top" Width="133">
             <!--<ComboBox.ItemTemplate>
@@ -24,7 +33,7 @@
             </ComboBox.ItemTemplate>-->
         </ComboBox>
         <Label Content="Quantity:" HorizontalAlignment="Left" Height="26" Margin="55,152,0,0" VerticalAlignment="Top" Width="62"/>
-        <TextBox LostFocus="TextBox_OnLostFocus" GotFocus="TextBox_Focus" x:Name="AmountToOrder" TextAlignment="Left" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Height="22" Margin="122,154,0,0" TextWrapping="Wrap" Text="Enter number..." VerticalAlignment="Top" Width="133" Opacity="0.45" Visibility="Visible" BorderBrush="Black" SelectionBrush="#FF5A94C3"/>
+        <TextBox LostFocus="TextBox_OnLostFocus" GotFocus="TextBox_Focus" x:Name="AmountToOrder" TextAlignment="Left" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Height="22" Margin="122,154,0,0" TextWrapping="Wrap" Text="Enter number..." VerticalAlignment="Top" Width="133" Visibility="Visible" BorderBrush="Black" SelectionBrush="#FF5A94C3"/>
         <Button Content="Confirm" HorizontalAlignment="Left" Height="28" Margin="55,242,0,0" VerticalAlignment="Top" Width="86" Click="ConfirmOrder_Click"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Height="28" Margin="182,242,0,0" VerticalAlignment="Top" Width="86" Click="CancelOrder_Click"/>
     </Grid>

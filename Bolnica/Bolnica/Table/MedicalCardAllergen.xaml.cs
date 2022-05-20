@@ -78,9 +78,15 @@ namespace Bolnica.Table
             string allergenName = AllergenId.Text.ToString();
 
             allergenController.AddForPatient(patientId, allergenName);
+
             this.Close();
             MedicalCardAllergen medCard = new MedicalCardAllergen(Ids);
             medCard.Show();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

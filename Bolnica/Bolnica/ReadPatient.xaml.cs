@@ -1,5 +1,6 @@
 ﻿using Bolnica.Controller;
 using Bolnica.Model;
+using Bolnica.Table;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,17 +34,18 @@ namespace Bolnica
             if (patient == null) { MessageBox.Show("Error: User doesn't exist!"); return; }
             else { 
                 Fullname.Text = patient.Name + " " + patient.Surname;
-                DateOfBirth.Text = patient.DateOfBirth;
                 PhoneNumber.Text = patient.PhoneNumber;
                 Email.Text = patient.Email;
                 Id.Text = patient.Id;
-                Country.Text = patient.city.Name + ", " + patient.city.country.Name;
+                ActiveBox.IsChecked = patient.Active;
             }
         }
 
         private void BackWin(object sender, RoutedEventArgs e)
         {
+            ViewPatients viewP = new ViewPatients();
             this.Close();
+            viewP.Show();            
         }
 
         private void UpdatePatient(object sender, RoutedEventArgs e)
@@ -59,9 +61,13 @@ namespace Bolnica
             string surname = patient.Surname;
             string dateOfBirth = patient.DateOfBirth;
             string id = patient.Id;
-            bool active = (bool)patient.Active;
             string username = patient.Username;
             string password = patient.Password;
+            bool active = false;
+            if (ActiveBox.IsChecked == true)
+            {
+                active = true;
+            }
             City city = patient.city;
 
             Patient updated = new Patient(name, surname, dateOfBirth, phoneNumber, email, id, active, username, password, city);
@@ -69,6 +75,9 @@ namespace Bolnica
             if (patientController.Update(updated))
             {
                 MessageBox.Show("Successfully updated the patient.");
+                this.Close();
+                ViewPatients viewP = new ViewPatients();
+                viewP.Show();
             } else
             {
                 MessageBox.Show("Error: Updating patient failed.");

@@ -57,5 +57,16 @@ namespace Bolnica.View
             this.Close();
         }
 
+        private void Cancel_Button(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Create_Button(object sender, RoutedEventArgs e)
+        {
+            PriorityAppointment prio = new PriorityAppointment();
+            prio.Show();
+            this.Close();
+        }
     }
 }

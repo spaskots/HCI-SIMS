@@ -99,11 +99,11 @@ namespace Bolnica.Repository
         {
             using (StreamWriter sw = File.AppendText(PATIENT_FILE))
             {
-                string country = patient.city.GetCountry().Name;
-                string code = patient.city.GetCountry().Code;
+                string country = "";
+                string code = "";
                 String newText = patient.Id + "," + patient.Name + "," + patient.Surname + "," + patient.DateOfBirth + "," +
                                  patient.PhoneNumber + "," + patient.Email + "," + patient.Username + "," + patient.Password +
-                                 "," + patient.Active + "," + patient.city.Name + "," + country + "," + code + "," + patient.city.PostalCode;
+                                 "," + patient.Active + "," + "," + "," + ",";
                 sw.WriteLine(newText);
             }
         }

@@ -81,7 +81,10 @@ namespace Bolnica.View
             OrderDynamicEquipment orderEquipment = new OrderDynamicEquipment();
             orderEquipment.Show();
         }
-    }
 
-   
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            menuItem.IsSubmenuOpen = false;
+        }
+    }
 }
