@@ -76,7 +76,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button x:Name="update" Content="Update" Background="#FF85BBE2" BorderBrush="black" BorderThickness="2" Click="UpdateBtn_Click"></Button>

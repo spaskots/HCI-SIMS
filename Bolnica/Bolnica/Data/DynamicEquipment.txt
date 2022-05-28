@@ -1,6 +1,6 @@
-1,Cackalica,13
+1,Cackalica,15
 3,Gaza,10
-4,Rukavice,35
+4,Rukavice,40
 5,Maske,2
 6,Papir,10
-7,Olovka,3
+7,Olovka,6

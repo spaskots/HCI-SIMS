@@ -15,6 +15,7 @@ using Bolnica.Model;
 using Bolnica.Controller;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
+using Bolnica.Table;
 
 namespace Bolnica
 {

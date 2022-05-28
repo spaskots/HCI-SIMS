@@ -81,9 +81,10 @@ namespace Bolnica.Table
             if (MessageBox.Show("Are you sure you want to delete this patient?", "Delete patient", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 patientController.DeleteById(patient.Id);
-                ViewPatients vp = new ViewPatients();
-                this.Close();
-                vp.Show();
+                Patients.RemoveAt(Patients.Count - 1);
+                //ViewPatients vp = new ViewPatients();
+                //this.Close();
+                //vp.Show();
             }
             
             /*var obj = dataGridPatients.SelectedItems;

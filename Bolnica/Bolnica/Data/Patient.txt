@@ -1,2 +1,3 @@
-1111222012541,Zika,Zivac,12.08.1985,06512548524,zika@gmail.com,zika,zika,True,Beograd,Bosnia and Herzegovina,BIH,78000
-1010105214520,Ana,Antic,15.08.2000,0652145213,ana@gmail.com,ana,ana,True,Beograd,Bosnia and Herzegovina,BIH,45000
+1111222012541,Zika,Zivac,12.08.1985,06512548524,zika123@gmail.com,zika,zika,True,Beograd,Bosnia and Herzegovina,BIH,78000
+1001992200012,Ana,Anic,10/10/1992,+38161611161,ana@gmail.com,Ana,ana,True,,,,
+1010100101010,Tesa,Tesa,10/01/1991,+123213321212,tesa@mail.com,Tesa,123,True,,,,
