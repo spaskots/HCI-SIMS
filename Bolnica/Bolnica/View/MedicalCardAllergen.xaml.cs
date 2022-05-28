@@ -1,21 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Bolnica.Controller;
 using Bolnica.Model;
 
-namespace Bolnica.Table
+namespace Bolnica.View
 {
     /// <summary>
     /// Interaction logic for MedicalCardAllergen.xaml
@@ -67,9 +57,7 @@ namespace Bolnica.Table
 
             Allergen allergen = (Allergen)dataGridAllergen.SelectedItem;
             allergenController.DeleteByPatientId(Ids, allergen.Name);
-            this.Close();
-            MedicalCardAllergen medCard = new MedicalCardAllergen(Ids);
-            medCard.Show();
+            Allergens.RemoveAt(dataGridAllergen.SelectedIndex);
         }
 
         public void AddAllergen(object sender, RoutedEventArgs e)
@@ -78,10 +66,14 @@ namespace Bolnica.Table
             string allergenName = AllergenId.Text.ToString();
 
             allergenController.AddForPatient(patientId, allergenName);
+            Allergens.Add(new Allergen(8, allergenName));
 
-            this.Close();
-            MedicalCardAllergen medCard = new MedicalCardAllergen(Ids);
-            medCard.Show();
+            
+            
+
+            //this.Close();
+            //MedicalCardAllergen medCard = new MedicalCardAllergen(Ids);
+           // medCard.Show();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

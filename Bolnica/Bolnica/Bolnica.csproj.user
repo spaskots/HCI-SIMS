@@ -49,10 +49,8 @@
     <Compile Update="ReadPatient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Table\MedicalCardAllergen.xaml.cs">
+    <Compile Update="View\MedicalCardAllergen.xaml.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Table\ViewPatients.xaml.cs">
     </Compile>
     <Compile Update="View\AddNewRoom.xaml.cs">
       <SubType>Code</SubType>
@@ -137,10 +135,10 @@
     <Page Update="ReadPatient.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Table\MedicalCardAllergen.xaml">
+    <Page Update="View\MedicalCardAllergen.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Table\ViewPatients.xaml">
+    <Page Update="View\ViewPatients.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AddNewRoom.xaml">

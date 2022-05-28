@@ -1,9 +1,9 @@
-﻿<Window x:Class="Bolnica.Table.MedicalCardAllergen"
+﻿<Window x:Class="Bolnica.View.MedicalCardAllergen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Bolnica.Table"
+        xmlns:local="clr-namespace:Bolnica.View"
         mc:Ignorable="d"
         Title="Medical Card" Height="430" Width="295"
         WindowStartupLocation="CenterScreen"
@@ -64,6 +64,8 @@
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="60*"/>
             </Grid.ColumnDefinitions>
+            <ComboBox x:Name="AllergenId" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderBrush="Black" Background="Black" OpacityMask="#FFEA4141" />
+            <Button Content="+" Click="AddAllergen" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" Foreground="#FF080808" FontSize="14" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE" />
             <DataGrid Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" x:Name="dataGridAllergen" ItemsSource="{Binding Path=Allergens}" IsReadOnly="True"
                 SelectionMode="Extended" AutoGenerateColumns="False" CanUserAddRows="false" >
                 <DataGrid.Columns>
@@ -77,8 +79,6 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <ComboBox x:Name="AllergenId" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderBrush="Black" Background="Black" OpacityMask="#FFEA4141" />
-            <Button Content="+" Click="AddAllergen" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" Foreground="#FF080808" FontSize="14" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE" />
         </Grid>
         <Grid Grid.Row="7" Grid.Column="1">
             <Grid.ColumnDefinitions>

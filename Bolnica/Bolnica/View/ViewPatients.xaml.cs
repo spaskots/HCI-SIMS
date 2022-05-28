@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Bolnica.Model;
+using System.Windows;
 using Bolnica.Controller;
-using System.Collections;
+using Bolnica.Model;
+using Bolnica.View;
 
-namespace Bolnica.Table
+namespace Bolnica.View
 {
     /// <summary>
     /// Interaction logic for ViewPatients.xaml
@@ -81,7 +70,7 @@ namespace Bolnica.Table
             if (MessageBox.Show("Are you sure you want to delete this patient?", "Delete patient", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 patientController.DeleteById(patient.Id);
-                Patients.RemoveAt(Patients.Count - 1);
+                Patients.RemoveAt(dataGridPatients.SelectedIndex);
                 //ViewPatients vp = new ViewPatients();
                 //this.Close();
                 //vp.Show();

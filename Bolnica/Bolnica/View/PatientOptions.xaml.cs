@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using Bolnica.Controller;
-using Bolnica.Table;
 
 namespace Bolnica.View
 {
@@ -12,6 +11,7 @@ namespace Bolnica.View
     {
         PatientController patientController = new PatientController();
         OrderController _orderController = new OrderController();
+
 
         public PatientOptions()
         {
