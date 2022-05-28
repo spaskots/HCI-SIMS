@@ -1,0 +1,49 @@
+﻿<Window x:Class="Bolnica.View.VacationRequests"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.View"
+        mc:Ignorable="d"
+        Title="VacationRequests" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" Content="VACATION REQUESTS" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontFamily="Elephant"/>
+        <DataGrid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header="JMBG" Binding="{Binding Doctor.Id}" Width="Auto"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Doctor" Binding="{Binding Doctor.Name}" Width="Auto"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Start Date" Binding="{Binding StartTime}" Width="Auto"/>
+                <DataGridTextColumn IsReadOnly="True" Header="End Date" Binding="{Binding EndTime}" Width="Auto"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="update" Content="Update" Click="Update_Click" BorderBrush="Black" BorderThickness="2" Background="#FFEC7272"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" IsEnabled="True" Content="Previous" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE" />
+        <Button Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" IsEnabled="True" Content="Next >" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE"/>
+        <Label Content="Jump to:" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="24"  IsEnabled="True" FontFamily="Elephant" FontSize="15"/>
+        <TextBox Text="1" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  BorderBrush="Black" Height="25" Width="25" IsEnabled="True"/>
+        <Button Grid.Row="3" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" IsEnabled="True" Content="Search" Foreground="#FF080808" FontSize="15" FontFamily="Elephant" BorderBrush="Black" BorderThickness="1" Background="#FFF3EEEE"/>
+        
+    </Grid>
+</Window>
